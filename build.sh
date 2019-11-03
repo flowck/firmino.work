@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Remove current build folder
-rm -rf build
+rm -rf blog
 
 # Navigate to source folder
 cd src

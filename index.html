@@ -4,62 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="site/favicon.png" type="image/png">
   <title>Firmino Changani - I write dirty code</title>
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      color: #333;
-      display: flex;
-      align-items: center; 
-      justify-content: center;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    h1 {
-      font-size: 97px;
-      line-height: 63px;
-      margin-bottom: 10px;
-      font-family: 'Archivo Black', sans-serif;
-    }
-
-    span {
-      font-size: 79px;
-    }
-
-    p {
-      font-size: 14px;
-    }
-
-    .container {
-      width: 400px;
-    }
-
-    a {
-      color: #0099CC;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="site/main.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Firmino <br> <span>Changani</span></h1>
-    <p>
-      In the future I hope to build a decent personal website
-      here and also a blog. There are interesting things
-      I've been studying which I would like to share.
-      For now please check my <a href="https://github.com/flowck">Github</a>
-      or my <a href="https://linkedin.com/in/firminochangani">LinkedIn</a>
-      to get to know more about me.
-    </p>
-  </div>
+  <div class="easter-egg" id="off">Blue mode</div>
+  <section class="container">
+    <article class="profile">
+      <div class="profile__photo">
+        <img src="site/me.jpg" alt="Firmino Changani" title="It's me, Firmino">
+      </div>
+      <div class="space"></div>
+      <h1 class="profile__name">Firmino <span>Changani</span></h1>
+      <div class="space"></div>
+      <div class="profile__content">
+        <p>
+          I am passionate 
+          <span class="profile__content__heart"></span>
+          about Web Application development, whether they run on
+          the client-side or server-side.
+        </p>
+        <div class="space"></div>
+        <p>
+          <!--I have a <a href="/blog">blog</a> where I share my little knowledge and
+          experiences.--> Here are my <a href="https://github.com/flowck">Github</a>
+          and <a href="https://linkedin.com/in/firminochangani">LinkedIn</a>
+          for more information about me.
+        </p>
+      </div>
+    </article
+  </section>
+  <script src="site/main.js"></script>
   <!-- IT'S GOOGLE, THEY TRACK EVERYTHING :) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151333822-1"></script>
   <script>

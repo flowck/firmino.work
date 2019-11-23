@@ -1,6 +1,10 @@
 html
 head
-  title Firmino's journal
+  title Firmino Changani
+  meta(property="og:title" content="Firmino Changani")
+  meta(property="og:url" content=page.permalink)
+  meta(property="og:site_name" content="Firmino Changani")
+  meta(property="og:type" content="blog")
   link(rel="stylesheet", href="/blog/css/main.css")
   link(href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap", rel="stylesheet")
 body
@@ -15,8 +19,3 @@ body
               a(href=post.permalink)= post.title
 
     include _partial/_footer.pug
-
-    
-
-
-        

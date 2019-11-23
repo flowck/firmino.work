@@ -112,11 +112,39 @@ $color-gray: #666;
   padding: 40px 0
   padding-bottom: 101px
 
+section.content
+  margin-bottom: 40px
+
 // Post
 .post
   &:not(:last-child)
     margin-bottom: 20px
+
+  img
+    display: block
+    margin: 20px auto
+
+  p
+    code
+      font-size: 16px
+      padding: 2px 5px
+      border-radius: 2px
+      color: $color-dark
+      background-color: #EEE 
     
+  p, ul li
+    font-size: 18px
+    line-height: 26px
+    margin-bottom: 20px
+
+  ul
+    margin-left: 30px
+    margin-bottom: 20px
+
+    li
+      line-height: 18px
+      list-style: bullet
+
   .post__date
     font-size: 12px
     margin-bottom: 5px
@@ -124,12 +152,48 @@ $color-gray: #666;
     text-transform: uppercase
 
   .post__title
+    font-size: 30px
+    color: $color-dark
+
     a
       color: $color-dark
       text-decoration: none
 
       &:hover
         color: $color-blue
+
+  .post__content
+    margin-top: 25px
+
+    .highlight
+      padding: 10px 5px
+      margin: 10px 0
+      background-color: $color-dark
+
+      pre
+        color: $color-white
+
+    a
+      color: $color-blue
+
+    h1, h2, h3, h4, h5, h6
+      color: $color-dark
+
+    h1
+      font-size: 24px
+      margin-top: 20px
+
+    h2
+      font-size: 20px
+      margin-top: 16px
+
+    h3
+      font-size: 16px
+      margin-top: 12px
+
+    h4
+      font-size: 14px
+      margin-top: 8px
 
 // Responsive
 @media screen and (max-width: 750px)

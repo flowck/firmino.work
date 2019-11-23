@@ -2,15 +2,45 @@ html
 head
   title Firmino's journal
   link(rel="stylesheet", href="/blog/css/main.css")
-  link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap", rel="stylesheet")
-
+  link(href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap", rel="stylesheet")
 body
+  .container
+    header.header
+      .wrap.is-flex.has-space-between
+        div.header__title.is-flex.is-centered-y
+          h1
+            a(href="/") Firmino <br> <span>Changani</span>
 
-  header.header
-    h1 Firmino's journal
-    p My experience in software development and software engineering
+        nav.header__nav.is-flex.is-centered-y
+          ul.is-flex
+            li
+              a(href="/") Distributed Systems
+            li
+              a(href="/") About me
+            li
+              a(href="/") E-mail
 
-  each post in site.posts.toArray()
-    article.post
-      h1= post.title
-      span= new Date(post.date)
+    .main-grid.wrap
+      section.content
+        each post in site.posts.toArray()
+          article.post
+            div.post__date= date(post.date, "LL")
+            h1.post__title
+              a(href=post.permalink)= post.title
+
+    footer.footer
+      .wrap.is-flex.has-space-between
+        .footer__copyright
+          p Firmino Changani - 
+        
+        .footer__links
+          ul.is-flex
+            li
+              a(href="/") LinkedIn
+            li
+              a(href="/") Github
+            li
+              a(href="/") Twitter
+
+
+        

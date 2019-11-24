@@ -59,6 +59,7 @@ $color-gray: #666;
   .header__title
     h1
       font-size: 20px
+      transition: text-shadow .2s
       font-family: "Press Start 2P", "sans-serif", "arial"
 
       span
@@ -85,14 +86,14 @@ $color-gray: #666;
 
 // Footer
 .footer
-  width: 100%
   bottom: 0
+  width: 100%
   padding: 40px 0
   position: absolute
   background-color: $color-dark;
 
   .footer__copyright
-    font-size: 14px
+    font-size: 12px
     color: $color-white
 
   .footer__links
@@ -103,7 +104,7 @@ $color-gray: #666;
         margin-left: 30px
 
       a
-        font-size: 12px
+        font-size: 10px
         color: $color-white
         text-decoration: none
         text-transform: uppercase
@@ -146,14 +147,15 @@ section.content
       list-style: bullet
 
   .post__date
-    font-size: 12px
+    font-size: 10px
     margin-bottom: 5px
-    color: $color-gray
+    color: #999
     text-transform: uppercase
 
   .post__title
     font-size: 30px
     color: $color-dark
+    // font-weight: 500
 
     a
       color: $color-dark

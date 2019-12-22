@@ -38,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
     height: inherit; }
   .header .header__title h1 {
     font-size: 20px;
+    transition: text-shadow .2s;
     font-family: "Press Start 2P", "sans-serif", "arial"; }
     .header .header__title h1 span {
       font-size: 18px; }
@@ -57,20 +58,20 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none; }
 
 .footer {
-  width: 100%;
   bottom: 0;
+  width: 100%;
   padding: 40px 0;
   position: absolute;
   background-color: #333; }
   .footer .footer__copyright {
-    font-size: 14px;
+    font-size: 12px;
     color: #FFF; }
   .footer .footer__links ul li {
     list-style: none; }
     .footer .footer__links ul li:not(:first-child) {
       margin-left: 30px; }
     .footer .footer__links ul li a {
-      font-size: 12px;
+      font-size: 10px;
       color: #FFF;
       text-decoration: none;
       text-transform: uppercase; }
@@ -115,9 +116,9 @@ section.content {
     list-style: bullet; }
 
 .post .post__date {
-  font-size: 12px;
+  font-size: 10px;
   margin-bottom: 5px;
-  color: #666;
+  color: #999;
   text-transform: uppercase; }
 
 .post .post__title {

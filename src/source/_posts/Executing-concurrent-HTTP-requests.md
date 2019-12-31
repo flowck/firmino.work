@@ -2,7 +2,7 @@
 title: Executing concurrent HTTP requests
 date: 2019-12-22 21:09:57
 tags: javascript, nodejs, asynchronous, programming, promises, concurrency
-description: On this blog post I talk about how you can execute concurrent HTTP requests using Promises and async/await.
+description: Read more about executing concurrent HTTP requests using Promises and async/await.
 cover: "blog-images/Executing-concurrent-HTTP-requests.png"
 ---
 

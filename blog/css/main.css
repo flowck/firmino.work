@@ -7,7 +7,10 @@ body {
   font-family: 'Roboto', arial, 'sans-serif'; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700; }
+  font-weight: 400; }
+
+a {
+  transition: color .5s; }
 
 .wrap {
   width: 960px;
@@ -60,21 +63,24 @@ h1, h2, h3, h4, h5, h6 {
 .footer {
   bottom: 0;
   width: 100%;
-  padding: 40px 0;
+  padding: 20px 0;
   position: absolute;
-  background-color: #333; }
+  background-color: #EEE; }
   .footer .footer__copyright {
     font-size: 12px;
-    color: #FFF; }
+    padding-top: 5px;
+    color: #333; }
   .footer .footer__links ul li {
     list-style: none; }
     .footer .footer__links ul li:not(:first-child) {
       margin-left: 30px; }
     .footer .footer__links ul li a {
       font-size: 10px;
-      color: #FFF;
+      color: #333;
       text-decoration: none;
       text-transform: uppercase; }
+      .footer .footer__links ul li a:hover {
+        color: #0069ff; }
 
 .main-grid {
   padding: 40px 0;
@@ -95,9 +101,12 @@ section.content {
   color: #333;
   padding: 10px;
   margin: 30px 0;
+  border-left: 5px solid #0069ff;
   background-color: #eeeeee; }
+  .post blockquote p {
+    margin-bottom: 0; }
 
-.post p code {
+.post p code, .post ul code {
   font-size: 16px;
   padding: 2px 5px;
   border-radius: 2px;
@@ -107,14 +116,15 @@ section.content {
 .post p, .post ul li {
   font-size: 18px;
   line-height: 26px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-weight: 100; }
 
 .post ul {
-  margin-left: 18px;
-  margin-bottom: 20px; }
+  margin: 30px 0 30px 18px; }
   .post ul li {
-    line-height: 18px;
-    list-style: bullet; }
+    line-height: 25px;
+    list-style: bullet;
+    margin-bottom: 10px; }
 
 .post .post__date {
   font-size: 10px;
@@ -123,7 +133,7 @@ section.content {
   text-transform: uppercase; }
 
 .post .post__title {
-  font-size: 30px;
+  font-size: 25px;
   color: #333; }
   .post .post__title a {
     color: #333;

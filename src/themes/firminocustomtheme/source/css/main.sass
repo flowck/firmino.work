@@ -9,7 +9,10 @@ body
   font-family: 'Roboto', arial, 'sans-serif'
 
 h1, h2, h3, h4, h5, h6
-  font-weight: 700
+  font-weight: 400
+
+a
+  transition: color .5s
 
 .wrap
   width: 960px
@@ -88,13 +91,14 @@ $color-gray: #666;
 .footer
   bottom: 0
   width: 100%
-  padding: 40px 0
+  padding: 20px 0
   position: absolute
-  background-color: $color-dark;
+  background-color: #EEE;
 
   .footer__copyright
     font-size: 12px
-    color: $color-white
+    padding-top: 5px;
+    color: $color-dark
 
   .footer__links
     ul li
@@ -105,9 +109,12 @@ $color-gray: #666;
 
       a
         font-size: 10px
-        color: $color-white
+        color: $color-dark
         text-decoration: none
         text-transform: uppercase
+
+        &:hover
+          color: $color-blue
 
 .main-grid
   padding: 40px 0
@@ -130,9 +137,13 @@ section.content
     color: #333
     padding: 10px
     margin: 30px 0
+    border-left: 5px solid $color-blue;
     background-color: #eeeeee
 
-  p
+    p
+      margin-bottom: 0
+
+  p, ul
     code
       font-size: 16px
       padding: 2px 5px
@@ -144,14 +155,15 @@ section.content
     font-size: 18px
     line-height: 26px
     margin-bottom: 20px
+    font-weight: 100
 
   ul
-    margin-left: 18px
-    margin-bottom: 20px
+    margin: 30px 0 30px 18px
 
     li
-      line-height: 18px
+      line-height: 25px
       list-style: bullet
+      margin-bottom: 10px
 
   .post__date
     font-size: 10px
@@ -160,7 +172,7 @@ section.content
     text-transform: uppercase
 
   .post__title
-    font-size: 30px
+    font-size: 25px
     color: $color-dark
     // font-weight: 500
 

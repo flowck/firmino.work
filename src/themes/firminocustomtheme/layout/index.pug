@@ -16,7 +16,7 @@ html
       include _partial/_header.pug
       .main-grid.wrap
         section.content
-          each post in site.posts.toArray().reverse()
+          each post in site.posts.toArray().sort((a, b) => a.date < b.date)
             article.post
               div.post__date= date(post.date, "LL")
               h1.post__title

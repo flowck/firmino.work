@@ -1,22 +1,25 @@
 html
-head
-  title Firmino Changani
-  meta(charset="utf-8")
-  meta(property="og:title" content="Firmino Changani")
-  meta(property="og:url" content=page.permalink)
-  meta(property="og:site_name" content="Firmino Changani")
-  meta(property="og:type" content="blog")
-  link(rel="stylesheet", href="/blog/css/main.css")
-  link(href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap", rel="stylesheet")
-body
-  .container
-    include _partial/_header.pug
-    .main-grid.wrap
-      section.content
-        each post in site.posts.toArray()
-          article.post
-            div.post__date= date(post.date, "LL")
-            h1.post__title
-              a(href=post.permalink)= post.title
+  head
+    meta(charset="utf-8")
+    title Firmino Changani — Developer
+    link(rel="shortcut icon" href="/blog/img/favicon.png" type="image/png")
+    meta(property="og:title" content="Firmino Changani — Developer")
+    meta(property="og:url" content=page.permalink)
+    meta(property="og:site_name" content="Firmino Changani — Developer")
+    meta(property="og:type" content="blog")
+    meta(property="og:description" content="Firmino is a software developer passionate about building projects based on Javascript and Nodejs.")
+    meta(property="og:image" content=config.url + '/img/firminochangani.png')
+    link(rel="stylesheet", href="/blog/css/main.css")
+    link(href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap", rel="stylesheet")
+  body
+    .container
+      include _partial/_header.pug
+      .main-grid.wrap
+        section.content
+          each post in site.posts.toArray().reverse()
+            article.post
+              div.post__date= date(post.date, "LL")
+              h1.post__title
+                a(href=post.permalink)= post.title
 
-    include _partial/_footer.pug
+      include _partial/_footer.pug

@@ -12,5 +12,11 @@ hexo generate
 # Move the generated folder to the build folder
 mv public ../blog
 
+git add .
+
+git commit -m "Deploy"
+
+git push origin master
+
 echo "Build is complete"
 

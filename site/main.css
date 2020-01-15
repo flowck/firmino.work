@@ -84,6 +84,10 @@ a:hover {
   text-align: center;
 }
 
+.profile__content {
+  font-weight: 300;
+}
+
 .profile__name{
   font-size: 30px;
   display: flex;

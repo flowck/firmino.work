@@ -1,5 +1,7 @@
 #!/bin/sh
 
+CURRENT_DATE=date
+
 # Remove current build folder
 rm -rf blog
 
@@ -16,7 +18,7 @@ cd ..
 
 git add .
 
-git commit -m "Deploy"
+git commit -m "Deploy ${CURRENT_DATE}"
 
 git push origin master
 

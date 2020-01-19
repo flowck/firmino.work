@@ -51,7 +51,7 @@ a {
     .header .header__title h1:hover {
       text-shadow: 1px 1px 1px #000; }
   .header .header__nav {
-    heigth: 100%; }
+    height: 100%; }
     .header .header__nav ul li {
       font-size: 14px;
       list-style: none;

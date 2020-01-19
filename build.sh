@@ -12,6 +12,8 @@ hexo generate
 # Move the generated folder to the build folder
 mv public ../blog
 
+cd ..
+
 git add .
 
 git commit -m "Deploy"

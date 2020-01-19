@@ -4,16 +4,17 @@
   box-sizing: border-box; }
 
 body {
-  font-family: 'Roboto', arial, 'sans-serif'; }
+  font-family: 'Bitter', arial, 'sans-serif'; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; }
+  font-weight: 700;
+  font-family: "Bitter"; }
 
 a {
   transition: color .5s; }
 
 .wrap {
-  width: 960px;
+  width: 650px;
   margin: 0 auto; }
 
 .is-flex {
@@ -27,6 +28,8 @@ a {
     justify-content: center; }
   .is-flex.has-space-between {
     justify-content: space-between; }
+  .is-flex.is-column {
+    flex-direction: column; }
 
 .container {
   min-height: 100vh;
@@ -83,11 +86,41 @@ a {
         color: #0069ff; }
 
 .main-grid {
-  padding: 40px 0;
+  padding: 0 0 40px 0;
   padding-bottom: 101px; }
 
 section.content {
   margin-bottom: 40px; }
+
+.home .header .wrap {
+  padding-left: 5px; }
+
+.home .content {
+  margin-top: 40px; }
+
+.home .post__link {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none; }
+
+.home .post {
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color .3s; }
+  .home .post:hover {
+    background-color: #EEE; }
+  .home .post .post__meta {
+    margin: 0; }
+
+#disqus_thread {
+  margin-top: 40px; }
+
+.post hr {
+  width: 100%;
+  height: 2px;
+  border: none;
+  margin: 10px 0;
+  background-color: #EEE; }
 
 .post:not(:last-child) {
   margin-bottom: 20px; }
@@ -98,11 +131,11 @@ section.content {
   margin: 40px auto; }
 
 .post blockquote {
-  color: #333;
+  color: #111;
   padding: 10px;
   margin: 30px 0;
-  border-left: 5px solid #0069ff;
-  background-color: #eeeeee; }
+  background-color: #EEE;
+  border-left: 5px solid #0069ff; }
   .post blockquote p {
     margin-bottom: 0; }
 
@@ -115,25 +148,30 @@ section.content {
 
 .post p, .post ul li {
   font-size: 18px;
+  font-weight: 100;
   line-height: 26px;
   margin-bottom: 20px;
-  font-weight: 100; }
+  font-family: "Nunito Sans"; }
 
 .post ul {
   margin: 30px 0 30px 18px; }
   .post ul li {
     line-height: 25px;
     list-style: bullet;
-    margin-bottom: 10px; }
+    margin-bottom: 5px; }
+
+.post .post__meta {
+  margin: 20px 0; }
 
 .post .post__date {
-  font-size: 10px;
-  margin-bottom: 5px;
   color: #999;
+  font-size: 10px;
+  margin-bottom: 0px;
   text-transform: uppercase; }
 
 .post .post__title {
   font-size: 25px;
+  font-family: "Bitter";
   color: #333; }
   .post .post__title a {
     color: #333;
@@ -164,6 +202,25 @@ section.content {
   .post .post__content h4 {
     font-size: 14px;
     margin: 8px 0; }
+
+section.about-me {
+  height: 100px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #eee; }
+  section.about-me figure.about-me__photo {
+    width: 80px; }
+    section.about-me figure.about-me__photo img {
+      width: inherit;
+      border-radius: 50%;
+      height: 80px; }
+  section.about-me .about-me__bio {
+    height: 100%;
+    display: flex;
+    color: #333;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    align-items: center; }
 
 @media screen and (max-width: 750px) {
   .wrap {

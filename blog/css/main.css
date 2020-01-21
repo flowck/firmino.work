@@ -224,4 +224,14 @@ section.about-me {
 
 @media screen and (max-width: 750px) {
   .wrap {
-    width: 90%; } }
+    width: 90%; }
+  section.about-me {
+    height: auto;
+    flex-direction: column;
+    justify-content: center; }
+    section.about-me figure {
+      width: 100%;
+      margin: 0 auto 10px auto; }
+  section.about-me .about-me__bio {
+    margin-bottom: 0;
+    text-align: center; } }

@@ -187,7 +187,23 @@ section.content {
     .post .post__content .highlight pre {
       color: #FFF; }
   .post .post__content a {
-    color: #0069ff; }
+    position: relative;
+    color: #0069ff;
+    text-decoration: none; }
+    .post .post__content a::before, .post .post__content a::after {
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      transition: width .3s;
+      background-color: #0069ff; }
+    .post .post__content a::after {
+      right: 0;
+      left: auto; }
+    .post .post__content a:hover::before, .post .post__content a:hover::after {
+      width: 50%; }
   .post .post__content h1, .post .post__content h2, .post .post__content h3, .post .post__content h4, .post .post__content h5, .post .post__content h6 {
     color: #333; }
   .post .post__content h1 {

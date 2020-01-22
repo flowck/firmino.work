@@ -82,7 +82,28 @@
         color: $color-white
 
     a
+      position: relative
       color: $color-blue
+      text-decoration: none
+
+      &::before,
+      &::after
+        left: 0
+        bottom: 0
+        width: 0%
+        height: 2px
+        content: ""
+        position: absolute
+        transition: width .3s
+        background-color: $color-blue
+
+      &::after
+        right: 0
+        left: auto
+
+      &:hover::before,
+      &:hover::after
+        width: 50%
 
     h1, h2, h3, h4, h5, h6
       color: $color-dark

@@ -19,9 +19,10 @@ html
         section.content
           each post in site.posts.toArray().sort((a, b) => a.date < b.date)
             a(href=post.permalink).post__link
-              article.post
+              article.post(id=post.date)
                 .post__meta
                   .post__date= date(post.date, "LL")
                   h1.post__title=post.title
-
       include partial/footer.pug
+
+    // script(src=config.url + "/js/script.js")

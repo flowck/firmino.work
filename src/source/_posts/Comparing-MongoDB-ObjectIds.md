@@ -10,7 +10,7 @@ In MongoDB, the ObjectId is a data type and also a method used to generate uniqu
 
 > TL;DR
 >
-> ObjectIds can be effectively compared using the ObjectId().equals() method.
+> ObjectIds can be effectively compared using the `ObjectId().equals()` method.
 
 **Here is an example**
 

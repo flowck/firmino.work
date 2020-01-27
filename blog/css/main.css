@@ -138,6 +138,8 @@ section.content {
   border-left: 5px solid #0069ff; }
   .post blockquote p {
     margin-bottom: 0; }
+    .post blockquote p code {
+      background-color: #DDD; }
 
 .post p code, .post ul code {
   font-size: 16px;

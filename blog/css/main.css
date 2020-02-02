@@ -186,8 +186,11 @@ section.content {
   .post .post__content .highlight {
     padding: 10px 5px;
     margin: 10px 0; }
-    .post .post__content .highlight pre {
-      color: #FFF; }
+  .post .post__content pre {
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(1, 1, 1, 0.1); }
   .post .post__content a {
     position: relative;
     color: #0069ff;
@@ -221,11 +224,17 @@ section.content {
     font-size: 14px;
     margin: 8px 0; }
 
+a {
+  text-decoration: none; }
+
 section.about-me {
   height: 100px;
   padding: 10px;
   border-radius: 3px;
-  background-color: #eee; }
+  background-color: #eee;
+  transition: background-color .3s; }
+  section.about-me:hover {
+    background-color: #DDD; }
   section.about-me figure.about-me__photo {
     width: 80px; }
     section.about-me figure.about-me__photo img {
@@ -239,6 +248,8 @@ section.about-me {
     padding-left: 10px;
     margin-bottom: 20px;
     align-items: center; }
+    section.about-me .about-me__bio p {
+      text-decoration: none; }
 
 @media screen and (max-width: 750px) {
   .wrap {

@@ -232,7 +232,8 @@ section.about-me {
   padding: 10px;
   border-radius: 3px;
   background-color: #eee;
-  transition: background-color .3s; }
+  transition: background-color .3s;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6); }
   section.about-me:hover {
     background-color: #DDD; }
   section.about-me figure.about-me__photo {

@@ -1,8 +1,15 @@
+a
+  text-decoration: none
+
 section.about-me
   height: 100px
   padding: 10px
   border-radius: 3px
   background-color: #eee
+  transition: background-color .3s
+
+  &:hover
+    background-color: #DDD
 
   $figure-size: 80px
   figure.about-me__photo
@@ -20,3 +27,6 @@ section.about-me
     padding-left: 10px
     margin-bottom: 20px
     align-items: center
+
+    p
+      text-decoration: none

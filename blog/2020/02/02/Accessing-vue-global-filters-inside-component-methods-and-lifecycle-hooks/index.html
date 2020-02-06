@@ -29,8 +29,6 @@
 Vue.filter(&quot;formatePriceToMoney&quot;, value =&gt; {
   return value.toLocaleString(&quot;en-US&quot;, { currency: &quot;USD&quot; });
 });</code></pre>
-<br>
-
 <p>Global filters give you the advantage of reusing it across components, without having to worry about reimplementing its logic again, this means that the filter defined above can be used inside any component since it was directly implemented inside the main vue instance.</p>
 <h2 id="Calling-a-global-filter-inside-of-component-method-or-hook-lifecycle-hook"><a href="#Calling-a-global-filter-inside-of-component-method-or-hook-lifecycle-hook" class="headerlink" title="Calling a global filter inside of component method or hook lifecycle hook"></a>Calling a global filter inside of component method or hook lifecycle hook</h2><p>As seen above, you can reuse any global filter across any component template, but what if you need to format data inside methods or lifecycle hooks with some logic that you’ve already implemented as a filter?</p>
 <p>Before you ask yourself, why would I need that, here are some reasons:</p>

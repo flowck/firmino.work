@@ -1,7 +1,7 @@
 ---
 title: Building URLFY - The idea
 date: 2020-01-02 12:21:08
-tags: urlfy, shortening, idea, projects
+metatags: urlfy, shortening, idea, projects
 description: On this blog post I explain how I came out with the idea of building a shortening service
 cover: "blog-images/urlfy.xyz.png"
 ---

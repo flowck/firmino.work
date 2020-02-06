@@ -1,7 +1,7 @@
 ---
 title: Using SASS variables inside vue components
 date: 2020-01-22 22:06:00
-tags: vuejs, sass
+metatags: vuejs, sass
 description: Learn how to use SASS variables inside vue components.
 cover: "blog-images/using-sass-variables-inside-vue-components.png"
 ---

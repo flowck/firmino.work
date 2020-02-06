@@ -1,7 +1,7 @@
 ---
 title: Accessing vue global filters inside component methods and lifecycle hooks
 date: 2020-02-02 15:03:19
-tags: vuejs
+metatags: vuejs
 description: Learn how to use this.$options.filters to access global filters inside component methods. 
 cover: "blog-images/accessing-filters.jpg"
 ---
@@ -52,8 +52,6 @@ Vue.filter("formatePriceToMoney", value => {
   return value.toLocaleString("en-US", { currency: "USD" });
 });
 ```
-
-<br>
 
 Global filters give you the advantage of reusing it across components, without having to worry about reimplementing its logic again, this means that the filter defined above can be used inside any component since it was directly implemented inside the main vue instance.
 

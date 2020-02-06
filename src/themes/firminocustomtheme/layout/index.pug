@@ -22,7 +22,7 @@ html
       .main-grid.wrap
         section.content
           each post in site.posts.toArray().sort((a, b) => a.date < b.date)
-            a(href=post.permalink).post__link
+            a(href=post.permalink, title=post.title).post__link
               article.post(id=post.date)
                 .post__meta
                   .post__date= date(post.date, "LL")

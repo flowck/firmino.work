@@ -1,7 +1,7 @@
 ---
 title: Comparing MongoDB ObjectIds
 date: 2020-01-27 13:15:53
-tags: mongodb
+metatags: mongodb
 description: Understand what is an ObjectId and how you can compare two ObjectIds without unexpected behaviors.
 cover: "blog-images/comparing-objectids.jpg"
 ---

@@ -1,7 +1,7 @@
 ---
 title: MongoDB/Mongoose minimal offset-based pagination
 date: 2020-01-14 23:29:53
-tags: mongodb, express, nodejs, pagination, offset
+metatags: mongodb, express, nodejs, pagination, offset
 description: Learn more about offset-based pagination using MongoDB and Mongoose
 cover: "blog-images/mongodb-mongoose-minimal-offset-based-pagination.png"
 ---

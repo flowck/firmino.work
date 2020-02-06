@@ -32,8 +32,7 @@ module.exports = {
 <p>UUIDs will consume extra space in your database due to the length of each UUID value. Also, keep in mind that indexing a column with a complex value like a UUID may cause performance issues.</p>
 </blockquote>
 <h2 id="Using-UUIDs"><a href="#Using-UUIDs" class="headerlink" title="Using UUIDs"></a>Using UUIDs</h2><p>The Sequelize module has already prebuilt properties either to define the datatype and to generate a new UUID in execution time. Let’s refactor the migration file:</p>
-<p><strong>User migration</strong></p>
-<pre><code class="javascript">// Migration
+<h3 id="User-migration"><a href="#User-migration" class="headerlink" title="User migration"></a>User migration</h3><pre><code class="javascript">// Migration
 
 &#39;use strict&#39;;
 module.exports = {
@@ -60,8 +59,7 @@ module.exports = {
 <li>The property <code>type</code>  received the value <code>Sequelize.UUID</code></li>
 <li>The property <code>defaultValue</code> was added and assigned the value <code>Sequelize.UUIDV4</code>, so every time an <code>INSERT</code> operation is made, Sequelize will take care of the process of generating a new UUID value, on this case, it will use the <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)" target="_blank" rel="noopener">version 4</a>, which is purely random.</li>
 </ul>
-<p><strong>User model</strong></p>
-<p>To keep every database base definitions consistent across the project codebase, the changes in the migration files need to reflect in the User model file too.</p>
+<h3 id="User-model"><a href="#User-model" class="headerlink" title="User model"></a>User model</h3><p>To keep every database base definitions consistent across the project codebase, the changes in the migration files need to reflect in the User model file too.</p>
 <pre><code class="javascript">&#39;use strict&#39;;
 module.exports = (sequelize, DataTypes) =&gt; {
   const users = sequelize.define(&#39;users&#39;, {
@@ -90,7 +88,7 @@ module.exports = (sequelize, DataTypes) =&gt; {
 <li><code>passwordResetToken : UUID</code></li>
 <li><code>passwordResetTokenExpiryDate : Date</code></li>
 </ul>
-<h3 id="User-migration"><a href="#User-migration" class="headerlink" title="User migration"></a>User migration</h3><pre><code class="javascript">&#39;use strict&#39;;
+<h3 id="User-migration-1"><a href="#User-migration-1" class="headerlink" title="User migration"></a>User migration</h3><pre><code class="javascript">&#39;use strict&#39;;
 module.exports = {
   up: (queryInterface, Sequelize) =&gt; {
     return queryInterface.createTable(&#39;users&#39;, {
@@ -118,7 +116,7 @@ module.exports = {
     return queryInterface.dropTable(&#39;users&#39;);
   }
 };</code></pre>
-<h3 id="User-model"><a href="#User-model" class="headerlink" title="User model"></a>User model</h3><pre><code class="javascript">&#39;use strict&#39;;
+<h3 id="User-model-1"><a href="#User-model-1" class="headerlink" title="User model"></a>User model</h3><pre><code class="javascript">&#39;use strict&#39;;
 module.exports = (sequelize, DataTypes) =&gt; {
   const users = sequelize.define(&#39;users&#39;, {
       id: {

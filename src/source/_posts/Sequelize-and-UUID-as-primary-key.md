@@ -1,7 +1,7 @@
 ---
 title: Sequelize and UUID as primary key
 date: 2020-02-06 14:07:25
-tags: database, sequelize, orm
+metatags: database, sequelize, orm
 description: Learn more about offset-based pagination using MongoDB and Mongoose
 cover: "blog-images/sequelize-and-uuid-as-primary-key.jpg"
 ---
@@ -50,7 +50,7 @@ If you want to learn more the pros and cons of using UUIDs as primary key, here 
 
 The Sequelize module has already prebuilt properties either to define the datatype and to generate a new UUID in execution time. Let's refactor the migration file:
 
-**User migration**
+### User migration
 
 ```javascript
 // Migration
@@ -82,7 +82,7 @@ In the code above the following changes were made:
 * The property `type`  received the value `Sequelize.UUID`
 * The property `defaultValue` was added and assigned the value `Sequelize.UUIDV4`, so every time an `INSERT` operation is made, Sequelize will take care of the process of generating a new UUID value, on this case, it will use the [version 4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)), which is purely random.
 
-**User model**
+### User model
 
 To keep every database base definitions consistent across the project codebase, the changes in the migration files need to reflect in the User model file too.
 
@@ -105,11 +105,7 @@ module.exports = (sequelize, DataTypes) => {
 };
 ```
 
-
-
 Just like in the migration file, and property `autoIncrement` was removed, and type property was changed to UUID, but this time, using the object `DataTypes` instead of `Sequelize`, and also the property `defaultValue` was added to the column `id`.
-
-
 
 ## Another use cases for UUIDs
 

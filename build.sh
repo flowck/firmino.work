@@ -18,7 +18,7 @@ cd ..
 
 git add .
 
-git commit -m "Deploy $CURRENT_DATE"
+git commit -m "Deploy"
 
 git push origin master
 

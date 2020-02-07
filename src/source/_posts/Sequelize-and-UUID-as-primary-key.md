@@ -2,7 +2,7 @@
 title: Sequelize and UUID as primary key
 date: 2020-02-06 14:07:25
 metatags: database, sequelize, orm
-description: Learn more about offset-based pagination using MongoDB and Mongoose
+description: Understand how you can use UUIDs as a primary key on Sequelize ORM
 cover: "blog-images/sequelize-and-uuid-as-primary-key.jpg"
 ---
 

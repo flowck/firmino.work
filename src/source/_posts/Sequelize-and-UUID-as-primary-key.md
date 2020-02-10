@@ -6,8 +6,9 @@ description: Understand how you can use UUIDs as a primary key on Sequelize ORM
 cover: "blog-images/sequelize-and-uuid-as-primary-key.jpg"
 ---
 
-By default sequelize models and migrations are generated with the column `id` as the primary key with the data type `INTEGER` and, with the option `autoIncrement` set to `true`. This means that each row will have a sequential `id` starting from `0`.
+By default sequelize models and migrations are generated with the column `id` as the primary key, the data type set to `INTEGER` and, with the option `autoIncrement` set to `true`. This means that each row will have a sequential `id` starting from `1`.
 
+### User migration file
 ```javascript
 'use strict';
 module.exports = {
@@ -35,7 +36,9 @@ This is a classical approach and works perfectly, but when your application need
 * Users trying to guess the table records frrom the primary key value
 * A rare and extreme situation, your database may ran out of integers, just like it happend to [Basecamp](https://medium.com/signal-v-noise/update-on-basecamp-3-being-stuck-in-read-only-as-of-nov-8-9-22am-cst-c41df1a58352).
 
-If you want to learn more the pros and cons of using UUIDs as primary key, here are two blog posts that may enlight you:
+> Read the article [BIGINT v INT. Is there a big deal?](http://ronaldbradford.com/blog/bigint-v-int-is-there-a-big-deal-2008-07-18/)
+
+If you want to learn more about the pros and cons of using UUIDs as primary key, here are two blog posts that may enlight you:
 
 * [UUID or GUID as Primary Keys? Be Careful!](https://medium.com/signal-v-noise/update-on-basecamp-3-being-stuck-in-read-only-as-of-nov-8-9-22am-cst-c41df1a58352)
 * [Do you really need a UUID/GUID?](https://rclayton.silvrback.com/do-you-really-need-a-uuid-guid)
@@ -48,7 +51,7 @@ If you want to learn more the pros and cons of using UUIDs as primary key, here 
 
 ## Using UUIDs
 
-The Sequelize module has already prebuilt properties either to define the datatype and to generate a new UUID in execution time. Let's refactor the migration file:
+The Sequelize module has already prebuilt properties that will help define the data type and generate UUIDs in execution time. Let's procede by refactoring the migration file:
 
 ### User migration
 
@@ -84,7 +87,7 @@ In the code above the following changes were made:
 
 ### User model
 
-To keep every database base definitions consistent across the project codebase, the changes in the migration files need to reflect in the User model file too.
+To keep the database base definition consistent across the project codebase, the changes in the migration files need to reflect in the User model file too.
 
 ```javascript
 'use strict';
@@ -105,7 +108,14 @@ module.exports = (sequelize, DataTypes) => {
 };
 ```
 
-Just like in the migration file, and property `autoIncrement` was removed, and type property was changed to UUID, but this time, using the object `DataTypes` instead of `Sequelize`, and also the property `defaultValue` was added to the column `id`.
+Just like in the migration file: 
+
+* The property `autoIncrement` was removed
+* The `type` property was changed to UUID, but this time, using the object `DataTypes` instead of `Sequelize`
+* It was added the property `defaultValue` and it receives the value `DataTypes.UUIDV4`
+
+That's all you need to have UUIDs working with Sequelize. 
+
 
 ## Another use cases for UUIDs
 

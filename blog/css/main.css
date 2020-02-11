@@ -160,7 +160,7 @@ section.content {
   .post ul li {
     line-height: 25px;
     list-style: bullet;
-    margin-bottom: 5px; }
+    margin-bottom: 10px; }
 
 .post .post__meta {
   margin: 20px 0; }

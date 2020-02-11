@@ -116,7 +116,6 @@ Just like in the migration file:
 
 That's all you need to have UUIDs working with Sequelize. 
 
-
 ## Another use cases for UUIDs
 
 I have other two use cases for UUIDs as the data type of columns: 

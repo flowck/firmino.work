@@ -23,33 +23,35 @@ A project generated with vue/cli uses webpack to resolve `@/`  to `src/` folder.
 
 ## Updating rollup.config.js
 
-* Rollup by default doesn't support aliases, but it has an official plugin that enables it. To install it, inside your project, install `@rollup/plugin-alias`:
+Rollup by default doesn't support aliases, but it has an official plugin that enables it, which is called [@rollup/plugin-alias](https://github.com/rollup/plugins/tree/master/packages/alias). Let's install it then:
 
-  ```bash
-  npm install --save-dev @rollup/plugin-alias
-  ```
+```bash
+npm install --save-dev @rollup/plugin-alias
+```
 
-* Inside `rollup.config.js`, import the alias plugin and the path module from Nodejs:
+Inside `rollup.config.js` file located in project root, import the alias plugin and the [path](https://nodejs.org/api/path.html) module from Nodejs:
 
-  ```javascript
-  import alias from "@rollup/plugin-alias";
-  import path from "path";
-  ```
+```javascript
+import alias from "@rollup/plugin-alias";
+import path from "path";
+```
 
-* Rollup's configuration file exports an object. Look for the property `plugins` inside this object, and add the following entry:
+Rollup's configuration file exports an object. Look for the property `plugins` inside the exported object, and then add following declaration:
 
-  ```javascript
-  alias({
-  	entries: [
-  		{
-        find: "@",
-        replacement: path.resolve(__dirname, "src/")
-      }
-  	]
-  })
-  ```
+```javascript
+alias({
+  entries: [
+    {
+      find: "@",
+      replacement: path.resolve(__dirname, "src/")
+    }
+  ]
+})
+```
 
-* That's it, after these small changes, you will be able to import components using `@` as an alias for the `src/` folder. 
+In the code above I am configuring a new alias, this plugin suports multitple alias, and the one I defined, will look for `@` symbol in any `import` declaration and then in compile time, will replace it by the full directory path to the `src` folder thanks to `path.resolve(__dirname, "src/")`.
+
+That's it, after these small changes, you will be able to import components using `@` as an alias for the `src/` folder. 
 
 
 ## References

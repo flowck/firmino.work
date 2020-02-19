@@ -7,27 +7,22 @@ import &quot;@/assets/main.css&quot;;
 import ChatInput from &quot;../../components/ChatInput&quot;;
 import &quot;../../assets/main.css&quot;;</code></pre>
 <p>A project generated with vue/cli uses webpack to resolve <code>@/</code>  to <code>src/</code> folder. If you’re using the base <a href="https://github.com/sveltejs/template" target="_blank" rel="noopener">template</a>  from Svelte, you can have this feature too, with a few changes on <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener">Rollup</a> configuration file.</p>
-<h2 id="Updating-rollup-config-js"><a href="#Updating-rollup-config-js" class="headerlink" title="Updating rollup.config.js"></a>Updating rollup.config.js</h2><ul>
-<li><p>Rollup by default doesn’t support aliases, but it has an official plugin that enables it. To install it, inside your project, install <code>@rollup/plugin-alias</code>:</p>
+<h2 id="Updating-rollup-config-js"><a href="#Updating-rollup-config-js" class="headerlink" title="Updating rollup.config.js"></a>Updating rollup.config.js</h2><p>Rollup by default doesn’t support aliases, but it has an official plugin that enables it, which is called <a href="https://github.com/rollup/plugins/tree/master/packages/alias" target="_blank" rel="noopener">@rollup/plugin-alias</a>. Let’s install it then:</p>
 <pre><code class="bash">npm install --save-dev @rollup/plugin-alias</code></pre>
-</li>
-<li><p>Inside <code>rollup.config.js</code>, import the alias plugin and the path module from Nodejs:</p>
+<p>Inside <code>rollup.config.js</code> file located in project root, import the alias plugin and the <a href="https://nodejs.org/api/path.html" target="_blank" rel="noopener">path</a> module from Nodejs:</p>
 <pre><code class="javascript">import alias from &quot;@rollup/plugin-alias&quot;;
 import path from &quot;path&quot;;</code></pre>
-</li>
-<li><p>Rollup’s configuration file exports an object. Look for the property <code>plugins</code> inside this object, and add the following entry:</p>
+<p>Rollup’s configuration file exports an object. Look for the property <code>plugins</code> inside the exported object, and then add following declaration:</p>
 <pre><code class="javascript">alias({
-    entries: [
-        {
+  entries: [
+    {
       find: &quot;@&quot;,
       replacement: path.resolve(__dirname, &quot;src/&quot;)
     }
-    ]
+  ]
 })</code></pre>
-</li>
-<li><p>That’s it, after these small changes, you will be able to import components using <code>@</code> as an alias for the <code>src/</code> folder. </p>
-</li>
-</ul>
+<p>In the code above I am configuring a new alias, this plugin suports multitple alias, and the one I defined, will look for <code>@</code> symbol in any <code>import</code> declaration and then in compile time, will replace it by the full directory path to the <code>src</code> folder thanks to <code>path.resolve(__dirname, &quot;src/&quot;)</code>.</p>
+<p>That’s it, after these small changes, you will be able to import components using <code>@</code> as an alias for the <code>src/</code> folder. </p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://github.com/rollup/plugins/tree/master/packages/alias" target="_blank" rel="noopener">Rollup alias docs</a></li>
 <li><a href="https://unsplash.com/photos/6jA6eVsRJ6Q" target="_blank" rel="noopener">Cover by Wonderlane</a></li>

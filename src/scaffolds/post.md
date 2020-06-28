@@ -1,5 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+metatags:
+description:
+cover: "blog-images/post-title.jpg"
 ---

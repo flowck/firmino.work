@@ -1,5 +1,7 @@
 #!/bin/sh
 
+npm run config
+
 CURRENT_DATE=date
 
 # Remove current build folder

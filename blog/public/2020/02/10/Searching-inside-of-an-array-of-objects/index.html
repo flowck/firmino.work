@@ -1,0 +1,104 @@
+<html><head><meta charset="utf-8"/><title>Searching inside of an array of objects - JavascriptFirmino Changani</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/blog/img/favicon.png" type="image/png"/><meta name="description" content="Searching inside of an array of objects using .filter() and .search() methods in Javascript."/><meta property="og:title" content="Searching inside of an array of objects - Javascript⁠ — Firmino Changani"/><meta property="og:description" content="Searching inside of an array of objects using .filter() and .search() methods in Javascript."/><meta property="og:url" content="https://changani.me/blog/2020/02/10/Searching-inside-of-an-array-of-objects/"/><meta property="og:site_name" content="Firmino Changani"/><meta property="og:image" content="https://changani.me/blog/blog-images/searching-inside-of-an-array-of-objects.jpg"/><meta property="og:type" content="article"/><meta name="twitter:image" content="https://changani.me/blog/blog-images/searching-inside-of-an-array-of-objects.jpg"/><meta name="twitter:creator" content="@flowck"/><meta name="twitter:site" content="@flowck"/><meta name="twitter:card" content="summary_large_image"/><link rel="stylesheet" href="/blog/css/main.css"/><link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Bitter:400,700|Press+Start+2P|Roboto:300,400,700&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="/blog/css/github-gist.css"/><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container"><header class="header"><div class="wrap is-flex has-space-between"><div class="header__title is-flex is-centered-y"><h1><a href="https://changani.me/blog">Firmino <br> <span>Changani</span></a></h1></div></div></header><div class="main-grid wrap"><section class="content"><article class="post"><div class="post__cover"><img src="https://changani.me/blog/blog-images/searching-inside-of-an-array-of-objects.jpg" alt="Searching inside of an array of objects - Javascript"/></div><div class="post__meta"><div class="post__date">February 10, 2020</div><h1 class="post__title">Searching inside of an array of objects - Javascript</h1><hr/></div><div class="post__content"><p>One of my favorite methods from the <code>Arrays</code> object, is the <code>.filter()</code> method. It allows javascript programs to search for an element inside of an array. What I like the most about this method, is that developers have the flexibility of searching an item inside of an array of any data structure.</p>
+<p>On this blog post, I will focus on:</p>
+<ul>
+<li>Searching/filtering items inside of an array of objects</li>
+<li>Write a wrapper function that allows javascript programs to search/filter items inside of an of array of objects</li>
+</ul>
+<h2 id="The-syntax-of-filter"><a href="#The-syntax-of-filter" class="headerlink" title="The syntax of filter()"></a>The syntax of filter()</h2><p>The <code>.filter()</code> method receives a function as a callback or argument. This function has one mandatory argument which represents each item in the array. The callback function needs to return either <code>true</code> or <code>false</code> by testing the existence or non-existence of each array’s element.</p>
+<h3 id="Searching-filtering-an-element-of-type-Number"><a href="#Searching-filtering-an-element-of-type-Number" class="headerlink" title="Searching/filtering an element of type Number"></a>Searching/filtering an element of type Number</h3><pre><code class="javascript">const x = [0, 1, 20, 4, 5];
+
+console.log(
+    x.filter(item =&gt; item === 4)
+);
+
+// 4</code></pre>
+<h2 id="Searching-for-objects"><a href="#Searching-for-objects" class="headerlink" title="Searching for objects"></a>Searching for objects</h2><p>To search for an object inside of an array, it’s important to know the object structure and then write a callback function that fits that.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><pre><code class="javascript">const listOfNames = [
+  {
+    name: &quot;Firmino&quot;,
+    age: 23
+  },
+  {
+    name: &quot;Gonçalves&quot;,
+    age: 19
+  },
+  {
+    name: &quot;Changani&quot;,
+    age: 8
+  },
+  {
+    name: &quot;Nelson&quot;,
+    age: 67
+  },
+  {
+    name: &quot;Mandela&quot;,
+    age: 34
+  }
+];
+
+const result = listOfNames.filter(
+  item =&gt; {
+    return item.name.search(new RegExp(&quot;MANDELA&quot;, &quot;i&quot;)) &gt;= 0;
+  }
+);
+
+console.log(result);</code></pre>
+<p>The code above is little bit more complex than the first example, but the essence is exactly the same:</p>
+<ul>
+<li>An array <code>listOfNames</code> that contains several objects, each with two properties: <code>name</code> and <code>age</code></li>
+<li>The result of the filter operation will be assigned to the <code>result</code> constant</li>
+<li>Inside the callback function, I am using the <code>.search()</code> method on <code>item.name</code> to search for the string <code>MANDELA</code>. <code>.search()</code> is case sensitive, it tries to look for the exact same string. To go around this, I am passing a regular expression with the option <code>i</code> for case insensitive, instead of plain string</li>
+<li><code>.search</code> will return <code>-1</code> if it couldn’t match the string, or it will return a positive integer starting from <code>O</code> if the string was matched</li>
+</ul>
+<h2 id="A-general-solution"><a href="#A-general-solution" class="headerlink" title="A general solution"></a>A general solution</h2><p>The code above works, but I decided to work on a general approach that would also allow programs to set the object property to be used as a search parameter, and also support filtering/searching on properties with <code>Number</code> as data type.</p>
+<pre><code class="javascript">/*
+* search: It return an array of elements that match
+* the search condition
+* @param {Array} arr
+* @param {String} prop
+* @param {String/Number} param
+* @returns {Array}
+*/
+function search(arr = [], prop, param) {
+  const searchParam = new RegExp(param, &quot;i&quot;);
+  return arr.filter(
+    item =&gt; {
+      return new String(item[prop]).search(searchParam) &gt;= 0;
+    }
+  );
+}</code></pre>
+<ul>
+<li>The search function receives 3 arguments: <code>arr</code> an Array of objects, <code>prop</code> the property to be used as search/filter parameter, and <code>param</code> which represents the actual value we expect the <code>.search()</code> to match</li>
+<li>To improve the readability, I assigned the regular expression declaration to the <code>searchParam</code> constant</li>
+<li>And to support the <code>Number</code> data type, I decided to wrap <code>item[prop]</code> inside of <code>new String()</code>. This means that each property value would be converted to a <code>String</code></li>
+<li>And last, since the function doesn’t know which object property would be used as a search parameter, I decided to access the property by using a square brackets and pass the <code>prop</code> value like this<code>item[prop]</code> </li>
+</ul>
+<p>This function could be improved, with things like parameter validation, support for nested objects and so on, but for the sake of simplicity, I decided to leave it just like it is right now. </p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search" target="_blank" rel="noopener">String.prototype.search()</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noopener">Array.prototype.filter()</a></li>
+<li><a href="https://unsplash.com/photos/ge2mkvxvS_Q" target="_blank" rel="noopener">Post cover by Aurelien Romain</a></li>
+</ul>
+</div></article><a href="https://changani.me"><section class="about-me is-flex"><figure class="about-me__photo"><img src="https://changani.me/blog/img/me-2020.png" alt="Firmino Changani"/></figure><div class="about-me__bio"><p>I'm Firmino, and here I write about web application development, focused in learning the best practices to ship quality software.</p></div></section></a><div id="disqus_thread"></div></section></div><script>/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = window.location.href; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://firmino-changani-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();</script><footer class="footer"><div class="wrap is-flex is-centered-x"><div class="footer__copyright"><p>Firmino Changani</p></div></div></footer><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-151333822-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-151333822-1');</script><script src="/blog/js/highlight.pack.js"></script><script>document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.configure({
+      tabReplace: '  ',
+    });
+    hljs.highlightBlock(block);
+  });
+});</script></div></body></html>

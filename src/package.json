@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "NODE_ENV=production npm run config; hexo generate",
+    "build:prod": "NODE_ENV=production ../build.sh",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "config": "node ./scripts/genConfig.js",
+    "start": "rm _config.yml; NODE_ENV=development npm run config; npm run server"
   },
   "hexo": {
     "version": "4.2.1"
@@ -22,5 +25,8 @@
     "hexo-renderer-pug": "^1.0.0",
     "hexo-renderer-sass": "^0.4.0",
     "hexo-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "json-to-pretty-yaml": "^1.2.2"
   }
 }

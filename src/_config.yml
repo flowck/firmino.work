@@ -5,7 +5,7 @@ keywords: null
 author: "Firmino Changani"
 language: "en"
 timezone: ""
-url: "https://changani.me/blog"
+url: "http://localhost:4000/blog"
 root: "/blog"
 permalink: ":year/:month/:day/:title/"
 permalink_defaults: null

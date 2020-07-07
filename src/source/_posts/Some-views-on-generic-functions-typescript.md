@@ -2,7 +2,7 @@
 title: 'Some views on generics functions | Typescript'
 date: 2020-07-04 16:25:24
 metatags: typescript
-description: In this post I talk about Typescript generic functions, I show some practical examples
+description: In this post I talk about Typescript's generic functions, I show tow practical examples replacing any with generics
 cover: "blog-images/some-views-on-generic-functions-typescript.jpg"
 ---
 

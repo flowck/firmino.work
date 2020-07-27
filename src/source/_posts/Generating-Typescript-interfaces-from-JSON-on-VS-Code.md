@@ -3,7 +3,7 @@ title: Generating Typescript interfaces from JSON on VS Code
 cover: blog-images/typescript.jpg
 date: 2020-07-25 18:11:59
 metatags: typescript
-description: Learn how you can generate Typescript interefaces from JSON on VS Code
+description: Learn how you can generate Typescript interfaces from JSON on VS Code
 ---
 
 If you caught yourself setting variables using the **[any](https://www.typescriptlang.org/docs/handbook/basic-types.html#any)** type from typescript to declare variables that will hold the response object coming from an HTTP operation, then this article may help you to tackle that in the future.

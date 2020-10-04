@@ -5,10 +5,7 @@ npm run config
 CURRENT_DATE=date
 
 # Remove current build folder
-rm -rf blog
-
-# Navigate to source folder
-cd src
+rm -rf ../blog
 
 # Generate static files
 hexo generate

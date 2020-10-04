@@ -1,0 +1,55 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title=page.title + "Firmino Changani"
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon" href="/blog/img/favicon.png" type="image/png")
+    meta(name="description" content=page.description)
+    meta(property="og:title" content=page.title + '⁠ — Firmino Changani')
+    meta(property="og:description" content=page.description)
+    meta(property="og:url" content=page.permalink)
+    meta(property="og:site_name" content="Firmino Changani")
+    meta(property="og:image" content=config.url + '/' + page.cover)
+    meta(property="og:type" content="article")
+    meta(name="twitter:image" content=config.url + '/' + page.cover)
+    meta(name="twitter:creator" content="@flowck")
+    meta(name="twitter:site" content="@flowck")
+    meta(name="twitter:card" content="summary_large_image")
+    link(rel="stylesheet", href="/blog/css/main.css")
+    link(href="https://fonts.googleapis.com/css?family=Nunito+Sans|Bitter:400,700|Press+Start+2P|Roboto:300,400,700&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="/blog/css/github-gist.css")
+  body
+    .container
+      include partial/header.pug
+      .main-grid.wrap
+        section.content
+          article.post
+            .post__cover
+              img(src=config.url + "/" + page.cover, alt=page.title)
+
+            .post__meta
+              .post__date= date(page.date, "LL")
+              h1.post__title=page.title
+
+              hr
+
+            div.post__content!=page.content
+
+          a(href="https://changani.me")
+            include partial/about.pug
+      
+          #disqus_thread
+
+      include partial/disqus.pug
+      include partial/footer.pug
+      script(src="/blog/js/highlight.pack.js")
+      script.
+        document.addEventListener('DOMContentLoaded', (event) => {
+          document.querySelectorAll('pre code').forEach((block) => {
+            hljs.configure({
+              tabReplace: '  ',
+            });
+            hljs.highlightBlock(block);
+          });
+        });

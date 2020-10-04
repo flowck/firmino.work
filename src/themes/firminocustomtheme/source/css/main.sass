@@ -1,0 +1,178 @@
+@import "partials/variables"
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: 'Bitter', arial, 'sans-serif'
+
+h1, h2, h3, h4, h5, h6
+  font-weight: 700
+  font-family: "Bitter"
+
+a
+  transition: color .5s
+
+.wrap
+  width: 750px
+  margin: 0 auto
+
+
+// Flex box
+.is-flex
+  display: flex
+
+  &.is-centered-x
+    justify-content: center
+
+  &.is-centered-y
+    align-items: center
+
+  &.is-centered
+    align-items: center
+    justify-content: center
+
+  &.has-space-between
+    justify-content: space-between
+
+  &.is-column
+    flex-direction: column
+
+$color-dark: #333
+$color-white: #FFF
+$color-blue: #0069ff
+$color-dark-blue: #0069ff
+$color-gray: #666
+
+.container
+  min-height: 100vh
+  position: relative
+
+// Header
+.header
+  width: 100%
+  height: 70px
+  color: $color-white
+  background-color: $color-blue
+
+  .wrap
+    height: inherit
+
+  .header__title
+    h1
+      font-size: 20px
+      transition: text-shadow .2s
+      font-family: "Press Start 2P", "sans-serif", "arial"
+
+      span
+        font-size: 18px
+
+      &:hover
+        text-shadow: 1px 1px 1px #000
+
+  .header__nav
+    height: 100%
+
+    ul li
+      font-size: 14px
+      list-style: none
+      margin-left: 30px
+      text-transform: uppercase
+
+      &:first-child
+        margin-left: 0
+
+  a
+    color: $color-white
+    text-decoration: none
+
+// Footer
+.footer
+  bottom: 0
+  width: 100%
+  padding: 20px 0
+  position: absolute
+  background-color: #EEE
+
+  .footer__copyright
+    font-size: 12px
+    padding-top: 5px
+    color: $color-dark
+
+  .footer__links
+    ul li
+      list-style: none
+
+      &:not(:first-child)
+        margin-left: 30px
+
+      a
+        font-size: 10px
+        color: $color-dark
+        text-decoration: none
+        text-transform: uppercase
+
+        &:hover
+          color: $color-blue
+
+.main-grid
+  padding: 0 0 40px 0
+  padding-bottom: 101px
+
+section.content
+  margin-bottom: 40px
+
+.home
+
+  .header
+    .wrap
+      padding-left: 5px
+
+  .content
+    margin-top: 40px
+
+  .post__link
+    display: block
+    margin-bottom: 20px
+    text-decoration: none
+
+  .post
+    padding: 5px
+    border-radius: 3px
+    transition: background-color .3s
+
+    &:hover
+      background-color: #EEE
+
+    .post__meta
+      margin: 0
+
+#disqus_thread
+  margin-top: 40px
+
+@import "partials/_post"
+@import "partials/_about-me"
+
+// Responsive
+@media screen and (max-width: 750px)
+
+  .wrap
+    width: 90%
+
+  section.about-me
+    height: auto
+    // padding: 0
+    flex-direction: column
+    justify-content: center
+
+    figure
+      width: 100%
+      margin: 0 auto 10px auto
+
+  section.about-me
+
+    .about-me__bio
+      margin-bottom: 0
+      text-align: center

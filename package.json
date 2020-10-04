@@ -1,0 +1,19 @@
+{
+  "name": "changani.me",
+  "version": "1.0.0",
+  "description": "My personal website and blog built with static html and css!",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowck/changani.me.git"
+  },
+  "keywords": ["personal", "website"],
+  "author": "Firmino Changani ",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/flowck/changani.me/issues"
+  },
+  "homepage": "https://github.com/flowck/changani.me#readme"
+}

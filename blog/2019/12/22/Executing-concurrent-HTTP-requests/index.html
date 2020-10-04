@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Executing concurrent HTTP requestsFirmino Changani</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="shortcut icon" href="/blog/img/favicon.png" type="image/png"><meta name="description" content="Read more about executing concurrent HTTP requests using Promises and async/await."><meta property="og:title" content="Executing concurrent HTTP requests⁠ — Firmino Changani"><meta property="og:description" content="Read more about executing concurrent HTTP requests using Promises and async/await."><meta property="og:url" content="http://localhost:4000/blog/2019/12/22/Executing-concurrent-HTTP-requests/"><meta property="og:site_name" content="Firmino Changani"><meta property="og:image" content="http://localhost:4000/blog/blog-images/Executing-concurrent-HTTP-requests.png"><meta property="og:type" content="article"><meta name="twitter:image" content="http://localhost:4000/blog/blog-images/Executing-concurrent-HTTP-requests.png"><meta name="twitter:creator" content="@flowck"><meta name="twitter:site" content="@flowck"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/blog/css/main.css"><link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Bitter:400,700|Press+Start+2P|Roboto:300,400,700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/blog/css/github-gist.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container"><header class="header"><div class="wrap is-flex has-space-between"><div class="header__title is-flex is-centered-y"><h1><a href="http://localhost:4000/blog">Firmino <br> <span>Changani</span></a></h1></div></div></header><div class="main-grid wrap"><section class="content"><article class="post"><div class="post__cover"><img src="http://localhost:4000/blog/blog-images/Executing-concurrent-HTTP-requests.png" alt="Executing concurrent HTTP requests"></div><div class="post__meta"><div class="post__date">December 22, 2019</div><h1 class="post__title">Executing concurrent HTTP requests</h1><hr></div><div class="post__content"><p>What is concurrency anyway? You’ve probably known or heard this term somewhere, so before going into specific implementation details, let me explain or refresh you about the concurrent part using Wikipedia:</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank" rel="noopener">computer science</a>, <strong>concurrency</strong> is the ability of different parts or units of a program, algorithm, or problem to be executed out-of-order or in the partial order, without affecting the outcome. This allows for parallel execution of the concurrent units, which can significantly improve the overall speed of the execution in multi-processor and multi-core systems.</p>
+</blockquote>
+<p>With this in mind, let’s go straight to a use case where we need to write an application that executes multiple HTTP GET requests to an endpoint, stores each result in an array, and then logs the result into the terminal.</p>
+<h2 id="Helper-function"><a href="#Helper-function" class="headerlink" title="Helper function"></a>Helper function</h2><p>In the script below, I implement a small helper function that uses <a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener">axios</a> to execute HTTP requests, at the same time these functions also logs in the terminal the time spent executing the HTTP request.</p>
+<script src="https://gist.github.com/flowck/9e422fe9ac958f42bfbaeee65dbcdc77.js"></script>
+
+
+
+<h2 id="Non-concurrent-requests"><a href="#Non-concurrent-requests" class="headerlink" title="Non-concurrent requests"></a>Non-concurrent requests</h2><p>In the script below, where I manage to implement a function that takes n as a parameter, representing the number of requests to be executed. </p>
+<p>The get function returns a promise object, so I am using the await keyword inside on an async. On this same function, I am also logging the overall execution time using the <a href="https://nodejs.org/api/process.html#process_process_hrtime_time" target="_blank" rel="noopener">hrtime()</a> method from the process package.</p>
+<script src="https://gist.github.com/flowck/6dcedb5e2fc5bc2153752c8fa6b46403.js"></script>
+
+
+
+<p>Due to the get function being called straight with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await" target="_blank" rel="noopener">await</a> keyword, the for statement only iterates next when the promise is resolved. In the image, bellow can see that each request is executed one after another.</p>
+<p><img src="/blog/blog-images/non-concurrent.gif" alt="Non concurrent"></p>
+<h2 id="Concurrent-requests"><a href="#Concurrent-requests" class="headerlink" title="Concurrent requests"></a>Concurrent requests</h2><p>Since none of the results depend on each other, we can simply execute all the requests at once. </p>
+<p>With just a few changes in the script above, it was possible to achieve a good level of concurrency and reduce the overall request’s execution time from 10s to 3s.</p>
+<p>In the script below, I wrap all the unfulfilled request promises in an array and then I use Promise.all all of the 50 promises. </p>
+<script src="https://gist.github.com/flowck/fd04fb17ef771a808baa662044c17e1b.js"></script>
+
+
+
+<p>In the result bellow you can that the script took 3s seconds to execute 50 requests instead of 10 seconds as in the first script.</p>
+<p><img src="/blog/blog-images/concurrent.gif" alt="Concurrent requests"></p>
+<p>The Promise.all(results) method, returns a single promise when all the promises stored on results are fulfilled.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all" target="_blank" rel="noopener">Promise.all()</a></li>
+<li><a href="https://howtodoinjava.com/java/multi-threading/concurrency-vs-parallelism/" target="_blank" rel="noopener">Concurrency vs. Parallelism, Lokesh Gupta</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener">Concurrency model and the event loop</a></li>
+</ul>
+</div></article><a href="https://changani.me" target="_blank" rel="noopener"><section class="about-me is-flex"><figure class="about-me__photo"><img src="http://localhost:4000/blog/img/me-2020.png" alt="Firmino Changani"></figure><div class="about-me__bio"><p>I'm Firmino, and here I write about web application development. Leave your comment below and let's discuss about the topic above. Cheers!</p></div></section></a><div id="disqus_thread"></div></section></div><script>/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = window.location.href; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://firmino-changani-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();</script><footer class="footer"><div class="wrap is-flex is-centered-x"><div class="footer__copyright"><p>Firmino Changani</p></div></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=UA-151333822-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-151333822-1');</script><script src="/blog/js/highlight.pack.js"></script><script>document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.configure({
+      tabReplace: '  ',
+    });
+    hljs.highlightBlock(block);
+  });
+});</script></div></body></html>

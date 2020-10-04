@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Generating Typescript interfaces from JSON on VS CodeFirmino Changani</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="shortcut icon" href="/blog/img/favicon.png" type="image/png"><meta name="description" content="Learn how you can generate Typescript interfaces from JSON on VS Code"><meta property="og:title" content="Generating Typescript interfaces from JSON on VS Code⁠ — Firmino Changani"><meta property="og:description" content="Learn how you can generate Typescript interfaces from JSON on VS Code"><meta property="og:url" content="http://localhost:4000/blog/2020/07/25/Generating-Typescript-interfaces-from-JSON-on-VS-Code/"><meta property="og:site_name" content="Firmino Changani"><meta property="og:image" content="http://localhost:4000/blog/blog-images/typescript.jpg"><meta property="og:type" content="article"><meta name="twitter:image" content="http://localhost:4000/blog/blog-images/typescript.jpg"><meta name="twitter:creator" content="@flowck"><meta name="twitter:site" content="@flowck"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/blog/css/main.css"><link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Bitter:400,700|Press+Start+2P|Roboto:300,400,700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/blog/css/github-gist.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container"><header class="header"><div class="wrap is-flex has-space-between"><div class="header__title is-flex is-centered-y"><h1><a href="http://localhost:4000/blog">Firmino <br> <span>Changani</span></a></h1></div></div></header><div class="main-grid wrap"><section class="content"><article class="post"><div class="post__cover"><img src="http://localhost:4000/blog/blog-images/typescript.jpg" alt="Generating Typescript interfaces from JSON on VS Code"></div><div class="post__meta"><div class="post__date">July 25, 2020</div><h1 class="post__title">Generating Typescript interfaces from JSON on VS Code</h1><hr></div><div class="post__content"><p>If you caught yourself setting variables using the <strong><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html#any" target="_blank" rel="noopener">any</a></strong> type from typescript to declare variables that will hold the response object coming from an HTTP operation, then this article may help you to tackle that in the future.</p>
+<h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+<li><a href="#the-problem-thats-not-exactly-a-problem">The problem that’s not exactly a problem</a></li>
+<li><a href="#Generating-interfaces-from-JSON-objects">Generating interfaces from JSON objects</a></li>
+<li><a href="#What-can-you-do-if-you-use-another-editor">What can you do if you use another editor</a></li>
+<li><a href="#Conclusion">Conclusion</a></li>
+<li><a href="#References">References</a></li>
+</ul>
+<h2 id="the-problem-thats-not-exactly-a-problem">The problem that's not exactly a problem</h2>
+
+<p>Let’s suppose you’re building a web application that has the requirement of fetching the information regarding all the repositories of a specific user on Github. Knowing Github large payload, you might try to define a constant like this:</p>
+<pre><code class="typescript">// ...
+const response = await fetch(`https://api.github.com/users/${user}/repos`);
+const userRepositories: any = await response;
+// ...</code></pre>
+<p>Whilst this is a valid approach, you’d lose Typescript’s type safety and predictability since <code>userRepositories</code> type was set to <code>any</code>. </p>
+<p>One quick way to tackle this is by defining an interface beforehand. However here comes the problem: who likes to manually define the interface our interfaces of a response payload as large as this:</p>
+<pre><code class="json">{
+  &quot;id&quot;: 178168699,
+  &quot;node_id&quot;: &quot;MDEwOlJlcG9zaXRvcnkxNzgxNjg2OTk=&quot;,
+  &quot;name&quot;: &quot;all-contributors&quot;,
+  &quot;full_name&quot;: &quot;flowck/all-contributors&quot;,
+  &quot;private&quot;: false,
+  &quot;owner&quot;: {
+      &quot;login&quot;: &quot;flowck&quot;,
+      &quot;id&quot;: 1679333,
+      &quot;node_id&quot;: &quot;MDQ6VXNlcjE2NzkzMzM=&quot;,
+      &quot;avatar_url&quot;: &quot;https://avatars1.githubusercontent.com/u/1679333?v=4&quot;,
+      &quot;gravatar_id&quot;: &quot;&quot;,
+      &quot;url&quot;: &quot;https://api.github.com/users/flowck&quot;,
+      &quot;html_url&quot;: &quot;https://github.com/flowck&quot;,
+      &quot;followers_url&quot;: &quot;https://api.github.com/users/flowck/followers&quot;,
+      &quot;following_url&quot;: &quot;https://api.github.com/users/flowck/following{/other_user}&quot;,
+      &quot;gists_url&quot;: &quot;https://api.github.com/users/flowck/gists{/gist_id}&quot;,
+      &quot;starred_url&quot;: &quot;https://api.github.com/users/flowck/starred{/owner}{/repo}&quot;,
+      &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/flowck/subscriptions&quot;,
+      &quot;organizations_url&quot;: &quot;https://api.github.com/users/flowck/orgs&quot;,
+      &quot;repos_url&quot;: &quot;https://api.github.com/users/flowck/repos&quot;,
+      &quot;events_url&quot;: &quot;https://api.github.com/users/flowck/events{/privacy}&quot;,
+      &quot;received_events_url&quot;: &quot;https://api.github.com/users/flowck/received_events&quot;,
+      &quot;type&quot;: &quot;User&quot;,
+      &quot;site_admin&quot;: false
+  },
+  &quot;html_url&quot;: &quot;https://github.com/flowck/all-contributors&quot;,
+  &quot;description&quot;: &quot;✨ Recognize all contributors, not just the ones who push code ✨&quot;,
+  &quot;fork&quot;: true,
+  &quot;url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors&quot;,
+  &quot;forks_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/forks&quot;,
+  &quot;keys_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/keys{/key_id}&quot;,
+  &quot;collaborators_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/collaborators{/collaborator}&quot;,
+  &quot;teams_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/teams&quot;,
+  &quot;hooks_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/hooks&quot;,
+  &quot;issue_events_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/issues/events{/number}&quot;,
+  &quot;events_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/events&quot;,
+  &quot;assignees_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/assignees{/user}&quot;,
+  &quot;branches_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/branches{/branch}&quot;,
+  &quot;tags_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/tags&quot;,
+  &quot;blobs_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/git/blobs{/sha}&quot;,
+  &quot;git_tags_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/git/tags{/sha}&quot;,
+  &quot;git_refs_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/git/refs{/sha}&quot;,
+  &quot;trees_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/git/trees{/sha}&quot;,
+  &quot;statuses_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/statuses/{sha}&quot;,
+  &quot;languages_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/languages&quot;,
+  &quot;stargazers_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/stargazers&quot;,
+  &quot;contributors_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/contributors&quot;,
+  &quot;subscribers_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/subscribers&quot;,
+  &quot;subscription_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/subscription&quot;,
+  &quot;commits_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/commits{/sha}&quot;,
+  &quot;git_commits_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/git/commits{/sha}&quot;,
+  &quot;comments_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/comments{/number}&quot;,
+  &quot;issue_comment_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/issues/comments{/number}&quot;,
+  &quot;contents_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/contents/{+path}&quot;,
+  &quot;compare_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/compare/{base}...{head}&quot;,
+  &quot;merges_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/merges&quot;,
+  &quot;archive_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/{archive_format}{/ref}&quot;,
+  &quot;downloads_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/downloads&quot;,
+  &quot;issues_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/issues{/number}&quot;,
+  &quot;pulls_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/pulls{/number}&quot;,
+  &quot;milestones_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/milestones{/number}&quot;,
+  &quot;notifications_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/notifications{?since,all,participating}&quot;,
+  &quot;labels_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/labels{/name}&quot;,
+  &quot;releases_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/releases{/id}&quot;,
+  &quot;deployments_url&quot;: &quot;https://api.github.com/repos/flowck/all-contributors/deployments&quot;,
+  &quot;created_at&quot;: &quot;2019-03-28T09:20:02Z&quot;,
+  &quot;updated_at&quot;: &quot;2019-03-28T09:20:04Z&quot;,
+  &quot;pushed_at&quot;: &quot;2019-03-25T21:08:05Z&quot;,
+  &quot;git_url&quot;: &quot;git://github.com/flowck/all-contributors.git&quot;,
+  &quot;ssh_url&quot;: &quot;git@github.com:flowck/all-contributors.git&quot;,
+  &quot;clone_url&quot;: &quot;https://github.com/flowck/all-contributors.git&quot;,
+  &quot;svn_url&quot;: &quot;https://github.com/flowck/all-contributors&quot;,
+  &quot;homepage&quot;: &quot;https://allcontributors.org&quot;,
+  &quot;size&quot;: 15873,
+  &quot;stargazers_count&quot;: 0,
+  &quot;watchers_count&quot;: 0,
+  &quot;language&quot;: &quot;HTML&quot;,
+  &quot;has_issues&quot;: false,
+  &quot;has_projects&quot;: true,
+  &quot;has_downloads&quot;: true,
+  &quot;has_wiki&quot;: false,
+  &quot;has_pages&quot;: false,
+  &quot;forks_count&quot;: 0,
+  &quot;mirror_url&quot;: null,
+  &quot;archived&quot;: false,
+  &quot;disabled&quot;: false,
+  &quot;open_issues_count&quot;: 0,
+  &quot;license&quot;: {
+      &quot;key&quot;: &quot;mit&quot;,
+      &quot;name&quot;: &quot;MIT License&quot;,
+      &quot;spdx_id&quot;: &quot;MIT&quot;,
+      &quot;url&quot;: &quot;https://api.github.com/licenses/mit&quot;,
+      &quot;node_id&quot;: &quot;MDc6TGljZW5zZTEz&quot;
+  },
+  &quot;forks&quot;: 0,
+  &quot;open_issues&quot;: 0,
+  &quot;watchers&quot;: 0,
+  &quot;default_branch&quot;: &quot;master&quot;
+}</code></pre>
+<p>Challenging isn’t it? Manually? No!</p>
+<h2 id="Generating-interfaces-from-JSON-objects">Generating interfaces from JSON objects</h2>
+
+<p>On VS Code, I use the extension <strong><a href="https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype" target="_blank" rel="noopener">Paste JSON as CODE</a></strong>, and it enables me to paste JSON as an interface, even one as large as the described above. </p>
+<p>After you’ve installed it in your VS Code, follow the steps below:</p>
+<ul>
+<li>Open the desired <strong>.ts</strong> where you would like to paste the interface;</li>
+<li>Type the combination: <code>CMD + SHIFT + P</code> (macOS) or <code>CTRL + SHIFT + P</code> (Windows and Linux);</li>
+<li>Search for <code>Paste JSON as CODE</code> and press <code>ENTER</code>;</li>
+<li>A new input field will be displayed, paste the JSON code on it and press <code>ENTER</code>;</li>
+<li>The last step is to review and edit the names of the generated interfaces according to your needs;</li>
+</ul>
+<p><img src="/blog/blog-images/pasting-json-as-interfaces.gif" alt="VS Code"></p>
+<h2 id="What-can-you-do-if-you-use-another-editor">What can you do if you use another editor</h2>
+
+<p>I did a quick search for editors like Webstorm and Sublime Text, and unfortunately didn’t find an extension that does the same. Maybe I didn’t put enough effort into my search, however, the creators of <code>Past JSON as CODE</code> created an <a href="https://app.quicktype.io/" target="_blank" rel="noopener">online editor</a> where you can paste JSON code and get the equivalent interface. </p>
+<p><img src="/blog/blog-images/Instantly_parse_JSON_in_any_language___quicktype.png" alt="Quicktype"></p>
+<h2 id="Conclusion">Conclusion</h2>
+
+<p>I’ve been using <code>Past JSON as CODE</code> extension for a while, and one thing that saves me time is the fact that it generates the interfaces recursively on nested JSON objects, giving me access to its child interfaces on a single operation.</p>
+<p>To close this post, I’d say:</p>
+<blockquote>
+<p>Automate whenever you can, your mind should busy with non-trivial thoughts and decisions</p>
+</blockquote>
+<h2 id="References">References</h2>
+
+<ul>
+<li><a href="https://quicktype.io/" target="_blank" rel="noopener">Quicktype</a></li>
+</ul>
+</div></article><a href="https://changani.me" target="_blank" rel="noopener"><section class="about-me is-flex"><figure class="about-me__photo"><img src="http://localhost:4000/blog/img/me-2020.png" alt="Firmino Changani"></figure><div class="about-me__bio"><p>I'm Firmino, and here I write about web application development. Leave your comment below and let's discuss about the topic above. Cheers!</p></div></section></a><div id="disqus_thread"></div></section></div><script>/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = window.location.href; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://firmino-changani-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();</script><footer class="footer"><div class="wrap is-flex is-centered-x"><div class="footer__copyright"><p>Firmino Changani</p></div></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=UA-151333822-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-151333822-1');</script><script src="/blog/js/highlight.pack.js"></script><script>document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.configure({
+      tabReplace: '  ',
+    });
+    hljs.highlightBlock(block);
+  });
+});</script></div></body></html>

@@ -1,0 +1,30 @@
+@import "partials/reset";
+@import "partials/grid";
+@import "partials/colors.scss";
+@import "partials/fonts.scss";
+
+// div,
+// section,
+// article,
+// header,
+// nav {
+//   border: 1px solid red;
+// }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: $color-white;
+  font-weight: normal;
+  font-family: $font-body;
+  background-color: $background-color;
+}
+
+a {
+  color: $color-white;
+  text-decoration: none;
+  transition: color 0.5s;
+}

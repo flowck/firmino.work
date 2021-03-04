@@ -1,4 +1,5 @@
 @import "partials/reset";
+@import "partials/mediaqueries";
 @import "partials/grid";
 @import "partials/colors.scss";
 @import "partials/fonts.scss";
@@ -27,4 +28,8 @@ a {
   color: $color-white;
   text-decoration: none;
   transition: color 0.5s;
+}
+
+p {
+  line-height: 1.5;
 }

@@ -15,7 +15,8 @@
         <br />
         <p>
           Get to know more about my professional path on LinkedIn, and read my thoughts on my personal
-          <router-link :to="{ name: 'Blog' }">blog</router-link>.
+          <router-link :to="{ name: 'Blog' }">blog</router-link>
+          .
         </p>
       </div>
     </article>
@@ -23,19 +24,17 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { Vue, Component } from "vue-property-decorator";
 
-@Options({})
+@Component
 export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles/partials/fonts";
-
 .app-home {
+  height: 100%;
   display: flex;
   align-items: center;
-  height: calc(100% - 50px);
 }
 
 .app-me {

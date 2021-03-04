@@ -1,13 +1,16 @@
-import { createApp } from "vue";
+import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { register } from "./components/_globals";
+import "@/components/_globals";
+import axios from "axios";
 
-const app = createApp(App)
-  .use(store)
-  .use(router);
+Vue.config.productionTip = false;
 
-register(app);
+axios.defaults.baseURL = process.env.VUE_APP_API;
 
-app.mount("#app");
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

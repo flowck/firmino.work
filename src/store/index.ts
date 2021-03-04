@@ -1,8 +1,18 @@
-import { createStore } from "vuex";
+import Vue from "vue";
+import Vuex from "vuex";
+import { Modules } from "./contants";
+import { IRootState } from "./IRootState";
+import { PostModule } from "./modules/postModule";
 
-export default createStore({
-  state: {},
-  mutations: {},
+Vue.use(Vuex);
+
+const rootState: IRootState = {
+  isLoading: false
+};
+
+export default new Vuex.Store({
   actions: {},
-  modules: {}
+  mutations: {},
+  state: rootState,
+  modules: { [Modules.POST_MODULE]: PostModule }
 });

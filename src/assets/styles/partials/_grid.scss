@@ -1,4 +1,12 @@
 .app-container {
-  width: 90%;
+  width: 700px;
   margin: 0 auto;
+
+  &--full {
+    width: 90%;
+  }
+
+  @include mq-mobile {
+    width: 90%;
+  }
 }

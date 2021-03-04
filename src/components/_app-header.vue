@@ -1,8 +1,8 @@
 <template>
   <header class="app-header">
-    <div class="app-header__container app-container">
+    <div class="app-header__container app-container app-container--full">
       <div class="app-header__title">
-        <router-link to="/">
+        <router-link :to="{ name: 'Home' }">
           Firmino Changani
         </router-link>
       </div>
@@ -26,25 +26,29 @@
 </template>
 
 <style scoped lang="scss">
-@import "../assets/styles/partials/colors";
-@import "../assets/styles/partials/fonts";
-
 .app-header {
-  height: 50px;
+  height: 70px;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: $color-dark;
+  }
 
   &__container {
     display: flex;
     height: inherit;
     align-items: center;
+    background-color: transparent;
     justify-content: space-between;
   }
 
-  &__title {
+  &__title a {
     font-size: 12px;
+    color: $color-highlight;
     font-family: $font-headline;
 
-    &:hover a {
-      color: $color-highlight;
+    &:hover {
+      color: $color-white;
     }
   }
 
@@ -54,7 +58,7 @@
 
       li {
         a {
-          font-size: 12px;
+          font-size: 14px;
         }
 
         &:hover {
@@ -62,10 +66,10 @@
             color: $color-highlight;
           }
         }
-      }
 
-      li:not(:first-child) {
-        margin-left: 20px;
+        &:not(:first-child) {
+          margin-left: 20px;
+        }
       }
     }
   }

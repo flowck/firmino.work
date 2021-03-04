@@ -1,0 +1,9 @@
+@mixin app-spacing($property, $value) {
+  $sizes: (
+    "s": 10px,
+    "m": 30px,
+    "l": 60px
+  );
+
+  #{$property}: map-get($sizes, $value);
+}

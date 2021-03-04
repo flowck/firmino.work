@@ -1,2 +1,9 @@
-$font-headline: "Press Start 2P", cursive;
 $font-body: "Roboto", arial;
+$font-heading: "Noticia Text", arial;
+$font-headline: "Press Start 2P", cursive;
+
+.font-heading {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: $font-heading;
+}

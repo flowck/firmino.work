@@ -59,6 +59,7 @@
       li {
         a {
           font-size: 14px;
+          font-family: $font-body;
         }
 
         &:hover {

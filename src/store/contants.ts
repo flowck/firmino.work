@@ -1,5 +1,8 @@
 export enum Actions {
-  GetPosts = "getPosts"
+  GetPosts = "getPosts",
+  SetCurrentPost = "setCurrentPost",
+  GetCurrentPost = "getCurrentPost",
+  HandleRequestError = "handleRequestError"
 }
 
 export enum Modules {
@@ -7,5 +10,6 @@ export enum Modules {
 }
 
 export enum Getters {
-  POSTS = "posts"
+  POSTS = "posts",
+  CURRENT_POST = "currentPost"
 }

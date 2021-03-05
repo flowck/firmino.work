@@ -1,5 +1,10 @@
 <template>
   <article class="app-post">
+    <div class="app-post__metadata">
+      <div class="app-post__metadata__item">
+        {{ post.createdAt | formatDate }}
+      </div>
+    </div>
     <h1 class="app-post__title font-heading">
       <router-link :to="{ name: 'Post', params: { id: `${post.slug}__${post.id}` } }">
         {{ post.title }}
@@ -7,11 +12,6 @@
     </h1>
     <div class="app-post__content" v-if="!isFull" v-html="post.excerpt"></div>
     <div class="app-post__content" v-else v-html="post.content"></div>
-    <div class="app-post__metadata">
-      <div class="app-post__metadata__item">
-        {{ post.createdAt }}
-      </div>
-    </div>
   </article>
 </template>
 
@@ -42,7 +42,7 @@ export default class PostPreview extends Vue {
   }
 
   &__title {
-    @include app-spacing("margin-bottom", "s");
+    @include app-spacing("margin-bottom", "m");
   }
 
   &:not(:last-child) {
@@ -55,12 +55,18 @@ export default class PostPreview extends Vue {
     p {
       line-height: 1.8;
     }
+
+    img {
+      width: 100%;
+      height: auto;
+      @include app-spacing("margin", "m");
+    }
   }
 
   &__metadata {
-    font-size: 14px;
+    font-size: 12px;
     color: $color-grey;
-    @include app-spacing("margin-top", "s");
+    @include app-spacing("margin-bottom", "s");
   }
 }
 </style>

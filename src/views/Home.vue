@@ -5,19 +5,11 @@
       <h1 class="app-me__title">Firmino Changani</h1>
       <div class="app-me__intro">
         <p>
-          Interested in continuous improvement, listening to other people's life experiences, share thoughts and
-          ultimately, make people around me comfortable and happy.
+          I am a Software Engineer passionate about building products. At the moment I am focused in Node.js, and
+          Typescript.
         </p>
         <br />
-        <p>
-          Professionally, I am a Software Engineer and most of the time I am focused on Frontend Engineering.
-        </p>
-        <br />
-        <p>
-          Get to know more about my professional path on LinkedIn, and read my thoughts on my personal
-          <router-link :to="{ name: 'Blog' }">blog</router-link>
-          .
-        </p>
+        <p>Interested in Software Architecture, Standards, well known Patterns, and modern Distributed Systems.</p>
       </div>
     </article>
   </div>
@@ -29,7 +21,16 @@ import { Vue, Component } from "vue-property-decorator";
 @Component({
   metaInfo: {
     titleTemplate: "",
-    title: "Firmino Changani"
+    title: "Firmino Changani",
+    meta: [
+      {
+        property: "og:description",
+        content: "Firmino is a software engineer, passionate about building projects based in Javascript and Nodejs."
+      },
+      { property: "og:title", content: "Firmino Changani" },
+      { property: "og:url", content: "https://changani.me" },
+      { property: "og:image", content: "https://changani.me/site/firminochangani.png" }
+    ]
   }
 })
 export default class Home extends Vue {}
@@ -63,6 +64,10 @@ export default class Home extends Vue {}
     width: 100px;
     margin: 0 auto;
     border-radius: 50%;
+  }
+
+  &__intro {
+    font-size: 14px;
   }
 }
 </style>

@@ -10,20 +10,38 @@
         <ul>
           <li>
             <router-link :to="{ name: 'Blog' }" id="nav_blog">
-              <a>Blog</a>
+              Blog
             </router-link>
           </li>
 
           <li>
             <router-link :to="{ name: 'Archive' }" id="nav_archive">
-              <a>Archive</a>
+              Archive
             </router-link>
+          </li>
+
+          <li>
+            <a :href="GITHUB">Github</a>
+          </li>
+
+          <li>
+            <a :href="LINKEDIN">LinkedIn</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+
+@Component
+export default class Header extends Vue {
+  private readonly GITHUB = "https://github.com/flowck";
+  private readonly LINKEDIN = "https://linkedin.com/in/firminochangani";
+}
+</script>
 
 <style scoped lang="scss">
 .app-header {

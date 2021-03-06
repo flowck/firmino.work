@@ -26,6 +26,6 @@ export default class App extends Vue {}
 .app-views {
   @include app-spacing("padding-top", "l");
   @include app-spacing("padding-bottom", "l");
-  height: calc(100% - 70px);
+  min-height: calc(100% - 70px);
 }
 </style>

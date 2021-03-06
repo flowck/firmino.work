@@ -37,13 +37,16 @@ export default class Home extends Vue {}
 
 <style scoped lang="scss">
 .app-home {
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: 550px;
   display: flex;
+  position: absolute;
   align-items: center;
+  transform: translate(-50%, -50%);
 }
 
 .app-me {
-  width: 400px;
   display: flex;
   margin: 0 auto;
   text-align: center;

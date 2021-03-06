@@ -15,8 +15,8 @@
           </li>
 
           <li>
-            <router-link :to="{ name: 'Home' }">
-              <a>Projects</a>
+            <router-link :to="{ name: 'Archive' }">
+              <a>Archive</a>
             </router-link>
           </li>
         </ul>
@@ -59,7 +59,7 @@
       li {
         a {
           font-size: 14px;
-          font-family: $font-body;
+          font-family: $font-regular;
         }
 
         &:hover {

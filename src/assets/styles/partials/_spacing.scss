@@ -5,5 +5,9 @@
     "l": 60px
   );
 
-  #{$property}: map-get($sizes, $value);
+  @if map-get($sizes, $value) {
+    #{$property}: map-get($sizes, $value);
+  } @else {
+    #{$property}: $value;
+  }
 }

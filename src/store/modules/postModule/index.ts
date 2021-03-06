@@ -49,7 +49,7 @@ const actions: ActionTree<IPostModuleState, IRootState> = {
 
     commit(Mutations.SET_CURRENT_POST, post);
   },
-  [Actions.HandleRequestError]: ({ dispatch }, error) => {
+  [Actions.HandleRequestError]: () => {
     console.log("SOMETHING FAILED");
   }
 };

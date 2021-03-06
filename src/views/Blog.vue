@@ -1,13 +1,13 @@
 <template>
   <div class="app-blog">
-    <app-post v-for="post in posts" :key="post.id" :post="post"></app-post>
+    <app-post v-for="post in posts" :key="post.id" :post="post" />
+    <app-link :to="{ name: 'Archive' }">More posts</app-link>
   </div>
 </template>
 
 <script lang="ts">
 import { mapActions, mapGetters } from "vuex";
 import { Vue, Component } from "vue-property-decorator";
-import { IPost } from "@/store/modules/postModule/IPost";
 import { Actions, Getters, Modules } from "@/store/contants";
 
 @Component({
@@ -20,25 +20,12 @@ import { Actions, Getters, Modules } from "@/store/contants";
   }
 })
 export default class Blog extends Vue {
-  private currentPost!: IPost;
   private getPosts!: Function;
   private doesCacheContainsPosts!: Function;
-
-  private metaInfo() {
-    return {
-      title: this.currentPost.title
-    };
-  }
 
   private async created() {
     if (!this.doesCacheContainsPosts) {
       await this.getPosts();
-    }
-
-    if (this.currentPost) {
-      this.metaInfo = () => {
-        title: this.currentPost.title;
-      };
     }
   }
 }

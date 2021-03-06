@@ -7,13 +7,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { MetaInfo } from "vue-meta";
 import { Vue, Component } from "vue-property-decorator";
 
 @Component({
-  metaInfo: { titleTemplate: "%s - Firmino Changani" }
+  metaInfo(this: App): MetaInfo {
+    return {
+      titleTemplate: "%s - Firmino Changani",
+      meta: [
+        { name: "twitter:creator", content: "@firminochangani" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: this.defaultCover }
+      ]
+    };
+  }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private readonly defaultCover = `${process.env.VUE_APP_HOST}/images/firminochangani.png`;
+}
 </script>
 
 <style lang="scss">

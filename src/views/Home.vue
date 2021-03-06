@@ -40,11 +40,26 @@ export default class Home extends Vue {}
 .app-home {
   top: 50%;
   left: 50%;
-  width: 550px;
+  width: 475px;
   display: flex;
   position: absolute;
   align-items: center;
   transform: translate(-50%, -50%);
+
+  @include mq-mobile {
+    width: 90%;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  .app-home {
+    top: initial;
+    left: initial;
+    display: block;
+    margin: 0 auto;
+    transform: none;
+    position: relative;
+  }
 }
 
 .app-me {

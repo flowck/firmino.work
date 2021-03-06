@@ -76,7 +76,7 @@ export default class PostPreview extends Vue {
   }
 
   &__title {
-    font-size: 25px;
+    font-size: 22px;
     font-family: $font-heading-one, arial;
     @include app-spacing("margin-bottom", "m");
 

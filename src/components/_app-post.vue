@@ -1,23 +1,22 @@
 <template>
-  <article class="app-post">
+  <article :class="`app-post ${archiveSpacing}`">
     <div class="app-post__metadata">
-      <div class="app-post__metadata__item">
+      <div v-if="showDate" class="app-post__metadata__item">
         {{ post.createdAt | formatDate }}
       </div>
     </div>
     <h1 class="app-post__title font-heading">
       <router-link :to="{ name: 'Post', params: { id: `${post.slug}__${post.id}` } }">
-        {{ decode(post.title) }}
+        {{ post.title }}
       </router-link>
     </h1>
-    <div class="app-post__content" v-if="(!isFull && showExcerpt) || showExcerpt" v-html="post.excerpt"></div>
+    <div class="app-post__content" v-if="showExcerpt" v-html="post.excerpt"></div>
     <div class="app-post__content" v-if="isFull" v-html="post.content"></div>
   </article>
 </template>
 
 <script lang="ts">
 import Prism from "prismjs";
-import { decode } from "html-entities";
 import "prismjs/components/prism-json";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-javascript";
@@ -26,8 +25,6 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class PostPreview extends Vue {
-  private readonly decode = decode;
-
   @Prop({ required: true })
   private post!: IPost;
 
@@ -37,6 +34,17 @@ export default class PostPreview extends Vue {
   @Prop({ default: true })
   private showExcerpt!: boolean;
 
+  @Prop({ default: true })
+  private showDate!: boolean;
+
+  get isArchive() {
+    return !this.showDate && !this.showExcerpt && !this.isFull;
+  }
+
+  get archiveSpacing() {
+    return this.isArchive ? "app-post--is-archive" : "";
+  }
+
   private mounted() {
     Prism.highlightAll();
   }
@@ -45,6 +53,20 @@ export default class PostPreview extends Vue {
 
 <style lang="scss">
 .app-post {
+  @include app-spacing("margin-bottom", "l");
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--is-archive {
+    @include app-spacing("margin-bottom", "s");
+
+    .app-post__title {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     transition: color 0.5s;
 
@@ -61,10 +83,6 @@ export default class PostPreview extends Vue {
     @include mq-tablet {
       font-size: 20px;
     }
-  }
-
-  &:not(:last-child) {
-    @include app-spacing("margin-bottom", "l");
   }
 
   &__content {
@@ -95,8 +113,11 @@ export default class PostPreview extends Vue {
       @include app-spacing("margin-bottom", "s");
     }
 
+    ul,
+    ol,
     pre,
-    img {
+    img,
+    blockquote {
       @include app-spacing("margin-top", "m");
       @include app-spacing("margin-bottom", "m");
     }
@@ -111,6 +132,34 @@ export default class PostPreview extends Vue {
       @include mq-tablet {
         font-size: 12px;
       }
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+
+      ol {
+        list-style: disc;
+      }
+    }
+
+    ul,
+    ol {
+      margin-left: 16px;
+      ol,
+      ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    blockquote {
+      border-radius: 2px;
+      background-color: $color-dark--light;
+      @include app-spacing("padding", "m");
     }
   }
 

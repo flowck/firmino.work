@@ -9,13 +9,13 @@
       <nav class="app-header__navigation">
         <ul>
           <li>
-            <router-link :to="{ name: 'Blog' }">
+            <router-link :to="{ name: 'Blog' }" id="nav_blog">
               <a>Blog</a>
             </router-link>
           </li>
 
           <li>
-            <router-link :to="{ name: 'Archive' }">
+            <router-link :to="{ name: 'Archive' }" id="nav_archive">
               <a>Archive</a>
             </router-link>
           </li>

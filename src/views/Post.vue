@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
+import { MetaInfo } from "vue-meta";
 import { mapActions, mapGetters } from "vuex";
 import { Vue, Component } from "vue-property-decorator";
 import { IPost } from "@/store/modules/postModule/IPost";
 import { Actions, Getters, Modules } from "@/store/contants";
-import { MetaInfo } from "vue-meta";
 
 @Component({
   metaInfo(this: PostView): MetaInfo {

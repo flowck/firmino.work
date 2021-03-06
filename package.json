@@ -3,17 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
     "build": "vue-cli-service build:prerender",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "cy:open": "cypress open"
-  },
-  "vuePlugins": {
-    "service": [
-      "build.prerender.js"
-    ]
+    "cy:open": "cypress open",
+    "sitemap": "vue-cli-service sitemap",
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -55,6 +51,12 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-sitemap": "~2.3.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "vuePlugins": {
+    "service": [
+      "build.prerender.js"
+    ]
   }
 }

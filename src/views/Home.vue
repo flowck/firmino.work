@@ -1,7 +1,7 @@
 <template>
   <div class="app-home">
     <article class="app-me">
-      <img class="app-me__avatar" src="/images/me.png" alt="Firmino Changani" />
+      <img class="app-me__avatar" src="/images/me.jpg" alt="Firmino Changani" />
       <h1 class="app-me__title">Firmino Changani</h1>
       <div class="app-me__intro">
         <p>

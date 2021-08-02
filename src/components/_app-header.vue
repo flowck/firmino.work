@@ -7,24 +7,30 @@
         </router-link>
       </div>
       <nav :class="`app-header__navigation ${navStatusClass}`">
-        <ul>
-          <li @click="isMenuOpen = false">
+        <ul ref="menu" @click.capture="toggleMenu">
+          <li>
+            <router-link :to="{ name: 'Portfolio' }" id="nav_portfolio">
+              Portfolio
+            </router-link>
+          </li>
+
+          <li>
             <router-link :to="{ name: 'Blog' }" id="nav_blog">
               Blog
             </router-link>
           </li>
 
-          <li @click="isMenuOpen = false">
+          <li>
             <router-link :to="{ name: 'Archive' }" id="nav_archive">
               Archive
             </router-link>
           </li>
 
-          <li @click="isMenuOpen = false">
+          <li>
             <a :href="GITHUB">Github</a>
           </li>
 
-          <li @click="isMenuOpen = false">
+          <li>
             <a :href="LINKEDIN">LinkedIn</a>
           </li>
         </ul>

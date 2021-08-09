@@ -52,10 +52,5 @@
     "typescript": "~3.9.3",
     "vue-cli-plugin-sitemap": "~2.3.0",
     "vue-template-compiler": "^2.6.11"
-  },
-  "vuePlugins": {
-    "service": [
-      "build.prerender.js"
-    ]
   }
 }

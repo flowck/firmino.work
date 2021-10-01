@@ -67,14 +67,6 @@ export default class PostPreview extends Vue {
     }
   }
 
-  a {
-    transition: color 0.5s;
-
-    &:hover {
-      color: $color-highlight;
-    }
-  }
-
   &__title {
     font-size: 22px;
     font-family: $font-heading-one, arial;

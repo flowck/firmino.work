@@ -18,8 +18,12 @@ body {
 
 a {
   color: $color-white;
-  text-decoration: none;
+  text-decoration: underline;
   transition: color 0.5s;
+
+  &:hover {
+    color: $color-highlight;
+  }
 }
 
 p {

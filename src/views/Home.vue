@@ -5,11 +5,18 @@
       <h1 class="app-me__title">Firmino Changani</h1>
       <div class="app-me__intro">
         <p>
-          I am a Software Engineer passionate about building products. At the moment I am focused in Node.js, and
-          Typescript.
+          I am a Software Engineer with over {{ yearsOfExperience }} years of experience. Over my past and current job
+          experience, I have been focused on Frontend Engineering.
         </p>
         <br />
-        <p>Interested in Software Architecture, Standards, well known Patterns, and modern Distributed Systems.</p>
+        <p>
+          Please refer to my
+          <a href="https://linkedin.com/in/firminochangani">LinkedIn</a>
+          or
+          <a href="https://github.com/flowck">Github</a>
+          to get to know more about my professional track and side-projects I invest my time into.
+        </p>
+        <br />
       </div>
     </article>
   </div>
@@ -33,7 +40,11 @@ import { Vue, Component } from "vue-property-decorator";
     ]
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  get yearsOfExperience(): number | string | Date {
+    return new Date().getFullYear() - 2015;
+  }
+}
 </script>
 
 <style scoped lang="scss">

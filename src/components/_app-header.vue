@@ -15,9 +15,9 @@
           </li>
 
           <li>
-            <router-link :to="{ name: 'Blog' }" id="nav_blog">
+            <a href="https://blog.changani.me">
               Blog
-            </router-link>
+            </a>
           </li>
 
           <li>

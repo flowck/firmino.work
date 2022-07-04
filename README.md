@@ -1,3 +1,3 @@
-# changani.me
+# `changani.me`
 
-My personal website powered by Vue, and Wordpress API.
+New version, now faster and without all the non-sense code.

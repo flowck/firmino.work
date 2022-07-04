@@ -1,0 +1,19 @@
+{
+  "name": "changani.me",
+  "version": "1.0.0",
+  "description": "New version, now faster and without all the non-sense code.",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir dist; cp index.html ./dist; cp robots.txt ./dist; cp sitemap.xml ./dist; cp -r assets ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowck/changani.me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowck/changani.me/issues"
+  },
+  "homepage": "https://github.com/flowck/changani.me#readme"
+}

@@ -9,10 +9,12 @@ jobs:
     name: My job
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Deploy to changani.me
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'changani.me'
-          project: '.'
+          project: './'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}

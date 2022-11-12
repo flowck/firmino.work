@@ -1,5 +1,5 @@
 import { getBlogPaths, getBlogPostBySlug, PostMetadata } from "lib/posts";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 interface Props {
   content: string;

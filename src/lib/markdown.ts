@@ -3,7 +3,7 @@ import { marked } from "marked";
 
 interface MarkdownDocument<T> {
   content: string;
-  metadata: T | Record<string, string>;
+  metadata: T;
 }
 
 export async function getContentFromMarkdown<T>(page: string): Promise<MarkdownDocument<T>> {

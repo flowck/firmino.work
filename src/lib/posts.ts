@@ -6,6 +6,12 @@ interface BlogPath {
   params: { slug: string };
 }
 
+export interface BlogPost {
+  slug: string;
+  content: string;
+  metadata: PostMetadata;
+}
+
 export interface PostMetadata {
   title: string;
   date: Date;
@@ -23,9 +29,22 @@ export async function getBlogPaths(): Promise<BlogPath[]> {
   return blogPaths;
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost> {
   const fileName = path.join(process.cwd(), "src/posts", `${slug}.md`);
   const postFile = await fs.readFile(fileName, { encoding: "utf8" });
+  const post = await getContentFromMarkdown<PostMetadata>(postFile);
 
-  return getContentFromMarkdown<PostMetadata>(postFile);
+  return { ...post, slug };
+}
+
+export async function getAllBlogPosts() {
+  const paths = await getBlogPaths();
+  const postAsyncCalls = [];
+
+  for (const item of paths) {
+    postAsyncCalls.push(getBlogPostBySlug(item.params.slug));
+  }
+
+  const posts = await Promise.all(postAsyncCalls);
+  return posts.sort((postA, postB) => (postA.metadata.date > postB.metadata.date ? -1 : 1));
 }

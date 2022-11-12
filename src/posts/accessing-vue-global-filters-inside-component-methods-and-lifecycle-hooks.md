@@ -14,7 +14,7 @@ If you are not familiar with Filters in Vuejs, here is a more formal concept:
 
 > Vue.js allows you to define filters that can be used to apply common text formatting.
 
-**Example:** Filter to formate a number to USD.
+**Example:** Filter to format a number to USD.
 
 ```html
 <div class="product">

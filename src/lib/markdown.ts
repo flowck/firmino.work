@@ -1,5 +1,7 @@
 import matter from "gray-matter";
-import { marked } from "marked";
+import html from "remark-html";
+import { remark } from "remark";
+import prism from "remark-prism";
 
 interface MarkdownDocument<T> {
   content: string;
@@ -8,7 +10,7 @@ interface MarkdownDocument<T> {
 
 export async function getContentFromMarkdown<T>(page: string): Promise<MarkdownDocument<T>> {
   const { content: contentInMd, data: metadata } = matter(page);
-  const content = marked.parse(contentInMd);
+  const content = await remark().use(html, { sanitize: true }).use(prism).process(contentInMd);
 
-  return { content, metadata: JSON.parse(JSON.stringify(metadata)) };
+  return { content: content.toString(), metadata: JSON.parse(JSON.stringify(metadata)) };
 }

@@ -14,7 +14,7 @@ describe("markdow/getContentFromMarkdown", () => {
     const { content, metadata } = await getContentFromMarkdown<{ title: string }>(post);
 
     expect(metadata).toBeTruthy();
-    expect(content).toBeTruthy();
+    expect(content).toBeDefined();
     expect(metadata.title).toBe("Hello World");
   });
 });

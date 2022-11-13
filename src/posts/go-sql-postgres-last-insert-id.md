@@ -9,12 +9,15 @@ cover: "posts/golang.png"
 I've just stumbled upon a challenge, where I needed a query to return the ID of the last inserted row, and I was querying using `ExecContext` and the method `LastInsertId()` to retrieve the `id`:
 
 ```go
-    result, err := Db.ExecContext(ctx, `INSERT INTO tenants (name) VALUES ($1)`, "My Awesome, Inc.");
+result, err := Db.ExecContext(ctx, `INSERT INTO tenants (name) VALUES ($1)`, "My Awesome, Inc.")
 
-    // Handle error ...
-    id, _ := result.LastInsertId()
+if err != nil {
+	// do something with the error
+}
 
-    fmt.Println(id) // 0
+id, _ := result.LastInsertId()
+
+fmt.Println(id) // 0
 ```
 
 However, the `id` returned was always 0, despite the `id` type being set as a `VARCHAR`. After a quick digging I learned that unless the table's `id` has been created with a [`SEQUENCE`](https://www.postgresql.org/docs/9.5/sql-createsequence.html) generator, PostgreSQL won't return the `id` upon row insertion.
@@ -22,7 +25,6 @@ However, the `id` returned was always 0, despite the `id` type being set as a `V
 To overcome the challenge I've just described above, I've used the [`RETURNING`](https://www.postgresql.org/docs/9.5/dml-returning.html) clause, and replaced Go's `Db.ExecContext()` with `Db.QueryRowContext()` to gain access to the modified row.
 
 Take a look at the full script:
-
 
 ```go
 func FindTenantById(ctx context.Context, id string) (*Tenant, error) {

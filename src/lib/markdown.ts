@@ -10,7 +10,7 @@ interface MarkdownDocument<T> {
 
 export async function getContentFromMarkdown<T>(page: string): Promise<MarkdownDocument<T>> {
   const { content: contentInMd, data: metadata } = matter(page);
-  const content = await remark().use(html, { sanitize: true }).use(prism).process(contentInMd);
 
+  const content = await remark().use(html, { sanitize: false }).use(prism).process(contentInMd);
   return { content: content.toString(), metadata: JSON.parse(JSON.stringify(metadata)) };
 }

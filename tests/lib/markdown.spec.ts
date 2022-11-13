@@ -11,10 +11,7 @@ Hello world
 
 describe("markdow/getContentFromMarkdown", () => {
   test("expect to return an object with the post content and the metadata", async () => {
-    const { content, metadata } = await getContentFromMarkdown<{ title: string }>(post);
-
-    expect(metadata).toBeTruthy();
+    const content = await getContentFromMarkdown(post);
     expect(content).toBeDefined();
-    expect(metadata.title).toBe("Hello World");
   });
 });

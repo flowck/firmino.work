@@ -1,4 +1,5 @@
 import { Meta } from "components/Meta";
+import { getContentFromMarkdown } from "lib/markdown";
 import { getBlogPaths, getBlogPostBySlug, PostMetadata } from "lib/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -26,5 +27,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug;
   const { content, metadata } = await getBlogPostBySlug(slug as string);
-  return { props: { content, metadata } };
+  const html = await getContentFromMarkdown(content);
+  return { props: { content: html, metadata } };
 };

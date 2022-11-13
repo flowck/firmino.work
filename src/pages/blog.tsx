@@ -1,4 +1,5 @@
 import { Meta } from "components/Meta";
+import { BlogLayout } from "layouts/BlogLayout";
 import { getAllBlogPosts, PostMetadata } from "lib/posts";
 import { GetStaticProps } from "next";
 import Link from "next/link";
@@ -7,7 +8,7 @@ interface Props {
   posts: { content: string; metadata: PostMetadata; slug: string }[];
 }
 
-export default function Blog({ posts }: Props) {
+function Blog({ posts }: Props) {
   return (
     <>
       <Meta title="Blog" description="Ideas worth writing about" />
@@ -24,7 +25,11 @@ export default function Blog({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPosts();
+  const posts = await getAllBlogPosts(false);
 
   return { props: { posts } };
 };
+
+Blog.Layout = BlogLayout;
+
+export default Blog;

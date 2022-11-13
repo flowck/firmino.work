@@ -1,6 +1,6 @@
-import fs from "fs/promises";
 import path from "path";
-import { getContentFromMarkdown } from "./markdown";
+import fs from "fs/promises";
+import matter from "gray-matter";
 
 interface BlogPath {
   params: { slug: string };
@@ -29,22 +29,28 @@ export async function getBlogPaths(): Promise<BlogPath[]> {
   return blogPaths;
 }
 
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost> {
+export async function getBlogPostBySlug(slug: string, withContent = true) {
   const fileName = path.join(process.cwd(), "src/posts", `${slug}.md`);
-  const postFile = await fs.readFile(fileName, { encoding: "utf8" });
-  const post = await getContentFromMarkdown<PostMetadata>(postFile);
+  const content = await fs.readFile(fileName, { encoding: "utf8" });
+  const { content: contentInMd, data: metadata } = matter(content);
 
-  return { ...post, slug };
-}
+  const meta = JSON.parse(JSON.stringify(metadata));
 
-export async function getAllBlogPosts() {
-  const paths = await getBlogPaths();
-  const postAsyncCalls = [];
-
-  for (const item of paths) {
-    postAsyncCalls.push(getBlogPostBySlug(item.params.slug));
+  if (withContent) {
+    return { content: contentInMd, slug, metadata: meta };
   }
 
-  const posts = await Promise.all(postAsyncCalls);
+  return { content: "", slug, metadata: meta };
+}
+
+export async function getAllBlogPosts(withContent = true) {
+  const posts = [];
+  const paths = await getBlogPaths();
+
+  for (const item of paths) {
+    const post = await getBlogPostBySlug(item.params.slug, withContent);
+    posts.push(post);
+  }
+
   return posts.sort((postA, postB) => (postA.metadata.date > postB.metadata.date ? -1 : 1));
 }

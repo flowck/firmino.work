@@ -12,6 +12,7 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@next/font": "^13.0.3",
     "@stitches/react": "^1.2.8",
     "next": "13.0.3",
     "react": "18.2.0",

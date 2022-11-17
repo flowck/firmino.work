@@ -1,4 +1,5 @@
 import { Meta } from "components/Meta";
+import { PageHero } from "components/PageHero";
 import { BlogLayout } from "layouts/BlogLayout";
 import { getAllBlogPosts, PostMetadata } from "lib/posts";
 import { GetStaticProps } from "next";
@@ -12,6 +13,7 @@ function Blog({ posts }: Props) {
   return (
     <>
       <Meta title="Blog" description="Ideas worth writing about" />
+      <PageHero title="Blog" description="Our latest news, updates, and stories for developers" />
 
       {posts.map((post) => (
         <article key={post.metadata.title}>

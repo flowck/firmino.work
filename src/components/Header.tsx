@@ -4,9 +4,9 @@ import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 
 const Container = styled("header", {
+  height: "82px",
   width: "100%",
   color: "$white",
-  height: "82px",
   backgroundColor: "$shade900",
 });
 

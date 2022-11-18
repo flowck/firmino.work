@@ -3,15 +3,16 @@ title: Notes from - Writing idiomatic Go using Domain Driven Design, Damiano Pet
 date: 2022-07-07 12:16:00
 metatags: golanng, ddd
 description: My notes from Damiano Petrungaro's presentation about Golang and Domain-Driven Design
-cover: "posts/golang.png"
+cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
 ---
+
 ---
 
 > Rough notes. Please watch the [original](https://www.youtube.com/watch?v=dp1cc6-QKY0) presentation.
 
 - DDD usually requires two approaches: Strategic Design and Tactical Design
 - Artifacts should be grouped by (business) context rather than by kind
- 
+
 ![Packaging via bounded contexts](/posts/packaging-via-bounded-contexts.png)
 
 - When packages of different contexts need to communicate with each other, an Anti-Corruption layer can be introduced.
@@ -20,7 +21,7 @@ cover: "posts/golang.png"
 
 - Value Type ([Value Object](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects))
 - [Repository Pattern](https://threedots.tech/post/repository-pattern-in-go/)
-- A domain struct should not be created with invalid state, nor should it be allowed to have its state invalidated during runtime. 
+- A domain struct should not be created with invalid state, nor should it be allowed to have its state invalidated during runtime.
 
 ### Value Type Pattern
 

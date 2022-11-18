@@ -30,17 +30,38 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       8: "80px",
     },
     fonts: {},
+    radii: {
+      postCover: "6px",
+    },
   },
   media: {
     bp1: "(min-width: 480px)",
+    bp2: "(min-width: 480px)",
+    bp3: "(min-width: 1024px)",
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
+    customGrid: (type: "content" | "regular") => ({}),
+    subHeading: (type: "1" | "2" | "3") => {
+      const sizes: Record<string | number, string> = {
+        1: "31.3px",
+        2: "25px",
+        3: "20px",
+      };
+
+      return {
+        fontSize: sizes[type],
+        fontWeight: "normal",
+      };
+    },
   },
 });
 
 export const globalStyles = globalCss({
   "*": { margin: 0, padding: 0, boxSizing: "border-box" },
+  body: {
+    color: "$shade900",
+  },
 });
 
 export type CSSType = CSS<typeof config>;

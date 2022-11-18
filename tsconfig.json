@@ -18,6 +18,7 @@
     "paths": {
       "lib/*": ["./lib/*"],
       "components/*": ["./components/*"],
+      "icons/*": ["./icons/*"],
       "layouts/*": ["./layouts/*"]
     }
   },

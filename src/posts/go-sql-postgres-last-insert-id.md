@@ -3,7 +3,7 @@ title: Go/SQL/PostgreSQL - Custom LastInsertId
 date: 2022-07-01 21:33:00
 metatags: golang
 description: Using QueryRow to perform an INSERT and retrieve the id of the newly created row.
-cover: "posts/golang.png"
+cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
 ---
 
 I've just stumbled upon a challenge, where I needed a query to return the ID of the last inserted row, and I was querying using `ExecContext` and the method `LastInsertId()` to retrieve the `id`:

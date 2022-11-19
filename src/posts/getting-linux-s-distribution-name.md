@@ -14,7 +14,7 @@ cat /etc/os-release
 
 Which after ran, should print the following information in the terminal:
 
-```
+```bash
 PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
 NAME="Debian GNU/Linux"
 VERSION_ID="11"
@@ -30,5 +30,4 @@ Linux uses the file metioned in the command above to store information about the
 
 ## Further reading:
 
-* [os-release](https://www.linux.org/docs/man5/os-release.html)
-
+- [os-release](https://www.linux.org/docs/man5/os-release.html)

@@ -8,6 +8,7 @@ const Container = styled("footer", {
   color: "$white",
   padding: "$8 0",
   backgroundColor: "$shade900",
+  borderTop: "1px solid $shade800",
 });
 
 const gridOverride = { height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" };

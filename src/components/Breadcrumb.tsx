@@ -5,18 +5,23 @@ import { useEffect } from "react";
 import { styled } from "stitches.config";
 
 const Container = styled("nav", {
+  text: "copy",
+  color: "$shade700",
   textTransform: "capitalize",
 
   "> ul li a": {
-    color: "$shade700",
+    color: "$shade500",
   },
 
   "> ul": {
     display: "flex",
+    alignItems: "center",
   },
   "> ul li": {
+    display: "flex",
     listStyle: "none",
     marginRight: "$5",
+    alignItems: "center",
   },
 });
 

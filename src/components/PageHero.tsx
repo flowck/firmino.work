@@ -9,10 +9,12 @@ const Container = styled("section", {
   height: "400px",
   display: "flex",
   color: "$white",
+  padding: "0 $5",
   textAlign: "center",
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "$shade900",
+  borderBottom: "1px solid $shade800",
 });
 
 export function PageHero({ title, description }: Props) {

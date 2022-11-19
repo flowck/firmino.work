@@ -1,4 +1,8 @@
+import { GridContainer } from "components/GridContainer";
 import { Meta } from "components/Meta";
+import { PostContent } from "components/PostContent";
+import { PostHero } from "components/PostHero";
+import { PostLayout } from "layouts/PostLayout";
 import { getContentFromMarkdown } from "lib/markdown";
 import { getBlogPaths, getBlogPostBySlug, PostMetadata } from "lib/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -8,16 +12,20 @@ interface Props {
   metadata: PostMetadata;
 }
 
-export default function BlogPost({ metadata, content }: Props) {
+function BlogPost({ metadata, content }: Props) {
   return (
     <>
       <Meta title={metadata.title} description={metadata.description} cover={metadata.cover} />
-      {JSON.stringify(metadata)}
+      <PostHero cover={metadata.cover} title={metadata.title} />
 
-      <div dangerouslySetInnerHTML={{ __html: content }}></div>
+      <GridContainer type="content" css={{ marginBottom: "$8", marginTop: "$8" }}>
+        <PostContent content={content} />
+      </GridContainer>
     </>
   );
 }
+
+BlogPost.Layout = PostLayout;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getBlogPaths();
@@ -30,3 +38,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const html = await getContentFromMarkdown(content);
   return { props: { content: html, metadata } };
 };
+
+export default BlogPost;

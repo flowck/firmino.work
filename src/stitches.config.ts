@@ -18,6 +18,8 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       shade900: "#222222",
       shade800: "#484848",
       shade700: "#676767",
+      shade600: "#979797",
+      shade500: "#B8B8B8",
     },
     space: {
       1: "6px",
@@ -31,13 +33,15 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     },
     fonts: {},
     radii: {
-      postCover: "6px",
+      postCover: "3px",
+      codeSnippet: "3px",
     },
   },
   media: {
-    bp1: "(min-width: 480px)",
-    bp2: "(min-width: 480px)",
+    bp1: "(max-width: 480px)",
+    bp2: "(min-width: 780px)",
     bp3: "(min-width: 1024px)",
+    bp4: "(min-width: 1200px)",
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
@@ -54,13 +58,28 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         fontWeight: "normal",
       };
     },
+    text: (type: "body" | "copy" | "caption") => {
+      const styles = {
+        body: {
+          fontSize: "18px",
+          lineHeight: "32px",
+        },
+        copy: { fontSize: "14px" },
+        caption: { fontSize: "12px" },
+      };
+
+      return {
+        ...styles[type],
+      };
+    },
   },
 });
 
 export const globalStyles = globalCss({
   "*": { margin: 0, padding: 0, boxSizing: "border-box" },
   body: {
-    color: "$shade900",
+    color: "$white",
+    backgroundColor: "$shade900",
   },
 });
 

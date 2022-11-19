@@ -5,6 +5,12 @@ import { styled } from "stitches.config";
 const Container = styled("div", {
   ".logo-avatar": {
     borderRadius: "50%",
+    transition: "border 0.25s",
+    border: "2px solid $primary900",
+  },
+
+  "&:hover .logo-avatar": {
+    border: "2px solid $primary700",
   },
 
   "> a": {

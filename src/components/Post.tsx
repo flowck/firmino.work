@@ -1,21 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
 import { styled } from "stitches.config";
 
 const Container = styled("article", {
+  position: "relative",
+  paddingBottom: "$4",
   a: {
     color: "initial",
     textDecoration: "none",
   },
-  // border: "1px solid red",
+  "&::before": {
+    content: " ",
+    bottom: "0px",
+    width: "100%",
+    height: "4px",
+    borderRadius: "2px",
+    position: "absolute",
+    backgroundColor: "$shade900",
+    transition: "background-color 0.25s",
+  },
+  "&:hover::before": {
+    backgroundColor: "$primary900",
+  },
 });
 
 const Cover = styled("figure", {
   width: "100%",
-  aspectRatio: "5/3",
+  aspectRatio: "16/9",
   marginBottom: "$5",
   position: "relative",
+  borderRadius: "$postCover",
   // border: "1px solid red",
+  backgroundColor: "$shade700",
 
   "> img": {
     borderRadius: "$postCover",
@@ -23,13 +38,15 @@ const Cover = styled("figure", {
 });
 
 const PublicationDate = styled("span", {
-  color: "$shade700",
+  text: "copy",
   display: "block",
   marginBottom: "$2",
+  color: "$shade500",
 });
 
 const Heading = styled("h1", {
   subHeading: "3",
+  color: "$white",
 });
 
 interface Props {
@@ -47,7 +64,8 @@ export function Post({ path, title, cover, publicationDate }: Props) {
   return (
     <Container>
       <Link href={`/${path}`}>
-        <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover>
+        {/* <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover> */}
+        <Cover />
         <PublicationDate>{date}</PublicationDate>
         <Heading>{title}</Heading>
       </Link>

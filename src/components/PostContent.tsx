@@ -22,7 +22,7 @@ const Container = styled("article", {
     subHeading: "3",
   },
   "h1, h2, h3, h4, h5, h6": {
-    marginBottom: "$5",
+    margin: "$7 0 $5 0",
   },
   "p code": {
     padding: "4px $1",

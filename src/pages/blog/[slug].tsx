@@ -1,3 +1,4 @@
+import Breadcrumb from "components/Breadcrumb";
 import { GridContainer } from "components/GridContainer";
 import { Meta } from "components/Meta";
 import { PostContent } from "components/PostContent";
@@ -19,6 +20,7 @@ function BlogPost({ metadata, content }: Props) {
       <PostHero cover={metadata.cover} title={metadata.title} />
 
       <GridContainer type="content" css={{ marginBottom: "$8", marginTop: "$8" }}>
+        <Breadcrumb queryParams={{ "[slug]": metadata.title }} css={{ marginBottom: "$7" }} />
         <PostContent content={content} />
       </GridContainer>
     </>
@@ -29,7 +31,7 @@ BlogPost.Layout = PostLayout;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getBlogPaths();
-  return { paths: paths, fallback: false };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

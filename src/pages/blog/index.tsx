@@ -41,7 +41,7 @@ function Blog({ posts, highlightPosts }: Props) {
         >
           {highlightPosts.map((post) => (
             <Post
-              path={post.slug}
+              path={`blog/${post.slug}`}
               cover={post.metadata.cover}
               title={post.metadata.title}
               key={post.metadata.title}
@@ -53,10 +53,10 @@ function Blog({ posts, highlightPosts }: Props) {
         <PostListGrid>
           {posts.map((post) => (
             <Post
-              path={post.slug}
+              key={post.metadata.title}
+              path={`blog/${post.slug}`}
               cover={post.metadata.cover}
               title={post.metadata.title}
-              key={post.metadata.title}
               publicationDate={post.metadata.date}
             />
           ))}

@@ -40,5 +40,5 @@ When the query above is executed, the function COALESCE will replace the `NULL` 
 
 ## References
 
-- https://github.com/go-sql-driver/mysql/issues/34#issuecomment-158391340
-- https://www.postgresql.org/docs/14/functions-conditional.html#FUNCTIONS-COALESCE-NVL-IFNULL
+- [https://github.com/go-sql-driver/mysql/issues/34#issuecomment-158391340](https://github.com/go-sql-driver/mysql/issues/34#issuecomment-158391340)
+- [https://www.postgresql.org/docs/14/functions-conditional.html#FUNCTIONS-COALESCE-NVL-IFNULL](https://www.postgresql.org/docs/14/functions-conditional.html#FUNCTIONS-COALESCE-NVL-IFNULL)

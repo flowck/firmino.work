@@ -1,8 +1,8 @@
 import ChevronRight from "icons/chevron-right.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { styled } from "stitches.config";
+import React from "react";
+import { CSSType, styled } from "stitches.config";
 
 const Container = styled("nav", {
   text: "copy",
@@ -25,24 +25,40 @@ const Container = styled("nav", {
   },
 });
 
-export interface Props {}
-export default function Breadcrumb({}: Props) {
-  const router = useRouter();
+export interface Props {
+  css?: CSSType;
+  queryParams?: Record<string, string>;
+}
 
-  useEffect(() => {
-    console.log(router.basePath, router.pathname);
-  });
+/**
+ * Breadcrumb with support to only two levels of hierachy counting from the home page: /blog/[slug]
+ */
+export default function Breadcrumb({ css, queryParams = {} }: Props) {
+  const router = useRouter();
+  const subPaths = router.pathname.split("/").filter((item) => item);
 
   return (
-    <Container>
+    <Container css={css}>
       <ul>
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
-          <ChevronRight />
-        </li>
-        <li>{router.pathname.replace("/", "")}</li>
+
+        {subPaths.map((item, idx) => (
+          <React.Fragment key={idx}>
+            <li>
+              <ChevronRight />
+            </li>
+
+            {idx === subPaths.length - 1 ? (
+              <li>{queryParams[item] || item}</li>
+            ) : (
+              <li>
+                <Link href={`/${item}`}>{queryParams[item] || item}</Link>
+              </li>
+            )}
+          </React.Fragment>
+        ))}
       </ul>
     </Container>
   );

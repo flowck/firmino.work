@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Container = styled("section", {
-  height: "400px",
+  minHeight: "200px",
   display: "flex",
   color: "$white",
   padding: "0 $5",
@@ -15,6 +15,12 @@ const Container = styled("section", {
   justifyContent: "center",
   backgroundColor: "$shade900",
   borderBottom: "1px solid $shade800",
+  "@bp2": {
+    height: "300px",
+  },
+  "@bp3": {
+    height: "400px",
+  },
 });
 
 export function PageHero({ title, description }: Props) {

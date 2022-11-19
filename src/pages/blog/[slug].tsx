@@ -1,7 +1,9 @@
 import Breadcrumb from "components/Breadcrumb";
 import { GridContainer } from "components/GridContainer";
 import { Meta } from "components/Meta";
+import { PostAuthor } from "components/PostAuthor";
 import { PostContent } from "components/PostContent";
+import { PostHead } from "components/PostHead";
 import { PostHero } from "components/PostHero";
 import { PostLayout } from "layouts/PostLayout";
 import { getContentFromMarkdown } from "lib/markdown";
@@ -21,7 +23,9 @@ function BlogPost({ metadata, content }: Props) {
 
       <GridContainer type="content" css={{ marginBottom: "$8", marginTop: "$8" }}>
         <Breadcrumb queryParams={{ "[slug]": metadata.title }} css={{ marginBottom: "$7" }} />
+        <PostHead css={{ marginBottom: "$7" }} metadata={metadata} PostAuthor={<PostAuthor type="short" />} />
         <PostContent content={content} />
+        <PostAuthor css={{ marginTop: "$8" }} type="full" />
       </GridContainer>
     </>
   );

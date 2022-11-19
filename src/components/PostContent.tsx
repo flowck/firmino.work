@@ -29,6 +29,11 @@ const Container = styled("article", {
     backgroundColor: "$shade800",
     borderRadius: "$codeSnippet",
   },
+  "img, p img": {
+    display: "block",
+    maxWidth: "100%",
+    margin: "0 auto",
+  },
   a: {
     color: "$white",
     "&:hover": {

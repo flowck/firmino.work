@@ -1,3 +1,4 @@
+import { formatDate } from "lib/dates";
 import Link from "next/link";
 import { styled } from "stitches.config";
 
@@ -57,16 +58,12 @@ interface Props {
 }
 
 export function Post({ path, title, cover, publicationDate }: Props) {
-  const date = Intl.DateTimeFormat("en-GB", { month: "short", day: "2-digit", year: "numeric" }).format(
-    new Date(publicationDate)
-  );
-
   return (
     <Container>
       <Link href={`/${path}`}>
         {/* <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover> */}
         <Cover />
-        <PublicationDate>{date}</PublicationDate>
+        <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
         <Heading>{title}</Heading>
       </Link>
     </Container>

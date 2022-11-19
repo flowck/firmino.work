@@ -26,7 +26,7 @@ export function Logo() {
   return (
     <Container>
       <Link href="/">
-        <Image className="logo-avatar" src="/assets/img/me.jpg" width="40" height="40" alt="Firmino" />
+        <Image className="logo-avatar" src="/assets/img/me.webp" width="40" height="40" alt="Firmino" />
         FIRMINO
       </Link>
     </Container>

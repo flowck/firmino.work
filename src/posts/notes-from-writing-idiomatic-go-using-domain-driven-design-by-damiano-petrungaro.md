@@ -6,16 +6,13 @@ description: My notes from Damiano Petrungaro's presentation about Golang and Do
 cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
 ---
 
----
-
 > Rough notes. Please watch the [original](https://www.youtube.com/watch?v=dp1cc6-QKY0) presentation.
 
 - DDD usually requires two approaches: Strategic Design and Tactical Design
 - Artifacts should be grouped by (business) context rather than by kind
+- When packages of different contexts need to communicate with each other, an Anti-Corruption layer can be introduced.
 
 ![Packaging via bounded contexts](/posts/packaging-via-bounded-contexts.png)
-
-- When packages of different contexts need to communicate with each other, an Anti-Corruption layer can be introduced.
 
 ## Tactical Design
 
@@ -23,9 +20,9 @@ cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
 - [Repository Pattern](https://threedots.tech/post/repository-pattern-in-go/)
 - A domain struct should not be created with invalid state, nor should it be allowed to have its state invalidated during runtime.
 
-### Value Type Pattern
+### Value-Type Pattern
 
-A Value Type is equivalent to the Value Object pattern in OOP languages.
+A Value-Type is equivalent to the Value Object pattern in OOP languages.
 
 ### Repository Pattern
 

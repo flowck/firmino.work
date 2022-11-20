@@ -80,6 +80,8 @@ export const globalStyles = globalCss({
   body: {
     color: "$white",
     backgroundColor: "$shade900",
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;",
   },
 });
 

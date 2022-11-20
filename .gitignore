@@ -36,3 +36,5 @@ yarn-error.log*
 
 public/*.xml
 public/robots.txt
+
+.todo

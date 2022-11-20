@@ -12,14 +12,15 @@ import { getBlogPaths, getBlogPostBySlug, PostMetadata } from "lib/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 interface Props {
+  slug: string;
   content: string;
   metadata: PostMetadata;
 }
 
-function BlogPost({ metadata, content }: Props) {
+function BlogPost({ metadata, content, slug }: Props) {
   return (
     <>
-      <Meta title={metadata.title} description={metadata.description} cover={metadata.cover} />
+      <Meta title={metadata.title} description={metadata.description} cover={metadata.cover} path={`blog/${slug}`} />
       <PostHero cover={metadata.cover} title={metadata.title} />
 
       <GridContainer type="content" css={{ marginBottom: "$8", marginTop: "$8" }}>
@@ -44,7 +45,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug;
   const { content, metadata } = await getBlogPostBySlug(slug as string);
   const html = await getContentFromMarkdown(content);
-  return { props: { content: html, metadata } };
+  return { props: { content: html, metadata, slug } };
 };
 
 export default BlogPost;

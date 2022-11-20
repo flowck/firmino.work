@@ -21,14 +21,14 @@ const menuItems = [
     label: "Blog",
     path: "/blog",
   },
-  {
-    label: "Projects",
-    path: "/projects",
-  },
-  {
-    label: "About",
-    path: "/about",
-  },
+  // {
+  //   label: "Projects",
+  //   path: "/projects",
+  // },
+  // {
+  //   label: "About",
+  //   path: "/about",
+  // },
 ];
 
 export function Navigation() {

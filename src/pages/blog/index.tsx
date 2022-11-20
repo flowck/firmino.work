@@ -25,8 +25,12 @@ interface Props {
 function Blog({ posts, highlightPosts }: Props) {
   return (
     <>
-      <Meta title="Blog" description="Ideas worth writing about" path="blog" />
-      <PageHero title="Blog" description="Our latest news, updates, and stories for developers" />
+      <Meta
+        path="blog"
+        title="Blog"
+        description="This is the section where I share curated ideas about Programming and Software Engineering"
+      />
+      <PageHero title="Blog" description="My last thoughts, ideas and experiments" />
       <GridContainer css={{ marginTop: "$8", marginBottom: "$8" }}>
         <Breadcrumb />
 

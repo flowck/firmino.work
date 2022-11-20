@@ -1,13 +1,16 @@
 import { Meta } from "components/Meta";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Meta isHome description="I am a Software Developer passionate about building well-crafted software" />
+      <Meta
+        isHome
+        description="Firmino Changani - A Software Engineer whose career has been spent working on Frontend Web Applications for both small and large enterprise."
+      />
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>

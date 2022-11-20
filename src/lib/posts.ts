@@ -13,11 +13,11 @@ export interface BlogPost {
 }
 
 export interface PostMetadata {
-  title: string;
   date: Date;
-  metatags: string;
-  description: string;
+  title: string;
   cover: string;
+  tags: string[];
+  description: string;
 }
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
@@ -37,10 +37,10 @@ export async function getBlogPostBySlug(slug: string, withContent = true) {
   const meta = JSON.parse(JSON.stringify(metadata));
 
   if (withContent) {
-    return { content: contentInMd, slug, metadata: meta };
+    return { content: contentInMd, slug, metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] } };
   }
 
-  return { content: "", slug, metadata: meta };
+  return { content: "", slug, metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] } };
 }
 
 export async function getAllBlogPosts(withContent = true) {

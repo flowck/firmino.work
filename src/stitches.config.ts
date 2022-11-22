@@ -58,6 +58,18 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         fontWeight: "normal",
       };
     },
+    title: (type: "1" | "2" | "3") => {
+      const sizes: Record<string | number, string> = {
+        1: "95.6px",
+        2: "76.3px",
+        3: "61px",
+      };
+
+      return {
+        fontSize: sizes[type],
+        fontWeight: "normal",
+      };
+    },
     text: (type: "body" | "copy" | "caption") => {
       const styles = {
         body: {

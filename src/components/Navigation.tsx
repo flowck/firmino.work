@@ -24,6 +24,17 @@ const menuItems = [
   {
     label: "Blog",
     path: "/blog",
+    isExternal: false,
+  },
+  {
+    label: "Github",
+    path: "https://github.com/flowck",
+    isExternal: true,
+  },
+  {
+    label: "Linkedin",
+    path: "https://linkedin.com/in/firminochangani",
+    isExternal: true,
   },
   // {
   //   label: "Projects",
@@ -41,7 +52,9 @@ export function Navigation({ css }: Props) {
       <Menu>
         {menuItems.map((item) => (
           <li key={item.path}>
-            <Link href={item.path}>{item.label}</Link>
+            <Link target={item.isExternal ? "_blank" : "_parent"} href={item.path}>
+              {item.label}
+            </Link>
           </li>
         ))}
       </Menu>

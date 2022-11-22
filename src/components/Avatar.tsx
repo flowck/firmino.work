@@ -6,6 +6,8 @@ interface Props {
 }
 
 const Container = styled("figure", {
+  width: "40px",
+  aspectRatio: "1/1",
   position: "relative",
   borderRadius: "50%",
   transition: "border 0.25s",

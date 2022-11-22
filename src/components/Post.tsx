@@ -60,10 +60,12 @@ interface Props {
 export function Post({ path, title, cover, publicationDate }: Props) {
   return (
     <Container>
+      {/* <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover> */}
       <Link href={`/${path}`}>
-        {/* <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover> */}
         <Cover />
-        <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
+      </Link>
+      <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
+      <Link href={`/${path}`}>
         <Heading>{title}</Heading>
       </Link>
     </Container>

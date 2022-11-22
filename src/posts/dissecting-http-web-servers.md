@@ -15,7 +15,6 @@ Regardless of the programming language or web framework, at some point in the pr
 The `http` package comes with a function that eases for us the process of listening to a network port and binding the http server to it.
 
 ```go[class="line-numbers"][class="language-diff"]
-@@ -2 +5 @@
 package main
 
 import (
@@ -48,22 +47,25 @@ func main() {
 
 Unless the http server to be listened to is not on the same host where this code will be executed, the host from the address can be omitted in the following way:
 
-```go
-func main() {
-    http.ListenAndServe("127.0.0.1:4000", nil)
-    http.ListenAndServe(":4000", nil)
-}
+```diff-go[class="line-numbers"][class="diff-highlight"]
+ func main() {
+-   http.ListenAndServe("127.0.0.1:4000", nil)
++   http.ListenAndServe(":4000", nil)
+ }
 ```
 
 Given that it's common for the port to be passed onto the program through an environment variable, the code above can be rewritten in the following way:
 
-```go
-// Assuming that the value came from os.Getenv()
-// and has been properly parsed into an integer
-var port := 4000
-func main() {
-    http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
-}
+```diff-go[class="line-numbers"][class="language-diff-go"][class="diff-highlight"]
+ // Assuming that the value came from os.Getenv()
+ // and has been properly parsed into an integer
+
+ var port := 4000
+ func main() {
+-   http.ListenAndServe("127.0.0.1:4000", nil)
+-   http.ListenAndServe(":4000", nil)
++   http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+ }
 ```
 
 ### Route handlers

@@ -41,14 +41,15 @@ const Container = styled("article", {
     },
   },
   ".remark-highlight": {
-    display: "block",
     margin: "$7 0",
+    display: "block",
+    fontSize: "14px",
   },
   ".remark-highlight pre": {
     borderRadius: "$codeSnippet",
   },
-  ".remark-highlight pre code": {
-    fontSize: "13px",
+  ".line-numbers .line-numbers-rows": {
+    borderRight: "none",
   },
 });
 

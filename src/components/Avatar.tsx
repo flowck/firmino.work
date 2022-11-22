@@ -3,6 +3,7 @@ import { CSSType, styled } from "stitches.config";
 
 interface Props {
   css?: CSSType;
+  className?: string;
 }
 
 const Container = styled("figure", {
@@ -18,9 +19,9 @@ const Container = styled("figure", {
   },
 });
 
-export function Avatar({ css }: Props) {
+export function Avatar({ css, className }: Props) {
   return (
-    <Container css={css}>
+    <Container className={className} css={css}>
       <Image src="/assets/img/me.webp" fill alt="Firmino" />
     </Container>
   );

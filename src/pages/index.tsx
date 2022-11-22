@@ -34,6 +34,15 @@ const Bio = styled("div", {
   },
 });
 
+const avatarStyles = {
+  width: "100px",
+  margin: "0 auto",
+
+  "@bp2": {
+    margin: 0,
+  },
+};
+
 const Home: NextPage = () => {
   return (
     <main>
@@ -44,7 +53,7 @@ const Home: NextPage = () => {
 
       <GridContainer type="content" css={{ height: "100vh", display: "flex", alignItems: "center" }}>
         <About>
-          <Avatar css={{ width: "100px", margin: "0 auto", "@bp2": { margin: 0 } }} />
+          <Avatar css={avatarStyles} />
           <Bio>
             <h1>Welcome</h1>
             <p>

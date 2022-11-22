@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { CSSType, styled } from "stitches.config";
+import { Avatar } from "./Avatar";
 
 interface Props {
   css?: CSSType;
@@ -7,16 +7,8 @@ interface Props {
 }
 
 const Container = styled("div", {
-  display: "flex",
+  display: "grid",
   alignItems: "center",
-});
-
-const Avatar = styled("figure", {
-  aspectRatio: "1/1",
-  position: "relative",
-  "> img": {
-    borderRadius: "50%",
-  },
 });
 
 const Name = styled("span", {
@@ -28,11 +20,10 @@ const Bio = styled("p", {
 });
 
 export function PostAuthor({ type, css }: Props) {
+  const gridTemplateColumns = type === "short" ? "50px auto" : "100px auto";
   return (
-    <Container css={{ ...css, gap: type === "short" ? "$1" : "$5" }}>
-      <Avatar css={{ width: type === "short" ? "50px" : "100px" }}>
-        <Image src="/assets/img/me.webp" fill alt="Authored by Firmino Changani" />
-      </Avatar>
+    <Container css={{ ...css, gap: type === "short" ? "$1" : "$5", gridTemplateColumns }}>
+      <Avatar css={{ width: "100%", aspectRatio: "1/1" }} />
       <div>
         <Name css={{ text: type === "short" ? "copy" : "body" }}>
           {type === "full" ? "Authored by " : ""}

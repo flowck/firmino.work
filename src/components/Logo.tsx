@@ -1,6 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
-import { styled } from "stitches.config";
+import { CSSType, styled } from "stitches.config";
+import { Avatar } from "./Avatar";
+
+interface Props {
+  css?: CSSType;
+}
 
 const Container = styled("div", {
   ".logo-avatar": {
@@ -22,11 +26,11 @@ const Container = styled("div", {
   },
 });
 
-export function Logo() {
+export function Logo({ css }: Props) {
   return (
-    <Container>
+    <Container css={css}>
       <Link href="/">
-        <Image className="logo-avatar" src="/assets/img/me.webp" width="40" height="40" alt="Firmino" />
+        <Avatar css={{ width: "40px", height: "40px" }} />
         FIRMINO
       </Link>
     </Container>

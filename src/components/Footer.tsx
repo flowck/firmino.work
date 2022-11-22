@@ -17,8 +17,8 @@ export function Footer() {
   return (
     <Container>
       <GridContainer css={gridOverride}>
-        <Logo />
-        <Navigation />
+        <Logo css={{ text: "copy" }} />
+        <Navigation css={{ text: "copy" }} />
       </GridContainer>
     </Container>
   );

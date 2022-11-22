@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { styled } from "stitches.config";
+import { CSSType, styled } from "stitches.config";
+
+interface Props {
+  css?: CSSType;
+}
 
 const Menu = styled("ul", {
   display: "flex",
@@ -31,9 +35,9 @@ const menuItems = [
   // },
 ];
 
-export function Navigation() {
+export function Navigation({ css }: Props) {
   return (
-    <Nav>
+    <Nav css={css}>
       <Menu>
         {menuItems.map((item) => (
           <li key={item.path}>

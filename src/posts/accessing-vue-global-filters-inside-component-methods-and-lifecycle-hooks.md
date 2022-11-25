@@ -4,6 +4,8 @@ date: 2020-02-02 15:03:19
 metatags: vuejs
 description: Learn how to use this.$options.filters to access global filters inside component methods.
 cover: "posts/accessing-filters.jpg"
+isPublished: true
+isArchive: false
 ---
 
 I've written this article before, but unfortunately, it got lost on one of my million blogs.

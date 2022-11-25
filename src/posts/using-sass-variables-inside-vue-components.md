@@ -4,6 +4,8 @@ date: 2020-01-22 22:06:00
 metatags: vuejs, sass
 description: Learn how to use SASS variables inside vue components.
 cover: "posts/using-sass-variables-inside-vue-components.png"
+isPublished: true
+isArchive: false
 ---
 
 [SASS](https://sass-lang.com/) is one of the first CSS [preprocessors](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor), it was developed in 2006 by Natalie Weizenbaum, Chris Eppstein, and Hampton Catlin. Not only SASS is one of the oldest CSS preprocessors, but it is, also the most popular among web developers.

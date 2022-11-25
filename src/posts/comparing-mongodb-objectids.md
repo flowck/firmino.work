@@ -4,6 +4,8 @@ date: 2020-01-27 13:15:53
 metatags: mongodb
 description: Understand what is an ObjectId and how you can compare two ObjectIds without unexpected behaviors.
 cover: "posts/comparing-objectids.jpg"
+isPublished: true
+isArchive: false
 ---
 
 In MongoDB, the ObjectId is a data type and also a method used to generate unique strings. These strings are usually used as the value of the property `_id` of each document inside of a collection.

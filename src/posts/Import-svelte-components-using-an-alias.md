@@ -4,6 +4,8 @@ date: 2020-02-18 21:59:48
 metatags: rollup, svelte
 description: Learn how to configure rollup to import Svelte components using an alias.
 cover: "posts/import-svelte-components-with-an-alias.jpg"
+isPublished: true
+isArchive: false
 ---
 
 If you just landed on Svelte's world coming from Vue.js, like me you probably miss the ability to import components or other source code files using the `@` symbol, just like this:

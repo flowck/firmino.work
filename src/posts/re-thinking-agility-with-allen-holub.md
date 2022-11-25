@@ -4,6 +4,8 @@ date: 2021-11-27 16:01:19
 metatags: agility
 description: Allen Holub's vision on agility.
 cover: "posts/melani-sosa-cQqAGd3-hh8-unsplash.jpg"
+isPublished: true
+isArchive: false
 ---
 
 I've recently been lucky to stumble into one of GOTO videos on youtube with Robert C. Martin which I am quite familiar with, and Allen Holub, whom I had never heard of. During their talk, I had been introduced to a set of alternative ideas of how a company that practices agility should act.

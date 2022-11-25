@@ -4,14 +4,15 @@ date: 2022-06-10 21:30:00
 metatags: golang
 description: Notes on setting up a test suit in Go
 cover: "posts/golang.png"
+isPublished: true
+isArchive: false
 ---
 
 ![Golang](/posts/golang.png)
 
-
 ## Testing Philosophy
 
-Unlike other programming languages, Go's standard library doesn't come with methods to perform assertions, it relies on regular conditional statements and comparison operators to assert what's expected of an operation. INTERESTING. 
+Unlike other programming languages, Go's standard library doesn't come with methods to perform assertions, it relies on regular conditional statements and comparison operators to assert what's expected of an operation. INTERESTING.
 
 ## Example
 

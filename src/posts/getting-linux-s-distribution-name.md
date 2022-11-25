@@ -4,6 +4,8 @@ date: 2022-05-22 14:19:00
 metatags: linux
 description: Getting Linux distribution's name
 cover: ""
+isPublished: true
+isArchive: false
 ---
 
 I had just linked my VS Code to a container, when I questioned myself about which Linux distribution I was connected to, and a quick search led me to the following instruction:

@@ -5,6 +5,7 @@ metatags: golang
 description: Http in Go in-depth
 cover: "posts/juan-pablo-mascanfroni-duMVAANgtQ4-unsplash-3.webp"
 isPublished: false
+isArchive: false
 ---
 
 ## Basic http server

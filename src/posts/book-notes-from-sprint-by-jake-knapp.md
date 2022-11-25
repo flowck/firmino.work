@@ -4,6 +4,8 @@ date: 2022-05-08 18:40:00
 metatags: book
 description: My notes from the book Sprint by Jake Knapp.
 cover: ""
+isPublished: true
+isArchive: false
 ---
 
 I've just finished listening to the book Sprint by Jake Knapp, which revolves around a process that aims to validate ideas from the ideation phase to prototype to testing with potential customers in 5 days. It took me 3 days to finish listening to its +6 hours in 1.5x speed and here are the notes I took:

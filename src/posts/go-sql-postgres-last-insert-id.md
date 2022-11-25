@@ -4,6 +4,8 @@ date: 2022-07-01 21:33:00
 metatags: golang
 description: Using QueryRow to perform an INSERT and retrieve the id of the newly created row.
 cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
+isPublished: true
+isArchive: false
 ---
 
 I've just stumbled upon a challenge, where I needed a query to return the ID of the last inserted row, and I was querying using `ExecContext` and the method `LastInsertId()` to retrieve the `id`:

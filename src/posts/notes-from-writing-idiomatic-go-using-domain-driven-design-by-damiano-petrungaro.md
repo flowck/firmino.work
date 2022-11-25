@@ -4,6 +4,8 @@ date: 2022-07-07 12:16:00
 metatags: golanng, ddd
 description: My notes from Damiano Petrungaro's presentation about Golang and Domain-Driven Design
 cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
+isPublished: true
+isArchive: false
 ---
 
 > Rough notes. Please watch the [original](https://www.youtube.com/watch?v=dp1cc6-QKY0) presentation.

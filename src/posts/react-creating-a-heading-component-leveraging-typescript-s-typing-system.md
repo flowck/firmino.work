@@ -4,6 +4,8 @@ date: 2021-12-25 21:41:00
 metatags: React, Typescript
 description: Implementing a Heading component using React.createElement() and Typescript.
 cover: "posts/heading-component.jpg"
+isPublished: true
+isArchive: false
 ---
 
 In this blog post, I intend to demonstrate how to implement a Heading component that given a prop value, renders a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements). To achieve just that I am going to use Typescript to enforce the component’s API, and `React.createElement`.
@@ -35,7 +37,7 @@ export function Heading({ as = "h1", children, style }: Props) {
 }
 ```
 
-Firstly, In order to move away from a switch statement with multiple declarations of heading elements, I have decided to use `React.createElement` API because it enables the developer to pass a string stating which tag should be created. 
+Firstly, In order to move away from a switch statement with multiple declarations of heading elements, I have decided to use `React.createElement` API because it enables the developer to pass a string stating which tag should be created.
 
 Secondly, I have used Typescript’s [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) feature to enforce the component’s consumer to pass a valid heading element’s name.
 
@@ -51,8 +53,7 @@ In case you wondered what is this block of code doing, here is the explanation: 
 
 ## Conclusion
 
-This was a rather simple implementation of a component leveraging `React.createElement()`, which is the API behind JSX, and Typescript to enforce an API that enable developers to choose the exact kind of heading element they intend to use. 
-
+This was a rather simple implementation of a component leveraging `React.createElement()`, which is the API behind JSX, and Typescript to enforce an API that enable developers to choose the exact kind of heading element they intend to use.
 
 ## Further reading
 

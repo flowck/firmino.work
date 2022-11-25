@@ -4,6 +4,8 @@ date: 2022-06-10 18:58:00
 metatags: golang
 description: Go's pointers
 cover: "posts/golang.png"
+isPublished: true
+isArchive: false
 ---
 
 ![Go Programming Language](/posts/golang.png)
@@ -24,11 +26,11 @@ func main() {
 	// Creating a pointer
 	var fullNamePtr *string = new(string)
 	fmt.Println(fullNamePtr) // Prints the address: 0x14000110230
-	
+
 	// Storing value in the pointer's address by dereferencing it
 	*fullNamePtr = "John Doe"
 	fmt.Println(fullNamePtr, *fullNamePtr)
-	
+
 	// Getting the pointer of an existing variable
 	country := "Brazil"
 	fmt.Println(&country)
@@ -43,11 +45,11 @@ For instance, in Javascript, it is possible to mutate a property from literal ob
 
 ```javascript
 const person = {
-	name: "John Doe"
-}
+  name: "John Doe",
+};
 
-function updateName(person, name) {
-	person.name = name;
+function updateName(person, name) {
+  person.name = name;
 }
 
 updateName(person, "Jane Smith");

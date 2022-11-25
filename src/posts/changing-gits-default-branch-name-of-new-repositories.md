@@ -4,6 +4,8 @@ date: 2021-02-20 21:09:57
 metatags: git
 description: Learn how to change git's default branch name
 cover: posts/changing-git-s-default-branch-name-cc-by-paul-downey.jpg
+isPublished: true
+isArchive: false
 ---
 
 With Git's default configuration every time you create a new repository the initial branch will be set to `master` , this has been the unchangeable rule ever since.

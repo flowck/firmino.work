@@ -4,6 +4,8 @@ cover: posts/ants.jpg
 date: 2020-10-03 00:46:48
 metatags:
 description:
+isPublished: true
+isArchive: false
 ---
 
 ## Effective teammates are reliable

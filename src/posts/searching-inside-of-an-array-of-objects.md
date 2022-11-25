@@ -4,6 +4,8 @@ date: 2020-02-10 17:57:20
 metatags: javascript
 description: Searching inside of an array of objects using .filter() and .search() methods in Javascript.
 cover: "posts/searching-inside-of-an-array-of-objects.jpg"
+isPublished: true
+isArchive: false
 ---
 
 One of my favorite methods from the `Arrays` object, is the `.filter()` method. It allows javascript programs to search for an element inside of an array. What I like the most about this method, is that developers have the flexibility of searching an item inside of an array of any data structure.

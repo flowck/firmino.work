@@ -61,11 +61,11 @@ export function Post({ path, title, cover, publicationDate }: Props) {
   return (
     <Container>
       {/* <Cover>{cover && <Image alt={title} src={`/${cover}`} fill />}</Cover> */}
-      <Link href={`/${path}`}>
+      <Link aria-label={title} href={`/${path}`}>
         <Cover />
       </Link>
       <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
-      <Link href={`/${path}`}>
+      <Link aria-label={title} href={`/${path}`}>
         <Heading>{title}</Heading>
       </Link>
     </Container>

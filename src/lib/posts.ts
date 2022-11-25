@@ -18,6 +18,7 @@ export interface PostMetadata {
   cover: string;
   tags: string[];
   description: string;
+  isPublished?: boolean;
 }
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
@@ -29,7 +30,7 @@ export async function getBlogPaths(): Promise<BlogPath[]> {
   return blogPaths;
 }
 
-export async function getBlogPostBySlug(slug: string, withContent = true) {
+export async function getBlogPostBySlug(slug: string, withContent = true): Promise<BlogPost> {
   const fileName = path.join(process.cwd(), "src/posts", `${slug}.md`);
   const content = await fs.readFile(fileName, { encoding: "utf8" });
   const { content: contentInMd, data: metadata } = matter(content);
@@ -37,19 +38,32 @@ export async function getBlogPostBySlug(slug: string, withContent = true) {
   const meta = JSON.parse(JSON.stringify(metadata));
 
   if (withContent) {
-    return { content: contentInMd, slug, metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] } };
+    return {
+      content: contentInMd,
+      slug,
+      metadata: {
+        ...meta,
+        tags: meta.metatags ? meta.metatags.split(",") : [],
+      },
+    };
   }
 
-  return { content: "", slug, metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] } };
+  return {
+    content: "",
+    slug,
+    metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] },
+  };
 }
 
 export async function getAllBlogPosts(withContent = true) {
-  const posts = [];
+  const posts: BlogPost[] = [];
   const paths = await getBlogPaths();
 
   for (const item of paths) {
     const post = await getBlogPostBySlug(item.params.slug, withContent);
-    posts.push(post);
+    if (post.metadata.isPublished === undefined || post.metadata.isPublished) {
+      posts.push(post);
+    }
   }
 
   return posts.sort((postA, postB) => (postA.metadata.date > postB.metadata.date ? -1 : 1));

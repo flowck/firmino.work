@@ -1,6 +1,15 @@
 import { createStitches, CSS } from "@stitches/react";
 
-export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches({
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = createStitches({
   theme: {
     colors: {
       // Neutral
@@ -67,7 +76,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
 
       return {
         fontSize: sizes[type],
-        fontWeight: "normal",
+        fontWeight: "bold",
       };
     },
     text: (type: "body" | "copy" | "caption") => {

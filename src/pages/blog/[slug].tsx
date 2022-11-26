@@ -1,4 +1,4 @@
-import Breadcrumb from "components/Breadcrumb";
+import { Breadcrumb } from "components/Breadcrumb";
 import { GridContainer } from "components/GridContainer";
 import { Meta } from "components/Meta";
 import { PostAuthor } from "components/PostAuthor";
@@ -20,27 +20,12 @@ interface Props {
 function BlogPost({ metadata, content, slug }: Props) {
   return (
     <>
-      <Meta
-        path={`blog/${slug}`}
-        title={metadata.title}
-        cover={metadata.cover}
-        description={metadata.description}
-      />
+      <Meta path={`blog/${slug}`} title={metadata.title} cover={metadata.cover} description={metadata.description} />
       <PostHero cover={metadata.cover} title={metadata.title} />
 
-      <GridContainer
-        type="content"
-        css={{ marginBottom: "$8", marginTop: "$8" }}
-      >
-        <Breadcrumb
-          queryParams={{ "[slug]": metadata.title }}
-          css={{ marginBottom: "$7" }}
-        />
-        <PostHead
-          css={{ marginBottom: "$7" }}
-          metadata={metadata}
-          PostAuthor={<PostAuthor type="short" />}
-        />
+      <GridContainer type="content" css={{ marginBottom: "$8", marginTop: "$8" }}>
+        <Breadcrumb queryParams={{ "[slug]": metadata.title }} css={{ marginBottom: "$7" }} />
+        <PostHead css={{ marginBottom: "$7" }} metadata={metadata} PostAuthor={<PostAuthor type="short" />} />
         <PostContent content={content} />
         <PostTagList css={{ marginTop: "$7" }} tags={metadata.tags} />
         {/* <PostAuthor css={{ marginTop: "$8" }} type="full" /> */}

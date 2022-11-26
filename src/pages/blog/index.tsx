@@ -1,4 +1,4 @@
-import { Props as BreadcrumbProps } from "components/Breadcrumb";
+import { Breadcrumb } from "components/Breadcrumb";
 import { GridContainer } from "components/GridContainer";
 import { Meta } from "components/Meta";
 import { PageHero } from "components/PageHero";
@@ -7,12 +7,6 @@ import { PostListGrid } from "components/PostListGrid";
 import { BlogLayout } from "layouts/BlogLayout";
 import { getAllBlogPosts, PostMetadata } from "lib/posts";
 import { GetStaticProps } from "next";
-import dynamic from "next/dynamic";
-
-const Breadcrumb = dynamic<BreadcrumbProps>(
-  () => import("components/Breadcrumb"),
-  { suspense: true }
-);
 
 interface Post {
   slug: string;
@@ -33,10 +27,7 @@ function Blog({ posts, highlightPosts }: Props) {
         title="Blog"
         description="This is the section where I share curated ideas about Programming and Software Engineering"
       />
-      <PageHero
-        title="Blog"
-        description="Meticulously curated thoughts, ideas and experiments"
-      />
+      <PageHero title="Blog" description="Meticulously curated thoughts, ideas and experiments" />
       <GridContainer css={{ marginTop: "$8", marginBottom: "$8" }}>
         <Breadcrumb />
 

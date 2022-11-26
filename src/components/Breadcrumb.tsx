@@ -33,7 +33,7 @@ export interface Props {
 /**
  * Breadcrumb with support to only two levels of hierachy counting from the home page: /blog/[slug]
  */
-export default function Breadcrumb({ css, queryParams = {} }: Props) {
+export function Breadcrumb({ css, queryParams = {} }: Props) {
   const router = useRouter();
   const subPaths = router.pathname.split("/").filter((item) => item);
 

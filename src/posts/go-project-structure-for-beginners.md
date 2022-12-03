@@ -1,5 +1,5 @@
 ---
-title: Tips on project structure for Go beginners
+title: Notes from - Tips on project structure for Go beginners
 date: 2022-06-26 02:32:00
 metatags: golang
 description: My notes about project structuring in Go, from a podcast episode.

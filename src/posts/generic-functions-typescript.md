@@ -1,9 +1,9 @@
 ---
-title: "Generics functions | Typescript"
+title: "Generic functions | Typescript"
 date: 2020-07-04 16:25:24
 metatags: typescript
 description: In this post I talk about Typescript's generic functions, I show tow practical examples replacing any with generics
-cover: "posts/generic-functions-typescript.jpg"
+cover: "posts/john-noonan-QM_LE41VJJ4-unsplash.webp"
 isPublished: true
 isArchive: false
 ---

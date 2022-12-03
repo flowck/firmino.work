@@ -3,7 +3,7 @@ title: Getting Linux distribution's name
 date: 2022-05-22 14:19:00
 metatags: linux
 description: Getting Linux distribution's name
-cover: ""
+cover: "posts/tanya-grypachevskaya-6y5dHVz4dUk-unsplash.webp"
 isPublished: true
 isArchive: false
 ---

@@ -1,6 +1,6 @@
 ---
 title: Generating Typescript interfaces from JSON on VS Code
-cover: posts/typescript.jpg
+cover: "posts/killian-cartignies-oKb2_15Uc8w-unsplash.webp"
 date: 2020-07-25 18:11:59
 metatags: typescript
 description: Learn how you can generate Typescript interfaces from JSON on VS Code

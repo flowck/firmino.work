@@ -3,7 +3,7 @@ title: Resolving Typescript paths using Jest, and ts-jest
 date: 2021-02-25 21:09:57
 metatags: typescript, jest
 description: Learn how to resolve Typescript paths using Jest and ts-jest
-cover: posts/jest-failing-to-resolve-paths.png
+cover: "posts/matt-duncan-IUY_3DvM__w-unsplash.webp"
 isPublished: true
 isArchive: false
 ---

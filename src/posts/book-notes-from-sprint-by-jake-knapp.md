@@ -3,7 +3,7 @@ title: Notes from the book Sprint by Jake Knapp
 date: 2022-05-08 18:40:00
 metatags: book
 description: My notes from the book Sprint by Jake Knapp.
-cover: ""
+cover: "posts/braden-collum-9HI8UJMSdZA-unsplash.webp"
 isPublished: true
 isArchive: false
 ---

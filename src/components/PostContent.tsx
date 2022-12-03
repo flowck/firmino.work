@@ -24,7 +24,7 @@ const Container = styled("article", {
   "h1, h2, h3, h4, h5, h6": {
     margin: "$7 0 $5 0",
   },
-  "p code": {
+  "p code, ol code": {
     padding: "4px $1",
     backgroundColor: "$shade800",
     borderRadius: "$codeSnippet",

@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { CSSType, styled } from "stitches.config";
+
+/* eslint-disable @next/next/no-img-element */
 
 interface Props {
   css?: CSSType;
@@ -15,6 +16,7 @@ const Container = styled("figure", {
   border: "2px solid $primary900",
 
   img: {
+    width: "100%",
     borderRadius: "50%",
   },
 });
@@ -22,7 +24,7 @@ const Container = styled("figure", {
 export function Avatar({ css, className }: Props) {
   return (
     <Container className={className} css={css}>
-      <Image src="/assets/img/me.webp" fill alt="Firmino" />
+      <img src="/assets/img/me.webp" alt="Firmino" />
     </Container>
   );
 }

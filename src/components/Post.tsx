@@ -1,7 +1,8 @@
 import { formatDate } from "lib/dates";
-import Image from "next/image";
 import Link from "next/link";
 import { styled } from "stitches.config";
+
+/* eslint-disable @next/next/no-img-element */
 
 const Container = styled("article", {
   position: "relative",
@@ -30,11 +31,13 @@ const Cover = styled("figure", {
   aspectRatio: "16/9",
   marginBottom: "$5",
   position: "relative",
+  overflow: "hidden",
   borderRadius: "$postCover",
-  // border: "1px solid red",
   backgroundColor: "$shade700",
 
   "> img": {
+    width: "100%",
+    objectFit: "fill",
     borderRadius: "$postCover",
   },
 });
@@ -62,7 +65,7 @@ export function Post({ path, title, cover, publicationDate }: Props) {
   return (
     <Container>
       <Link aria-label={title} href={`/${path}`}>
-        <Cover>{cover && <Image loading="lazy" alt={title} src={`/${cover}`} fill />}</Cover>
+        <Cover>{cover && <img loading="lazy" alt={title} src={`/${cover}`} />}</Cover>
       </Link>
       <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
       <Link aria-label={title} href={`/${path}`}>

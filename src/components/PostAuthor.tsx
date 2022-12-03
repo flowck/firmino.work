@@ -21,9 +21,10 @@ const Bio = styled("p", {
 
 export function PostAuthor({ type, css }: Props) {
   const gridTemplateColumns = type === "short" ? "50px auto" : "100px auto";
+  const avatarStyles = type === "short" ? { width: "50px", height: "50px" } : { width: "100px", height: "100px" };
   return (
     <Container css={{ ...css, gap: type === "short" ? "$1" : "$5", gridTemplateColumns }}>
-      <Avatar css={{ width: "100%", aspectRatio: "1/1" }} />
+      <Avatar css={avatarStyles} />
       <div>
         <Name css={{ text: type === "short" ? "copy" : "body" }}>
           {type === "full" ? "Authored by " : ""}

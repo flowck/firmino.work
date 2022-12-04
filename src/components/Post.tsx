@@ -28,16 +28,16 @@ const Container = styled("article", {
 
 const Cover = styled("figure", {
   width: "100%",
-  aspectRatio: "16/9",
   marginBottom: "$5",
-  position: "relative",
+  aspectRatio: "16/9",
   overflow: "hidden",
+  position: "relative",
   borderRadius: "$postCover",
   backgroundColor: "$shade700",
 
   "> img": {
     width: "100%",
-    objectFit: "fill",
+    height: "100%",
     borderRadius: "$postCover",
   },
 });

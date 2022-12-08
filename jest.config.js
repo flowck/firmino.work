@@ -15,7 +15,7 @@ const customJestConfig = {
     "^pages/(.*)$": "<rootDir>/src/pages/$1",
   },
   testEnvironment: "jest-environment-jsdom",
-  testMatch: ["**/tests/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  testMatch: ["**/tests/unit/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
   },

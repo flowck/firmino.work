@@ -24,10 +24,10 @@ jobs:
       - name: Test (Unit)
         run: yarn test:ci
 
-      - name: Install E2E Dps()
+      - name: Install Deps (E2E)
         run: yarn playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Test (E2E)
         run: yarn test:e2e
 
       - uses: actions/upload-artifact@v3

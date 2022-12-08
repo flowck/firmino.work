@@ -1418,6 +1418,14 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
+"@playwright/test@^1.28.1":
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.28.1.tgz#e5be297e024a3256610cac2baaa9347fd57c7860"
+  integrity sha512-xN6spdqrNlwSn9KabIhqfZR7IWjPpFK1835tFNgjrlysaSezuX8PYUwaz38V/yI8TJLG9PkAMEXoHRXYXlpTPQ==
+  dependencies:
+    "@types/node" "*"
+    playwright-core "1.28.1"
+
 "@rushstack/eslint-patch@^1.1.3":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
@@ -5095,6 +5103,11 @@ pkg-dir@^4.2.0:
   integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
   dependencies:
     find-up "^4.0.0"
+
+playwright-core@1.28.1:
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.28.1.tgz#8400be9f4a8d1c0489abdb9e75a4cc0ffc3c00cb"
+  integrity sha512-3PixLnGPno0E8rSBJjtwqTwJe3Yw72QwBBBxNoukIj3lEeBNXwbNiKrNuB1oyQgTBw5QHUhNO3SteEtHaMK6ag==
 
 postcss@8.4.14:
   version "8.4.14"

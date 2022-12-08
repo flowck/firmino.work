@@ -61,9 +61,9 @@ interface Props {
   publicationDate: Date;
 }
 
-export function Post({ path, title, cover, publicationDate }: Props) {
+export function Post({ path, title, cover, publicationDate, ...props }: Props) {
   return (
-    <Container>
+    <Container {...props}>
       <Link aria-label={title} href={`/${path}`}>
         <Cover>{cover && <img loading="lazy" alt={title} src={`/${cover}`} />}</Cover>
       </Link>

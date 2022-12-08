@@ -52,7 +52,12 @@ export function Navigation({ css }: Props) {
       <Menu>
         {menuItems.map((item) => (
           <li key={item.path}>
-            <Link aria-label={item.label} target={item.isExternal ? "_blank" : "_parent"} href={item.path}>
+            <Link
+              href={item.path}
+              aria-label={item.label}
+              data-testid={`Navigation_${item.label}`}
+              target={item.isExternal ? "_blank" : "_parent"}
+            >
               {item.label}
             </Link>
           </li>

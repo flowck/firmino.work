@@ -41,7 +41,9 @@ export function Breadcrumb({ css, queryParams = {} }: Props) {
     <Container css={css}>
       <ul>
         <li>
-          <Link href="/">Home</Link>
+          <Link data-testid="Breadcrumb_Home" href="/">
+            Home
+          </Link>
         </li>
 
         {subPaths.map((item, idx) => (
@@ -54,7 +56,9 @@ export function Breadcrumb({ css, queryParams = {} }: Props) {
               <li>{queryParams[item] || item}</li>
             ) : (
               <li>
-                <Link href={`/${item}`}>{queryParams[item] || item}</Link>
+                <Link data-testid={`Breadcrumb_${queryParams[item] || item}`} href={`/${item}`}>
+                  {queryParams[item] || item}
+                </Link>
               </li>
             )}
           </React.Fragment>

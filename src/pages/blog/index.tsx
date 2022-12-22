@@ -47,7 +47,7 @@ function Blog({ posts, highlightPosts }: Props) {
               cover={post.metadata.cover}
               title={post.metadata.title}
               data-testid={`HighlightPost_${idx}`}
-              publicationDate={post.metadata.date}
+              publicationDate={post.metadata.formattedDate}
             />
           ))}
         </PostListGrid>
@@ -60,7 +60,7 @@ function Blog({ posts, highlightPosts }: Props) {
               data-testid={`Post_${idx}`}
               cover={post.metadata.cover}
               title={post.metadata.title}
-              publicationDate={post.metadata.date}
+              publicationDate={post.metadata.formattedDate}
             />
           ))}
         </PostListGrid>

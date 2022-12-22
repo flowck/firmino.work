@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import matter from "gray-matter";
+import { formatDate } from "lib/dates";
 import path from "path";
 
 interface BlogPath {
@@ -14,6 +15,7 @@ export interface BlogPost {
 
 export interface PostMetadata {
   date: Date;
+  formattedDate: string;
   title: string;
   cover: string;
   tags: string[];
@@ -30,6 +32,14 @@ export async function getBlogPaths(): Promise<BlogPath[]> {
   return blogPaths;
 }
 
+function getMetadata(meta: PostMetadata, tags: string): PostMetadata {
+  return {
+    ...meta,
+    formattedDate: formatDate(meta.date),
+    tags: tags ? tags.split(",") : [],
+  };
+}
+
 export async function getBlogPostBySlug(slug: string, withContent = true): Promise<BlogPost> {
   const fileName = path.join(process.cwd(), "src/posts", `${slug}.md`);
   const content = await fs.readFile(fileName, { encoding: "utf8" });
@@ -37,22 +47,17 @@ export async function getBlogPostBySlug(slug: string, withContent = true): Promi
 
   const meta = JSON.parse(JSON.stringify(metadata));
 
+  const result = {
+    content: contentInMd,
+    slug,
+    metadata: getMetadata(meta, meta.metatags),
+  };
+
   if (withContent) {
-    return {
-      content: contentInMd,
-      slug,
-      metadata: {
-        ...meta,
-        tags: meta.metatags ? meta.metatags.split(",") : [],
-      },
-    };
+    return result;
   }
 
-  return {
-    content: "",
-    slug,
-    metadata: { ...meta, tags: meta.metatags ? meta.metatags.split(",") : [] },
-  };
+  return { ...result, content: "" };
 }
 
 export async function getAllBlogPosts(withContent = true) {

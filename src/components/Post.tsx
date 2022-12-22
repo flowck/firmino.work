@@ -1,4 +1,3 @@
-import { formatDate } from "lib/dates";
 import Link from "next/link";
 import { styled } from "stitches.config";
 
@@ -58,7 +57,7 @@ interface Props {
   path: string;
   title: string;
   cover: string;
-  publicationDate: Date;
+  publicationDate: string;
 }
 
 export function Post({ path, title, cover, publicationDate, ...props }: Props) {
@@ -67,7 +66,7 @@ export function Post({ path, title, cover, publicationDate, ...props }: Props) {
       <Link aria-label={title} href={`/${path}`}>
         <Cover>{cover && <img loading="lazy" alt={title} src={`/${cover}`} />}</Cover>
       </Link>
-      <PublicationDate>{formatDate(publicationDate)}</PublicationDate>
+      <PublicationDate>{publicationDate}</PublicationDate>
       <Link aria-label={title} href={`/${path}`}>
         <Heading>{title}</Heading>
       </Link>

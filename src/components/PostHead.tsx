@@ -1,4 +1,3 @@
-import { formatDate } from "lib/dates";
 import { PostMetadata } from "lib/posts";
 import { ReactNode } from "react";
 import { CSSType, styled } from "stitches.config";
@@ -37,7 +36,7 @@ export function PostHead({ metadata, PostAuthor, css }: Props) {
       <Heading>{metadata.title}</Heading>
       <Description>{metadata.description}</Description>
 
-      <PublicationDate dateTime={metadata.date.toString()}>{formatDate(metadata.date)}</PublicationDate>
+      <PublicationDate dateTime={metadata.date.toString()}>{metadata.formattedDate}</PublicationDate>
       {PostAuthor}
     </Container>
   );

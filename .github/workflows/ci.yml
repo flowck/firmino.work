@@ -29,8 +29,8 @@ jobs:
       - name: Install Deps (E2E)
         run: yarn playwright install --with-deps
 
-      - name: Test (E2E)
-        run: yarn test:e2e
+      #- name: Test (E2E)
+      #  run: yarn test:e2e
 
       - uses: actions/upload-artifact@v3
         if: always()

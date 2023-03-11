@@ -1,15 +1,6 @@
 import { createStitches, CSS } from "@stitches/react";
 
-export const {
-  styled,
-  css,
-  globalCss,
-  keyframes,
-  getCssText,
-  theme,
-  createTheme,
-  config,
-} = createStitches({
+export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches({
   theme: {
     colors: {
       // Neutral
@@ -41,6 +32,15 @@ export const {
       8: "80px",
     },
     fonts: {},
+    fontSizes: {
+      1: "12px",
+      2: "14px",
+      3: "16px",
+      4: "25px",
+      5: "31.25px",
+      6: "39.06px",
+      7: "48.83px",
+    },
     radii: {
       postCover: "3px",
       codeSnippet: "3px",

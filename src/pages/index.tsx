@@ -1,11 +1,17 @@
 import { Avatar } from "components/Avatar";
-import { GridContainer } from "components/GridContainer";
+import { Link } from "components/Link";
 import { Meta } from "components/Meta";
 import { Navigation } from "components/Navigation";
+import { Text } from "components/Text";
 import type { NextPage } from "next";
 import { styled } from "stitches.config";
 
 const About = styled("article", {
+  top: "50%",
+  left: "50%",
+  maxWidth: "700px",
+  position: "absolute",
+  transform: "translate(-50%, -50%)",
   gap: "$7",
   display: "flex",
   textAlign: "center",
@@ -18,19 +24,13 @@ const About = styled("article", {
   },
 });
 
-const Bio = styled("div", {
-  gap: "$7",
+const Intro = styled("div", {
+  gap: "$2",
   display: "flex",
   flexDirection: "column",
 
-  "@bp2": {},
-
   h1: {
-    title: "3",
-  },
-
-  p: {
-    subHeading: "3",
+    title: "4",
   },
 });
 
@@ -47,24 +47,24 @@ const avatarStyles = {
 const Home: NextPage = () => {
   return (
     <main>
-      <Meta
-        isHome
-        description="Firmino Changani - A Software Engineer whose career has been spent working on Frontend Web Applications for both small and large enterprise."
-      />
+      <Meta isHome description="Firmino Changani - Computer programmer passionate about systems" />
 
-      <GridContainer type="content" css={{ height: "100vh", display: "flex", alignItems: "center" }}>
-        <About>
-          <Avatar css={avatarStyles} />
-          <Bio>
-            <h1>Firmino Changani</h1>
-            <p>
-              Software Engineer passionate about building Web Applications and experimenting with old and new
-              technologies.
-            </p>
-            <Navigation css={{ text: "copy", margin: "0 auto", "@bp2": { margin: 0 } }} />
-          </Bio>
-        </About>
-      </GridContainer>
+      <About>
+        <Avatar css={avatarStyles} />
+        <Intro>
+          <h1>Firmino Changani</h1>
+          <Text>
+            Senior Software Engineer at <Link href="https://getharley.com">GetHarley</Link>
+          </Text>
+          <Navigation
+            css={{
+              text: "copy",
+              margin: "0 auto",
+              "@bp2": { margin: 0 },
+            }}
+          />
+        </Intro>
+      </About>
     </main>
   );
 };

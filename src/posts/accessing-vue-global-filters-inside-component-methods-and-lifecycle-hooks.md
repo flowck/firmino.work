@@ -1,11 +1,12 @@
 ---
 title: Accessing vue global filters inside component methods and lifecycle hooks
-date: 2020-02-02 15:03:19
+date: 2020-02-02T15:03:19.000Z
 metatags: vuejs
-description: Learn how to use this.$options.filters to access global filters inside component methods.
-cover: "posts/accessing-filters.jpg"
+description: Learn how to use this.$options.filters to access global filters
+  inside component methods.
+cover: posts/accessing-filters.jpg
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 I've written this article before, but unfortunately, it got lost on one of my million blogs.

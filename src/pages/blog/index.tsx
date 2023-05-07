@@ -25,32 +25,11 @@ function Blog({ posts, highlightPosts }: Props) {
       <Meta
         path="blog"
         title="Blog"
-        description="This is the section where I share curated ideas about Programming and Software Engineering"
+        description="Firmino's personal blog about Programming and Software Engineering"
       />
-      <PageHero title="Blog" description="Meticulously curated thoughts, ideas and experiments" />
+      <PageHero title="Blog" description="Curated ideas and experiments" />
       <GridContainer css={{ marginTop: "$8", marginBottom: "$8" }}>
-        <Breadcrumb />
-
-        <PostListGrid
-          css={{
-            margin: "$7 0 $6 0",
-            "@bp2": {
-              margin: "$7 0 $8 0",
-              gridTemplateColumns: "repeat(2, 2fr)",
-            },
-          }}
-        >
-          {highlightPosts.map((post, idx) => (
-            <Post
-              key={post.metadata.title}
-              path={`blog/${post.slug}`}
-              cover={post.metadata.cover}
-              title={post.metadata.title}
-              data-testid={`HighlightPost_${idx}`}
-              publicationDate={post.metadata.formattedDate}
-            />
-          ))}
-        </PostListGrid>
+        <Breadcrumb css={{marginBottom: "$8"}} />
 
         <PostListGrid>
           {posts.map((post, idx) => (
@@ -70,11 +49,11 @@ function Blog({ posts, highlightPosts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllBlogPosts(false);
+  const posts = await getAllBlogPosts(false, false);
 
-  const highlightPosts = [posts[0], posts[1]];
+  console.log(posts)
 
-  return { props: { posts: posts.splice(2, posts.length), highlightPosts } };
+  return { props: { posts } };
 };
 
 Blog.Layout = BlogLayout;

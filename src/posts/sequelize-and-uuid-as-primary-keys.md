@@ -1,11 +1,11 @@
 ---
 title: Sequelize and UUID as primary key
-date: 2020-02-06 14:07:25
+date: 2020-02-06T14:07:25.000Z
 metatags: database, sequelize, orm
 description: Understand how you can use UUIDs as a primary key on Sequelize ORM
-cover: "posts/sequelize-and-uuid-as-primary-key.jpg"
+cover: posts/sequelize-and-uuid-as-primary-key.jpg
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 By default sequelize models and migrations are generated with the column `id` as the primary key, the data type set to `INTEGER` and, with the option `autoIncrement` set to `true`. This means that each row will have a sequential `id` starting from `1`.

@@ -1,11 +1,12 @@
 ---
 title: "CSS: links with sliding underline effect through pseudo-elements"
-date: 2020-02-06 23:58:27
+date: 2020-02-06T23:58:27.000Z
 metatags: css
-description: In this tutorial, I show a technique to replace the default underline effect using pseud-elements.
-cover: "posts/css-links-with-sliding-underline-effect-through-pseudo-elements.jpg"
+description: In this tutorial, I show a technique to replace the default
+  underline effect using pseud-elements.
+cover: posts/css-links-with-sliding-underline-effect-through-pseudo-elements.jpg
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 When building my [blog](https://changani.me), I decided to get rid of the default underline styling on `<a>` elements to use my custom underline effect. If you still don't know what kind of style I am talking about, just try to hover this [link](https://changani.me) or any other link in the blog post content.

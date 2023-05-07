@@ -1,11 +1,12 @@
 ---
 title: Firing http requests
-date: 2022-11-25 22:03:00
+date: 2022-11-25T22:03:00.000Z
 metatags: go, golang, http
-description: Read more about executing concurrent HTTP requests using Promises and async/await.
-cover: "posts/austin-schmid-CHi0eieAaCQ-unsplash.webp"
+description: Read more about executing concurrent HTTP requests using Promises
+  and async/await.
+cover: posts/austin-schmid-CHi0eieAaCQ-unsplash.webp
 isPublished: false
-isArchive: false
+isArchive: true
 ---
 
 ## Motivation

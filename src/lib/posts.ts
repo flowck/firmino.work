@@ -21,10 +21,11 @@ export interface PostMetadata {
   tags: string[];
   description: string;
   isPublished?: boolean;
+  isArchive: boolean;
 }
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
-  const fileNames = await fs.readdir(path.resolve(process.cwd(), "src/posts"));
+  const fileNames = await fs.readdir(path.resolve(process.cwd(), "src/original-posts"));
   const blogPaths = fileNames.map((fileName) => {
     return { params: { slug: fileName.replace(".md", "") } };
   });
@@ -35,6 +36,7 @@ export async function getBlogPaths(): Promise<BlogPath[]> {
 function getMetadata(meta: PostMetadata, tags: string): PostMetadata {
   return {
     ...meta,
+    isPublished: meta.isPublished === undefined ? true : meta.isPublished,
     formattedDate: formatDate(meta.date),
     tags: tags ? tags.split(",") : [],
   };
@@ -60,13 +62,19 @@ export async function getBlogPostBySlug(slug: string, withContent = true): Promi
   return { ...result, content: "" };
 }
 
-export async function getAllBlogPosts(withContent = true) {
+export async function getAllBlogPosts(withContent = true, archivedOnly = false) {
   const posts: BlogPost[] = [];
   const paths = await getBlogPaths();
 
   for (const item of paths) {
     const post = await getBlogPostBySlug(item.params.slug, withContent);
-    if (post.metadata.isPublished === undefined || post.metadata.isPublished) {
+    const isPublished = post.metadata.isPublished
+
+    if (archivedOnly && isPublished && post.metadata.isArchive) {
+      posts.push(post);
+    }
+
+    if (isPublished && !post.metadata.isArchive) {
       posts.push(post);
     }
   }

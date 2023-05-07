@@ -1,11 +1,11 @@
 ---
 title: Go's pointers
-date: 2022-06-10 18:58:00
+date: 2022-06-10T18:58:00.000Z
 metatags: golang
 description: Go's pointers
-cover: "posts/artem-beliaikin-aE4LRTRnQOU-unsplash.webp"
+cover: posts/artem-beliaikin-aE4LRTRnQOU-unsplash.webp
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 A pointer holds a variable's address in the computer's memory. One can say that once a pointer is created, its value is just an address that lead you to where in the computer's memory the program will store the actual data.

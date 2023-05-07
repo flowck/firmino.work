@@ -1,11 +1,11 @@
 ---
 title: Notes - Introduction to Software Testing in Go
-date: 2022-06-10 21:30:00
+date: 2022-06-10T21:30:00.000Z
 metatags: golang
 description: Notes on setting up a test suit in Go
-cover: "posts/golang.png"
+cover: posts/golang.png
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 ![Golang](/posts/golang.png)

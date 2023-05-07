@@ -1,11 +1,11 @@
 ---
 title: Notes from - Tips on project structure for Go beginners
-date: 2022-06-26 02:32:00
+date: 2022-06-26T02:32:00.000Z
 metatags: golang
 description: My notes about project structuring in Go, from a podcast episode.
-cover: "posts/golang.png"
+cover: posts/golang.png
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 I've just listened to the podcast episode ["002: Project structure & package name"](https://go.transistor.fm/episodes/002-project-structure-package-name), and I quite liked it because the author puts emphasis on the following aspects:

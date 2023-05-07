@@ -1,11 +1,12 @@
 ---
 title: Executing concurrent HTTP requests
-date: 2019-12-22 21:09:57
+date: 2019-12-22T21:09:57.000Z
 metatags: javascript, nodejs, asynchronous, programming, promises, concurrency
-description: Read more about executing concurrent HTTP requests using Promises and async/await.
-cover: "posts/Executing-concurrent-HTTP-requests.png"
+description: Read more about executing concurrent HTTP requests using Promises
+  and async/await.
+cover: posts/Executing-concurrent-HTTP-requests.png
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 What is concurrency anyway? You've probably known or heard this term somewhere, so before going into specific implementation details, let me explain or refresh you about the concurrent part using Wikipedia:

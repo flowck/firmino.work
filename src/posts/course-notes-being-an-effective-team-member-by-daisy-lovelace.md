@@ -1,11 +1,11 @@
 ---
 title: "Course notes: Being an Effective Team Member by Daisy Lovelace"
 cover: posts/ants.jpg
-date: 2020-10-03 00:46:48
-metatags:
-description:
+date: 2020-10-03T00:46:48.000Z
+metatags: null
+description: null
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 ## Effective teammates are reliable

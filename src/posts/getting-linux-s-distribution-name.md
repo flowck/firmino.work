@@ -1,11 +1,11 @@
 ---
 title: Getting Linux distribution's name
-date: 2022-05-22 14:19:00
+date: 2022-05-22T14:19:00.000Z
 metatags: linux
 description: Getting Linux distribution's name
-cover: "posts/tanya-grypachevskaya-6y5dHVz4dUk-unsplash.webp"
+cover: posts/tanya-grypachevskaya-6y5dHVz4dUk-unsplash.webp
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 I had just linked my VS Code to a container, when I questioned myself about which Linux distribution I was connected to, and a quick search led me to the following instruction:

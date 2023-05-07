@@ -1,11 +1,12 @@
 ---
 title: Golang - Generating HTTP handlers from an OpenAPI definition file
-date: 2022-12-10 17:14:00
+date: 2022-12-10T17:14:00.000Z
 metatags: golang
-description: On this blog post I intend to share a step by step guide to generate http handlers from an OpenAPI (Swagger) definition file.
-cover: "posts/hong-feng-pi80HXv_ct4-unsplash.webp"
+description: On this blog post I intend to share a step by step guide to
+  generate http handlers from an OpenAPI (Swagger) definition file.
+cover: posts/hong-feng-pi80HXv_ct4-unsplash.webp
 isPublished: false
-isArchive: false
+isArchive: true
 ---
 
 ## Introduction

@@ -1,11 +1,12 @@
 ---
 title: Building URLFY - The idea
-date: 2020-01-02 12:21:08
+date: 2020-01-02T12:21:08.000Z
 metatags: urlfy, shortening, idea, projects
-description: On this blog post I explain how I came out with the idea of building a shortening service
-cover: "posts/urlfy.xyz.png"
+description: On this blog post I explain how I came out with the idea of
+  building a shortening service
+cover: posts/urlfy.xyz.png
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 I was studying system design during the Christmas holidays of 2019, and while reading a blog [post](https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444), I found a challenge that quickly caught my attention:

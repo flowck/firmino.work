@@ -1,11 +1,11 @@
 ---
-title: "Http in Go"
-date: 2022-11-20 17:57:00
+title: Http in Go
+date: 2022-11-20T17:57:00.000Z
 metatags: golang
 description: Http in Go in-depth
-cover: "posts/juan-pablo-mascanfroni-duMVAANgtQ4-unsplash-3.webp"
+cover: posts/juan-pablo-mascanfroni-duMVAANgtQ4-unsplash-3.webp
 isPublished: false
-isArchive: false
+isArchive: true
 ---
 
 ## Basic http server

@@ -1,4 +1,4 @@
-import ChevronRight from "icons/chevron-right.svg";
+// import ChevronRight from "icons/chevron-right.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -49,7 +49,7 @@ export function Breadcrumb({ css, queryParams = {} }: Props) {
         {subPaths.map((item, idx) => (
           <React.Fragment key={idx}>
             <li>
-              <ChevronRight />
+              {/*<ChevronRight />*/}
             </li>
 
             {idx === subPaths.length - 1 ? (

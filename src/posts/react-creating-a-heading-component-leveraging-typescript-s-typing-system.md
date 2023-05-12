@@ -1,11 +1,11 @@
 ---
 title: "React: Creating a Heading component leveraging Typescript’s typing system"
-date: 2021-12-25 21:41:00
+date: 2021-12-25T21:41:00.000Z
 metatags: React, Typescript
 description: Implementing a Heading component using React.createElement() and Typescript.
-cover: "posts/heading-component.jpg"
+cover: posts/heading-component.jpg
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 In this blog post, I intend to demonstrate how to implement a Heading component that given a prop value, renders a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements). To achieve just that I am going to use Typescript to enforce the component’s API, and `React.createElement`.

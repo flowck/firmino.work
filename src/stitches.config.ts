@@ -104,6 +104,9 @@ export const globalStyles = globalCss({
     fontFamily:
       "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;",
   },
+  "html, body, #__next": {
+    minHeight: "100vh",
+  },
 });
 
 export type CSSType = CSS<typeof config>;

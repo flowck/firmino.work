@@ -1,11 +1,12 @@
 ---
 title: "LeetCode's Reverse String: in-place with O(1) extra memory."
-date: 2021-10-14 23:04:19
+date: 2021-10-14T23:04:19.000Z
 metatags: algorithms
-description: Write a function that reverses a string. The input string is given as an array of characters s.
-cover: "posts/algo.jpg"
+description: Write a function that reverses a string. The input string is given
+  as an array of characters s.
+cover: posts/algo.jpg
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 Write a function that reverses a string. The input string is given as an array of characters s.

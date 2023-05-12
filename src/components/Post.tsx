@@ -60,12 +60,14 @@ interface Props {
   publicationDate: string;
 }
 
+const ENABLE_THUMB = true
+
 export function Post({ path, title, cover, publicationDate, ...props }: Props) {
   return (
     <Container {...props}>
-      <Link aria-label={title} href={`/${path}`}>
+      {!ENABLE_THUMB && <Link aria-label={title} href={`/${path}`}>
         <Cover>{cover && <img loading="lazy" alt={title} src={`/${cover}`} />}</Cover>
-      </Link>
+      </Link>}
       <PublicationDate>{publicationDate}</PublicationDate>
       <Link aria-label={title} href={`/${path}`}>
         <Heading>{title}</Heading>

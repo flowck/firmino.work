@@ -1,11 +1,11 @@
 ---
 title: "React: Mocking react-router-dom’s useLocation with Jest"
-date: 2022-01-30 21:12:00
+date: 2022-01-30T21:12:00.000Z
 metatags: react.js, testing, jest
 description: Mocking react-router-dom's useLocation hook with Jest
-cover: "posts/react-mocking-react-router-dom-s-use-location-with-jest.png"
+cover: posts/react-mocking-react-router-dom-s-use-location-with-jest.png
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 Testing a component relying on `react-router-dom` requires some setup before starting the actual writing of assertions, especially because some of its core features rely on browser data, such as the `location` object.

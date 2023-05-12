@@ -1,9 +1,10 @@
 ---
 title: Go/SQL/PostgreSQL - Custom LastInsertId
-date: 2022-07-01 21:33:00
+date: 2022-07-01T21:33:00.000Z
 metatags: golang
-description: Using QueryRow to perform an INSERT and retrieve the id of the newly created row.
-cover: "posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg"
+description: Using QueryRow to perform an INSERT and retrieve the id of the
+  newly created row.
+cover: posts/engin-akyurt-2-eCuma3qO0-unsplash.jpg
 isPublished: true
 isArchive: false
 ---

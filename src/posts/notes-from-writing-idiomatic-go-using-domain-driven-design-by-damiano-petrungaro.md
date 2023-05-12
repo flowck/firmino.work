@@ -1,11 +1,13 @@
 ---
-title: Notes from - Writing idiomatic Go using Domain-Driven Design by Damiano Petrungaro
-date: 2022-07-07 12:16:00
+title: Notes from - Writing idiomatic Go using Domain-Driven Design by Damiano
+  Petrungaro
+date: 2022-07-07T12:16:00.000Z
 metatags: golanng, ddd
-description: My notes from Damiano Petrungaro's presentation about Golang and Domain-Driven Design
-cover: "posts/hal-gatewood-tZc3vjPCk-Q-unsplash.webp"
+description: My notes from Damiano Petrungaro's presentation about Golang and
+  Domain-Driven Design
+cover: posts/hal-gatewood-tZc3vjPCk-Q-unsplash.webp
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 > Rough notes. Please watch the [original](https://www.youtube.com/watch?v=dp1cc6-QKY0) presentation.

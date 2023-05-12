@@ -1,11 +1,11 @@
 ---
 title: Resolving Typescript paths using Jest, and ts-jest
-date: 2021-02-25 21:09:57
+date: 2021-02-25T21:09:57.000Z
 metatags: typescript, jest
 description: Learn how to resolve Typescript paths using Jest and ts-jest
-cover: "posts/matt-duncan-IUY_3DvM__w-unsplash.webp"
+cover: posts/matt-duncan-IUY_3DvM__w-unsplash.webp
 isPublished: true
-isArchive: false
+isArchive: true
 ---
 
 Today I ran into a problem while trying to write tests for modules written in Typescript which used paths configured in <code>tsconfig.json</code> and resolved during compile with <code>tsconfig-paths</code>:

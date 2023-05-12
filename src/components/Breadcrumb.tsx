@@ -1,8 +1,8 @@
-import ChevronRight from "icons/chevron-right.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { CSSType, styled } from "stitches.config";
+import { Icon } from "./Icon";
 
 const Container = styled("nav", {
   text: "copy",
@@ -49,7 +49,7 @@ export function Breadcrumb({ css, queryParams = {} }: Props) {
         {subPaths.map((item, idx) => (
           <React.Fragment key={idx}>
             <li>
-              <ChevronRight />
+              <Icon className="ri-arrow-right-s-line" />
             </li>
 
             {idx === subPaths.length - 1 ? (

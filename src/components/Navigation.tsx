@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CSSType, styled } from "stitches.config";
+import { Icon } from "./Icon";
 
 interface Props {
   css?: CSSType;
@@ -18,6 +19,7 @@ export function Navigation({ css }: Props) {
               target={item.isExternal ? "_blank" : "_parent"}
             >
               {item.label}
+              {item.isExternal && <Icon css={{ marginLeft: "$1" }} className="ri-external-link-line" />}
             </Link>
           </li>
         ))}
@@ -59,21 +61,13 @@ const menuItems = [
     isExternal: false,
   },
   {
-    label: "Github",
+    label: "GitHub",
     path: "https://github.com/flowck",
     isExternal: true,
   },
   {
-    label: "Linkedin",
+    label: "LinkedIn",
     path: "https://linkedin.com/in/firminochangani",
     isExternal: true,
   },
-  // {
-  //   label: "Projects",
-  //   path: "/projects",
-  // },
-  // {
-  //   label: "About",
-  //   path: "/about",
-  // },
 ];

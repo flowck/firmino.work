@@ -17,7 +17,7 @@ export function Header() {
     <Container>
       <GridContainer css={gridOverride}>
         <Logo />
-        <Navigation />
+        <Navigation enableMobileMenu={true} />
       </GridContainer>
     </Container>
   );

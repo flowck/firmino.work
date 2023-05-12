@@ -1,35 +1,81 @@
-import Link from "next/link";
+import { useState } from "react";
 import { CSSType, styled } from "stitches.config";
 import { Icon } from "./Icon";
+import { MenuList } from "./MenuList";
 
 interface Props {
   css?: CSSType;
+  enableMobileMenu?: boolean;
 }
 
-export function Navigation({ css }: Props) {
+export function Navigation({ css, enableMobileMenu = false }: Props) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <Nav css={css}>
       <Menu>
-        {menuItems.map((item) => (
-          <li key={item.path}>
-            <Link
-              href={item.path}
-              aria-label={item.label}
-              data-testid={`Navigation_${item.label}`}
-              target={item.isExternal ? "_blank" : "_parent"}
-            >
-              {item.label}
-              {item.isExternal && <Icon css={{ marginLeft: "$1" }} className="ri-external-link-line" />}
-            </Link>
-          </li>
-        ))}
+        <MenuList />
       </Menu>
+
+      {enableMobileMenu && (
+        <MobileMenuButton onClick={() => setMobileMenuOpen((value) => !value)}>
+          <Icon className="ri-menu-fill" css={{ color: mobileMenuOpen ? "$primary700" : "$white" }} />
+        </MobileMenuButton>
+      )}
+
+      {mobileMenuOpen && (
+        <MobileMenu>
+          <MobileMenuContainer>
+            <MenuList />
+          </MobileMenuContainer>
+        </MobileMenu>
+      )}
     </Nav>
   );
 }
 
+const MobileMenuButton = styled("button", {
+  width: "40px",
+  height: "30px",
+  border: "none",
+  cursor: "pointer",
+  backgroundColor: "transparent",
+
+  "@bp2": {
+    display: "none",
+  },
+});
+
+const MobileMenu = styled("div", {
+  zIndex: 99,
+  left: "0",
+  top: "82px",
+  width: "100%",
+  position: "absolute",
+  height: "calc(100vh - 82px)",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+});
+
+const MobileMenuContainer = styled("div", {
+  padding: "20px 5%",
+  backgroundColor: "#111",
+
+  li: {
+    listStyle: "none",
+    marginBottom: "$4",
+  },
+
+  a: {
+    color: "$white",
+  },
+});
+
 const Menu = styled("ul", {
-  display: "flex",
+  display: "none",
+
+  "@bp2": {
+    display: "flex",
+  },
 
   "> li": {
     fontSize: "$2",

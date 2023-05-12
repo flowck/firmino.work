@@ -18,10 +18,10 @@ export function GridContainer({ children, css, type }: Props) {
       css={{
         ...css,
         "@bp3": {
-          width: type === "content" ? "640px" : "960px",
+          width: "960px",
         },
         "@bp4": {
-          width: type === "content" ? "840px" : "1140px",
+          width: "1140px",
         },
       }}
     >

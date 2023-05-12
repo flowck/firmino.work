@@ -5,7 +5,7 @@ metatags: linux
 description: Getting Linux distribution's name
 cover: posts/tanya-grypachevskaya-6y5dHVz4dUk-unsplash.webp
 isPublished: true
-isArchive: true
+isArchive: false
 ---
 
 I had just linked my VS Code to a container, when I questioned myself about which Linux distribution I was connected to, and a quick search led me to the following instruction:
@@ -28,7 +28,7 @@ SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
 ```
 
-Linux uses the file metioned in the command above to store information about the operating system. An alternative file that can be used to get the same information is: `/usr/lib/os-release`.
+Linux uses the file mentioned in the command above to store information about the operating system. An alternative file that can be used to get the same information is: `/usr/lib/os-release`.
 
 ## Further reading:
 

@@ -1,9 +1,9 @@
-// import "../styles/globals.css";
 import { Open_Sans } from "@next/font/google";
 import { Analytics } from "components/Analytics";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactNode } from "react";
+import "remixicon/fonts/remixicon.css";
 import { globalStyles } from "stitches.config";
 import "../../public/assets/css/prism.css";
 

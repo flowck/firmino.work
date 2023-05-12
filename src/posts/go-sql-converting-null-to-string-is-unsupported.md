@@ -6,7 +6,7 @@ description: Fixing the error - Converting NULL to string is unsupported error;
   thrown when querying a nullable field in Go.
 cover: posts/luis-paico-NNTGEoohoE4-unsplash.webp
 isPublished: true
-isArchive: true
+isArchive: false
 ---
 
 ```

@@ -25,7 +25,7 @@ export interface PostMetadata {
 }
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
-  const fileNames = await fs.readdir(path.resolve(process.cwd(), "src/original-posts"));
+  const fileNames = await fs.readdir(path.resolve(process.cwd(), "src/posts"));
   const blogPaths = fileNames.map((fileName) => {
     return { params: { slug: fileName.replace(".md", "") } };
   });
@@ -68,7 +68,7 @@ export async function getAllBlogPosts(withContent = true, archivedOnly = false) 
 
   for (const item of paths) {
     const post = await getBlogPostBySlug(item.params.slug, withContent);
-    const isPublished = post.metadata.isPublished
+    const isPublished = post.metadata.isPublished;
 
     if (archivedOnly && isPublished && post.metadata.isArchive) {
       posts.push(post);

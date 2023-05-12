@@ -5,14 +5,46 @@ interface Props {
   css?: CSSType;
 }
 
+export function Navigation({ css }: Props) {
+  return (
+    <Nav css={css}>
+      <Menu>
+        {menuItems.map((item) => (
+          <li key={item.path}>
+            <Link
+              href={item.path}
+              aria-label={item.label}
+              data-testid={`Navigation_${item.label}`}
+              target={item.isExternal ? "_blank" : "_parent"}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </Menu>
+    </Nav>
+  );
+}
+
 const Menu = styled("ul", {
   display: "flex",
 
   "> li": {
+    fontSize: "$2",
     listStyle: "none",
-    "> a": { color: "$white", textDecoration: "none", transition: "color 0.25s" },
-    "> a:hover": { color: "$primary900", textDecoration: "none" },
+
+    "> a": {
+      color: "$white",
+      textDecoration: "none",
+      transition: "color 0.25s",
+    },
+
+    "> a:hover": {
+      color: "$primary900",
+      textDecoration: "none",
+    },
   },
+
   "> li:not(:first-child)": {
     marginLeft: "56px",
   },
@@ -45,24 +77,3 @@ const menuItems = [
   //   path: "/about",
   // },
 ];
-
-export function Navigation({ css }: Props) {
-  return (
-    <Nav css={css}>
-      <Menu>
-        {menuItems.map((item) => (
-          <li key={item.path}>
-            <Link
-              href={item.path}
-              aria-label={item.label}
-              data-testid={`Navigation_${item.label}`}
-              target={item.isExternal ? "_blank" : "_parent"}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </Menu>
-    </Nav>
-  );
-}

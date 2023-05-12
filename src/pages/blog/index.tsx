@@ -16,20 +16,15 @@ interface Post {
 
 interface Props {
   posts: Post[];
-  highlightPosts: [Post, Post];
 }
 
-function Blog({ posts, highlightPosts }: Props) {
+function Blog({ posts }: Props) {
   return (
     <>
-      <Meta
-        path="blog"
-        title="Blog"
-        description="Firmino's personal blog about Programming and Software Engineering"
-      />
+      <Meta path="blog" title="Blog" description="Firmino's personal blog about Programming and Software Engineering" />
       <PageHero title="Blog" description="Curated ideas and experiments" />
       <GridContainer css={{ marginTop: "$8", marginBottom: "$8" }}>
-        <Breadcrumb css={{marginBottom: "$8"}} />
+        <Breadcrumb css={{ marginBottom: "$8" }} />
 
         <PostListGrid>
           {posts.map((post, idx) => (
@@ -50,9 +45,6 @@ function Blog({ posts, highlightPosts }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllBlogPosts(false, false);
-
-  console.log(posts)
-
   return { props: { posts } };
 };
 

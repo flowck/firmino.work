@@ -5,6 +5,12 @@ import { CSSType, styled } from "stitches.config";
 import { Icon } from "./Icon";
 
 const Container = styled("nav", {
+  display: "none",
+
+  "@bp": {
+    display: "block",
+  },
+
   text: "copy",
   color: "$shade700",
   textTransform: "capitalize",

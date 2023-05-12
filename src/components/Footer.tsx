@@ -11,7 +11,18 @@ const Container = styled("footer", {
   borderTop: "1px solid $shade800",
 });
 
-const gridOverride = { height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" };
+const gridOverride = {
+  gap: "$6",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "column",
+  justifyContent: "space-between",
+
+  "@bp2": {
+    flexDirection: "row",
+  },
+};
 
 export function Footer() {
   return (

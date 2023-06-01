@@ -8,7 +8,6 @@ const Container = styled("article", {
   "p, ul, ol": {
     text: "body",
     marginBottom: "$5",
-    wordBreak: "break-all",
   },
 
   "ul, ol": {
@@ -47,6 +46,19 @@ const Container = styled("article", {
     color: "$white",
     "&:hover": {
       color: "$primary900",
+    },
+  },
+
+  figure: {
+    margin: "0 auto",
+
+    img: {
+      marginBottom: "$1",
+    },
+
+    figcaption: {
+      fontSize: "$2",
+      textAlign: "center",
     },
   },
 

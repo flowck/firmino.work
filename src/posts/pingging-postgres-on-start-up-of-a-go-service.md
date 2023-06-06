@@ -99,6 +99,6 @@ func main() {
 
 ## Conclusion
 
-The name of the method `sql.Open()` doesn't seem to truly express its intention to the point that it is required additional explanation via comments to help its consumers understand what behaviour is expected from it.
+The name of the method `sql.Open()` doesn't seem to truly express its intention to the point that it requires additional explanation via comments to help its consumers understand what behaviour is expected from it.
 
 I hope that by now you have another technique under your tool belt that will help you ensure that by the time the service you are maintaining is ready to process requests it will have performed the necessary checks to Postgres.

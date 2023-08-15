@@ -1,6 +1,6 @@
 ---
 title: Shipping a Go service as a Docker container
-date: 2023-07-05T18:17:00.000Z
+date: 2023-08-15T16:17:00.000Z
 metatags: go
 description: Using the built-in function recover to handle panics.
 cover: posts/go.png

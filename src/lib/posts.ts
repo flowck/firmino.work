@@ -26,11 +26,10 @@ export interface PostMetadata {
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
   const fileNames = await fs.readdir(path.resolve(process.cwd(), "src/posts"));
-  const blogPaths = fileNames.map((fileName) => {
+
+  return fileNames.map((fileName) => {
     return { params: { slug: fileName.replace(".md", "") } };
   });
-
-  return blogPaths;
 }
 
 function getMetadata(meta: PostMetadata, tags: string): PostMetadata {

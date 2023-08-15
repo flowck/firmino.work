@@ -4,6 +4,14 @@ interface Props {
   content: string;
 }
 
+export function PostContent({ content }: Props) {
+  return (
+    <Container>
+      <div dangerouslySetInnerHTML={{ __html: content }}></div>
+    </Container>
+  );
+}
+
 const Container = styled("article", {
   "p, ul, ol": {
     text: "body",
@@ -30,11 +38,12 @@ const Container = styled("article", {
     margin: "$7 0 $5 0",
   },
 
-  "p code, ol code": {
+  "p code, ol code, ul code": {
     padding: "4px $1",
     backgroundColor: "$shade800",
     borderRadius: "$codeSnippet",
   },
+
 
   "img, p img": {
     display: "block",
@@ -76,11 +85,3 @@ const Container = styled("article", {
     borderRight: "none",
   },
 });
-
-export function PostContent({ content }: Props) {
-  return (
-    <Container>
-      <div dangerouslySetInnerHTML={{ __html: content }}></div>
-    </Container>
-  );
-}

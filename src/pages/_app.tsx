@@ -12,6 +12,7 @@ const Noop = ({ children }: { children: ReactNode }) => children;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop;
+  const Base = Component as any;
 
   return (
     <>
@@ -30,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       `}</style>
       {globalStyles()}
       <Layout>
-        <Component {...pageProps} />
+        <Base {...pageProps} />
       </Layout>
       <Analytics />
     </>

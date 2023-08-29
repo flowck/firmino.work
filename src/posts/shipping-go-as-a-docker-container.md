@@ -2,7 +2,7 @@
 title: Shipping a Go service as a Docker container
 date: 2023-08-15T16:17:00.000Z
 metatags: go
-description: Using the built-in function recover to handle panics.
+description: This blog post talks about the process of containerizing a Go service with a lightweight Docker image as the end product.
 cover: posts/go.png
 isPublished: true
 isArchive: false
@@ -15,7 +15,7 @@ On this blog post I will my preferred set up to Dockerize Go services.
 
 ## Binary, Binary, Binary
 
-> Binary, Binary, Binary - [Steve Balmer](https://www.youtube.com/watch?v=Vhh_GeBPOhs&ab_channel=MrWueb007) 
+> Binary, Binary, Binary - [Steve Balmer](https://www.youtube.com/watch?v=Vhh_GeBPOhs&ab_channel=MrWueb007)
 
 The command `go build` generates a binary, and this is a relevant and non-trivial fact that is going to impact how I am going to set up the Dockerfile, but I am going to come back at this later, for now here is the code snippet:
 
@@ -43,6 +43,7 @@ COPY --from=builder /usr/app/bin/service ./service
 
 ENTRYPOINT ["./service"]
 ```
+
 [Source](https://github.com/flowck/blog_code_snippets/blob/cb7c95b57e2b5ace9574d094e4613968b3d54359/go_docker/Dockerfile#L1)
 
 The Dockerfile above has two stages where the first stage is solely focused on building a binary from the [source code](https://github.com/flowck/blog_code_snippets/tree/cb7c95b57e2b5ace9574d094e4613968b3d54359/go_docker):
@@ -60,7 +61,7 @@ After the binary gets built on the state named `builder`, Docker jumps into the 
 
 - It uses a very small Docker image based on Linux named [alpine](https://hub.docker.com/_/alpine), which is as big as ~5 MB in size, and that is possible because the newly built binary doesn't rely on an external runtime such as Node.js or JVM
 - The working directory is set to `/usr/app`
-- The binary generated in the previous stage gets copied thanks to ` COPY --from=builder `
+- The binary generated in the previous stage gets copied thanks to `COPY --from=builder`
 - Finally, the entrypoint is a call to the binary `./service`, just like you would do if you were running it locally
 
 ## How to build it, and run it

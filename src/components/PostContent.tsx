@@ -44,6 +44,10 @@ const Container = styled("article", {
     borderRadius: "$codeSnippet",
   },
 
+  blockquote: {
+    padding: "$5 $4 $1 $4",
+    backgroundColor: "$shade800",
+  },
 
   "img, p img": {
     display: "block",

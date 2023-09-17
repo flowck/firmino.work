@@ -3,7 +3,7 @@ title: "How to skip rows locked in a transaction (skip locked)"
 date: 2023-09-17T15:00:00.000Z
 metatags: SQL, PostgreSQL
 description: Using the clause skip locked to avoid querying rows locked in a transaction
-cover: posts/postgresql.png
+cover: new-posts/postgresql.png
 isPublished: true
 isArchive: false
 ---

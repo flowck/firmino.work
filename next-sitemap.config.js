@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://www.changani.me",
+  siteUrl: "https://firmino.work",
   generateRobotsTxt: true,
   exclude: ["/api"],
 };

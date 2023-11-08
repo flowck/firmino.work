@@ -14,8 +14,8 @@ const BASE_TITLE = "Firmino Changani";
 
 export function Meta({ isHome = false, title, path, description, cover, children }: Props) {
   const _title = isHome ? `${BASE_TITLE} — Software Developer` : `${title} — ${BASE_TITLE}`;
-  const _path = path ? `https://changani.me/${path}` : "https://changani.me";
-  const _cover = `https://changani.me/${cover ? cover : "assets/img/changani.me.png"}`;
+  const _path = path ? `https://firmino.work/${path}` : "https://firmino.work";
+  const _cover = `https://firmino.work/${cover ? cover : "assets/img/firmino.work.png"}`;
 
   return (
     <Head>
@@ -25,6 +25,7 @@ export function Meta({ isHome = false, title, path, description, cover, children
       <meta property="og:description" content={description} />
       <meta property="og:url" content={_path} />
       <meta property="og:image" content={_cover} />
+      <link rel="canonical" href={_path} />
       {children}
     </Head>
   );

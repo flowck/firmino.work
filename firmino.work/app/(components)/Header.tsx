@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PropsWithChildren } from "react";
+import { MenuItem } from "./MenuItem";
 
 export function Header() {
   return (
@@ -9,28 +10,10 @@ export function Header() {
       </h1>
       <nav>
         <ul className="flex gap-3">
-          <li>
-            <MenuItem href="/about">About</MenuItem>
-          </li>
-          <li>
-            <MenuItem href="/blog">Blog</MenuItem>
-          </li>
+          <MenuItem href="/about">About</MenuItem>
+          <MenuItem href="/blog">Blog</MenuItem>
         </ul>
       </nav>
     </header>
-  );
-}
-
-interface Props extends PropsWithChildren {
-  href: string;
-}
-
-function MenuItem({ children, href }: Props) {
-  return (
-    <li>
-      <Link className="px-4 py-1 rounded-md hover:bg-slate-800 transition-colors duration-500" href={href}>
-        {children}
-      </Link>
-    </li>
   );
 }

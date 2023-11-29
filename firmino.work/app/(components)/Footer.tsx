@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "./Container";
 import { MenuItem } from "./MenuItem";
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PropsWithChildren } from "react";
 import { MenuItem } from "./MenuItem";
 
 export function Header() {

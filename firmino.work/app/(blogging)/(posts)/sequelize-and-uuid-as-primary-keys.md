@@ -102,7 +102,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: DataTypes.STRING,
     },
-    {}
+    {},
   );
   users.associate = function (models) {
     // associations can be defined here
@@ -184,7 +184,7 @@ module.exports = (sequelize, DataTypes) => {
       passwordResetToken: DataTypes.UUID,
       passwordResetTokenExpiryDate: DataTypes.DATE,
     },
-    {}
+    {},
   );
   users.associate = function (models) {
     // associations can be defined here

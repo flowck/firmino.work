@@ -62,7 +62,6 @@ export async function getBlogPostBySlug(slug: string, withContent = true): Promi
 }
 
 export async function getAllBlogPosts(withContent = true, archivedOnly = false) {
-  console.log("CWD -->", process.cwd());
   const posts: BlogPost[] = [];
   const paths = await getBlogPaths();
 

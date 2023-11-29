@@ -8,8 +8,8 @@ export function Header() {
       <h1 className="font-bold text-lg px-2 py-1 rounded-md hover:bg-slate-800 transition-colors duration-500">
         <Link href="/">Firmino Changani</Link>
       </h1>
-      <nav>
-        <ul className="flex gap-3">
+      <nav className="flex items-center">
+        <ul className="flex gap-3 text-sm  md:text-base">
           <MenuItem href="/about">About</MenuItem>
           <MenuItem href="/blog">Blog</MenuItem>
         </ul>

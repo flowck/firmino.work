@@ -9,7 +9,7 @@ interface Props {
 
 export function PostItem({ title, href, date }: Props) {
   return (
-    <article className="grid grid-cols-[120px_auto] mb-2 items-center hover:bg-slate-800 transition-colors duration-300 px-2 py-2 rounded-md">
+    <article className="sm:grid grid-cols-[120px_auto] mb-2 items-center hover:bg-slate-800 transition-colors duration-300 px-2 py-2 rounded-md">
       <span className="text-sm text-gray-300">{formatDate(date)}</span>
       <h1>
         <Link className="w-full block" href={href}>

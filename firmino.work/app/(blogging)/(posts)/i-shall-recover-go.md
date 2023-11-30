@@ -1,5 +1,5 @@
 ---
-title: I shall recover - Go
+title: I shall recover - GoLang
 date: 2023-07-05T18:17:00.000Z
 metatags: go
 description: Using the built-in function recover to handle panics.

@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import matter from "gray-matter";
-import { formatDate } from "./dates";
 import path from "path";
+import { formatDate } from "./dates";
 
 interface BlogPath {
   params: { slug: string };

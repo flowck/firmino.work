@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MenuItem } from "./MenuItem";
 
 export function Header() {
   return (
@@ -9,8 +8,8 @@ export function Header() {
       </h1>
       <nav className="flex items-center">
         <ul className="flex gap-3 text-sm  md:text-base">
-          <MenuItem href="/about">About</MenuItem>
-          <MenuItem href="/blog">Blog</MenuItem>
+          {/* <MenuItem href="/about">About</MenuItem> */}
+          {/* <MenuItem href="/blog">Blog</MenuItem> */}
         </ul>
       </nav>
     </header>

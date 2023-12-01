@@ -18,14 +18,14 @@ export function Footer() {
 }
 
 const menuItems = [
-  {
-    href: "/about",
-    label: "About",
-  },
-  {
-    href: "/blog",
-    label: "Blog",
-  },
+  // {
+  //   href: "/about",
+  //   label: "About",
+  // },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
   {
     href: "https://github.com/flowck",
     label: "GitHub",

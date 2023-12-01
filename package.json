@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fmt": "prettier -w ./**/*.{js,tsx,ts}"
+    "fmt": "prettier -w ./**/*.{js,tsx,ts}",
+    "test": "echo 'Not yet'"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",

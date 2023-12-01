@@ -31,9 +31,6 @@ I am working on a monitoring tool architected with the Leader-follower model whe
 
 Due to the potential volume of data, and to prevent having a single point of failure I needed to foresee having multiple leaders running in a replicated fashion, which without proper concurrency control would have led to issues such as multiple leaders accessing the same rows for the same purpose.
 
-<figure style="max-width:80%; margin-bottom: 20px;">
-	<img alt="Mutli Leader architecture" src="/new-posts/skip-locked-arch-overview.png">
-	<figcaption>Multi Leader architecture</figcaption>
-</figure>
+![/new-posts/skip-locked-arch-overview.png](/new-posts/skip-locked-arch-overview.png)
 
 That's it for this post, thank you.

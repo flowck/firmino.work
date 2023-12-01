@@ -8,7 +8,7 @@ import { unified } from "unified";
 export async function getContentFromMarkdown(page: string): Promise<string> {
   const content = await unified()
     .use(remarkParse) // Parse markdown content to a syntax tree
-    .use(remarkRehype) // Turn markdown syntax tree to HTML syntax tree, ignoring embedded HTML
+    .use(remarkRehype, { allowDangerousHtml: true }) // Turn markdown syntax tree to HTML syntax tree, ignoring embedded HTML
     .use(rehypePrism as any)
     .use(rehypeStringify) // Serialize HTML syntax tree
     .process(page);

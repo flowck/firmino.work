@@ -3,7 +3,7 @@ import { appConfig } from "@@/app/config";
 import { Metadata, ResolvingMetadata } from "next";
 import { formatDate } from "../../(lib)/dates";
 import { getContentFromMarkdown } from "../../(lib)/markdown";
-import { getBlogPaths, getBlogPostBySlug, loadPostAsMarkdown } from "../../(lib)/posts";
+import { getBlogPaths, getBlogPostBySlug } from "../../(lib)/posts";
 
 interface Props {
   params: { slug: string };
@@ -44,7 +44,7 @@ export async function generateStaticParams() {
 export const dynamic = "force-static";
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const post = await loadPostAsMarkdown(params.slug);
+  const post = await getBlogPostBySlug(params.slug);
 
   return {
     title: post.metadata.title,

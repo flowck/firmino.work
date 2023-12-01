@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import { getAllBlogPosts } from "./(blogging)/(lib)/posts";
 import { Container } from "./(components)/Container";
 import { PostItem } from "./(components)/PostItem";
+
+export const metadata: Metadata = {
+  title: "Firmino Changani",
+  description: `My name is Firmino, I am a Software Engineer and have been work as such since 2014. Currently, I work for a startup in the skincare industry, and in my spare time I like to work on projects which are mostly available on GitHub.`,
+};
 
 export default async function Home() {
   const posts = await getAllBlogPosts(false, false);

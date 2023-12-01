@@ -1,5 +1,7 @@
 # firmino.work
 
+My very own personal website and blog
+
 ## References
 
-- Design inspired from https://how.wtf/
+- Design inspired by https://how.wtf/

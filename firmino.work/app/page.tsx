@@ -1,5 +1,4 @@
 import { getAllBlogPosts } from "./(blogging)/(lib)/posts";
-import { ButtonLink } from "./(components)/ButtonLink";
 import { Container } from "./(components)/Container";
 import { PostItem } from "./(components)/PostItem";
 
@@ -18,7 +17,7 @@ export default async function Home() {
         <div className="my-5 px-2">
           <div className="flex gap-5">
             <h1 className="font-bold text-2xl">Latest posts</h1>
-            <ButtonLink href="/blog">View all</ButtonLink>
+            {/* <ButtonLink href="/blog">View all</ButtonLink> */}
           </div>
 
           <button className="border-b-2 border-slate-800 w-full"></button>

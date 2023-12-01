@@ -25,7 +25,7 @@ export interface PostMetadata {
 }
 
 export async function getBlogPaths(): Promise<BlogPath[]> {
-  const fileNames = await fs.readdir(path.resolve(process.cwd(), "app/(blogging)/(posts)"));
+  const fileNames = await fs.readdir(path.resolve(process.cwd(), "content"));
 
   return fileNames.map((fileName) => {
     return { params: { slug: fileName.replace(".md", "") } };
@@ -42,7 +42,7 @@ function getMetadata(meta: PostMetadata, tags: string): PostMetadata {
 }
 
 export async function getBlogPostBySlug(slug: string, withContent = true): Promise<BlogPost> {
-  const fileName = path.join(process.cwd(), "app/(blogging)/(posts)", `${slug}.md`);
+  const fileName = path.join(process.cwd(), "content", `${slug}.md`);
   const content = await fs.readFile(fileName, { encoding: "utf8" });
   const { content: contentInMd, data: metadata } = matter(content);
 
@@ -59,22 +59,6 @@ export async function getBlogPostBySlug(slug: string, withContent = true): Promi
   }
 
   return { ...result, content: "" };
-}
-
-export async function loadPostAsMarkdown(slug: string): Promise<BlogPost> {
-  const fileName = path.join(process.cwd(), "app/(blogging)/(posts)", `${slug}.md`);
-  const content = await fs.readFile(fileName, { encoding: "utf8" });
-  const { content: contentInMd, data: metadata } = matter(content);
-
-  const meta = JSON.parse(JSON.stringify(metadata));
-
-  const result = {
-    slug,
-    content: content,
-    metadata: getMetadata(meta, meta.metatags),
-  };
-
-  return result;
 }
 
 export async function getAllBlogPosts(withContent = true, archivedOnly = false) {

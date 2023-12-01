@@ -2,7 +2,8 @@ import { Container } from "@@/app/(components)/Container";
 import { appConfig } from "@@/app/config";
 import { Metadata, ResolvingMetadata } from "next";
 import { formatDate } from "../../(lib)/dates";
-import { getBlogPaths, getBlogPostBySlug } from "../../(lib)/posts";
+import { getContentFromMarkdown } from "../../(lib)/markdown";
+import { getBlogPaths, getBlogPostBySlug, loadPostAsMarkdown } from "../../(lib)/posts";
 
 interface Props {
   params: { slug: string };
@@ -11,13 +12,14 @@ interface Props {
 
 export default async function PostPage({ params }: Props) {
   const post = await getBlogPostBySlug(params.slug);
+  const content = await getContentFromMarkdown(post.content);
 
   return (
     <Container as="section">
       <div className="px-2">
         <h1 className="font-bold text-3xl">{post.metadata.title}</h1>
         <span className="text-gray-300 text-sm my-2 block">{formatDate(post.metadata.date)}</span>
-        <div className="flex">
+        <div className="flex gap-1">
           {post.metadata.tags.map((tag) => (
             <span className="uppercase bg-slate-700 px-1 py-1 rounded-md text-xs" key={tag}>
               {tag}
@@ -28,7 +30,7 @@ export default async function PostPage({ params }: Props) {
 
       <div
         className="px-2 mt-10 prose dark:prose-invert max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: content }}
       ></div>
     </Container>
   );
@@ -42,7 +44,7 @@ export async function generateStaticParams() {
 export const dynamic = "force-static";
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug);
+  const post = await loadPostAsMarkdown(params.slug);
 
   return {
     title: post.metadata.title,

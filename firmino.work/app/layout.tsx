@@ -1,4 +1,5 @@
 import "@@/assets/globals.css";
+import "@@/assets/prism.css";
 import type { Metadata } from "next";
 import { PropsWithChildren } from "react";
 import { Footer } from "./(components)/Footer";

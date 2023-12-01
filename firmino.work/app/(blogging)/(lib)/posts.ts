@@ -61,6 +61,22 @@ export async function getBlogPostBySlug(slug: string, withContent = true): Promi
   return { ...result, content: "" };
 }
 
+export async function loadPostAsMarkdown(slug: string): Promise<BlogPost> {
+  const fileName = path.join(process.cwd(), "app/(blogging)/(posts)", `${slug}.md`);
+  const content = await fs.readFile(fileName, { encoding: "utf8" });
+  const { content: contentInMd, data: metadata } = matter(content);
+
+  const meta = JSON.parse(JSON.stringify(metadata));
+
+  const result = {
+    slug,
+    content: content,
+    metadata: getMetadata(meta, meta.metatags),
+  };
+
+  return result;
+}
+
 export async function getAllBlogPosts(withContent = true, archivedOnly = false) {
   const posts: BlogPost[] = [];
   const paths = await getBlogPaths();

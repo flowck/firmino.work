@@ -59,6 +59,10 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
     },
     authors: [{ url: "https://firmino.work", name: appConfig.siteName }],
     openGraph: {
+      type: "article",
+      tags: post.metadata.tags,
+      authors: appConfig.siteName,
+      publishedTime: `${post.metadata.date}`,
       images: [`https://firmino.work/${post.metadata.cover}`],
     },
   };
